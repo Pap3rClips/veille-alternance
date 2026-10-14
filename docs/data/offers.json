@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant chef de projet ia is it h/f|thales",
+   "title": "Alternant - Chef de Projet IA Is - IT H/F",
+   "company": "Thales",
+   "location": "Élancourt - 78",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-14",
+   "first_seen": "2026-10-14T23:50:37+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84448114",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84448114.html"
+    }
+   ]
+  },
+  {
    "key": "alternant chef de projet ia is/it|thales",
    "title": "Alternant - Chef de Projet IA IS/IT",
    "company": "Thales",
@@ -487,7 +504,7 @@
    ]
   }
  ],
- "updated": "2026-10-14T23:40:40+00:00",
+ "updated": "2026-10-14T23:50:37+00:00",
  "errors": [],
  "heartbeat": "2026-10-14",
  "error_streak": 0,
