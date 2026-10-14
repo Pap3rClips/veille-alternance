@@ -1,0 +1,93 @@
+# Réglages de la veille. Modifie ce fichier, pousse sur GitHub, le prochain passage en tient compte.
+
+# Recherches lancées sur chaque source. Les sources filtrent déjà sur le contrat d'alternance.
+queries = [
+  "cybersécurité",
+  "sécurité informatique",
+  "analyste SOC",
+  "administrateur systèmes réseaux",
+  "technicien support informatique",
+  "DevOps",
+  "réseaux télécoms",
+  "GRC sécurité",
+  "développeur web",
+  "data analyst",
+]
+
+region = "Île-de-France"
+max_age_days = 14          # ignore les offres publiées depuis plus longtemps
+max_push_per_run = 8       # au-delà, une notification de synthèse
+
+# Une offre dont le titre contient un de ces termes part à la poubelle.
+exclude_title = [
+  "commercial", "business developer", "marketing", "ressources humaines", "recrutement",
+  "comptab", "juridique", "vente", "vendeur", "communication", "charge de comptes",
+  "incendie", "hse", "qhse", "surete", "agent de securite", "alimentaire", "routiere",
+  "paie", "achats", "immobilier", "stagiaire", "stage", "industriel", "industrielle",
+  "automatisme", "finance", "financier", "maintenance", "intervention", "crm", "credit",
+]
+
+# Écoles et organismes de formation qui publient de fausses offres pour recruter des étudiants.
+exclude_company = [
+  "aurlom", "iscod", "studi", "ief2i", "openclassrooms", "walter learning", "next-u",
+  "nextu", "efrei", "esgi", "epsi", "ynov", "hetic", "ipssi", "doranco", "my digital school",
+  "pigier", "isitech", "ensup", "talentis", "cfa", "ecole", "school", "institut f2i",
+  "2i academy", "digital college", "campus", "formation", "academy", "akor alternance",
+  "nexa", "sup de vinci", "livecampus", "iris", "redsup", "academie", "wedr", "esiee-it", "itic paris", "groupe alternance", "collège de paris",
+]
+
+[sources]
+welcometothejungle = true
+hellowork = true
+francetravail = true
+# LinkedIn répond sans compte sur ses pages publiques, mais ses CGU interdisent la collecte automatisée.
+linkedin = false
+# La Bonne Alternance : actif dès que le secret LBA_API_KEY existe (clé gratuite sur api.apprentissage.beta.gouv.fr).
+labonnealternance = true
+
+# Profils testés dans l'ordre. Le premier dont un mot-clé figure dans le titre gagne,
+# et la notification indique le CV à envoyer.
+[[profiles]]
+name = "GRC"
+cv = "Hadrien GRC RSSI"
+keywords = ["grc", "gouvernance", "conformite", "iso 27001", "27001", "rssi", "risque", "rgpd", "audit", "dpo", "data protection", "protection des donnees"]
+
+[[profiles]]
+name = "Cyber"
+cv = "Analyste Cyber"
+keywords = ["cyber", "securite", "security", "soc", "pentest", "ssi", "red team", "blue team", "forensic", "vulnerabilit", "iam", "cert", "csirt"]
+
+[[profiles]]
+name = "DevOps"
+cv = "DevOps"
+keywords = ["devops", "devsecops", "cloud", "sre", "kubernetes", "azure", "aws", "automatisation", "ci/cd", "plateforme"]
+
+[[profiles]]
+name = "Radio"
+cv = "Radio"
+keywords = ["radio", "rf", "telecom", "telecoms", "5g"]
+
+[[profiles]]
+name = "Sys & Réseaux"
+cv = "Hadrien Admin sys et réseaux"
+keywords = ["systeme", "systemes", "reseau", "reseaux", "infrastructure", "infrastructures", "sysadmin", "network", "administrateur", "administratrice", "linux", "windows", "virtualisation", "production informatique", "exploitation"]
+
+[[profiles]]
+name = "Support"
+cv = "Hadrien Support"
+keywords = ["support informatique", "support it", "support technique", "support utilisateur", "support applicatif", "technicien support", "technicien informatique", "technicien it", "technicien systeme", "technician", "helpdesk", "help desk", "proximite", "poste de travail", "service desk", "workplace", "informatique", "it"]
+
+[[profiles]]
+name = "IA"
+cv = "IA"
+keywords = ["ia", "ai", "intelligence artificielle", "machine learning", "llm", "genai"]
+
+[[profiles]]
+name = "Data"
+cv = "Data"
+keywords = ["data", "bi", "donnees"]
+
+[[profiles]]
+name = "Web"
+cv = "Web"
+keywords = ["developpeur", "developpeuse", "developer", "web", "front", "back", "fullstack", "full stack", "wordpress", "javascript", "php"]

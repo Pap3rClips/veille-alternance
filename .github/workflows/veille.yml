@@ -1,0 +1,37 @@
+name: Veille alternance
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m veille
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          LBA_API_KEY: ${{ secrets.LBA_API_KEY }}
+          DASHBOARD_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+      - name: Enregistre les offres
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "veille-bot@users.noreply.github.com"
+          git add docs/data/offers.json
+          git diff --cached --quiet || git commit -m "Mise à jour des offres"
+          git push

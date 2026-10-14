@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Veille alternance</title>
+<style>
+  :root {
+    color-scheme: dark light;
+    --bg: #0e1116; --surface: #171b22; --surface-2: #1f242d; --border: #2c333f;
+    --text: #e8ebf0; --muted: #a3acba; --accent: #5aa2ff; --on-accent: #06182e;
+    --ok: #4cc38a; --warn: #f0b24a; --danger: #ff7b72;
+    --radius: 10px; --gap: 8px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f6f8; --surface: #ffffff; --surface-2: #eef0f4; --border: #d3d8e0;
+      --text: #141821; --muted: #525c6b; --accent: #1558c0; --on-accent: #ffffff;
+      --ok: #17764a; --warn: #8a5a00; --danger: #b3261e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 16px; top: 8px; background: var(--surface); padding: 8px 12px; z-index: 30; }
+
+  header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 0; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  h1 { font-size: 20px; margin: 0; font-weight: 700; }
+  #updated { color: var(--muted); font-size: 14px; }
+  #updated.stale { color: var(--warn); }
+
+  .goal { margin-top: 10px; display: flex; align-items: center; gap: 12px; }
+  .goal-text { font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .goal-text strong { font-size: 18px; }
+  .bar { flex: 1; height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+  .bar > div { height: 100%; width: 0; background: var(--ok); transition: width .25s ease-out; }
+  .goal button { min-height: 44px; }
+
+  .tabs { display: flex; gap: var(--gap); margin-top: 12px; }
+  .tabs button { flex: 1; }
+  button, select, input {
+    font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); min-height: 44px; padding: 8px 12px; touch-action: manipulation;
+  }
+  button { cursor: pointer; transition: background .15s ease-out, border-color .15s ease-out; }
+  button:hover { background: var(--surface-2); }
+  button:active { opacity: .8; }
+  button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--accent); background: var(--surface-2); font-weight: 600; }
+  .count { color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
+
+  .filters { display: grid; grid-template-columns: 1fr; gap: var(--gap); padding: 16px 0 8px; }
+  @media (min-width: 640px) { .filters { grid-template-columns: 2fr 1fr; } }
+  label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+  .filters input, .filters select { width: 100%; }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--gap); padding-bottom: 12px; }
+  .chips button { border-radius: 22px; padding: 8px 14px; }
+
+  ul#list { list-style: none; margin: 0; padding: 0 0 96px; display: grid; gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .card h2 { font-size: 17px; line-height: 1.35; margin: 0 0 4px; font-weight: 600; overflow-wrap: anywhere; }
+  .where { color: var(--muted); margin: 0 0 10px; overflow-wrap: anywhere; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 14px; color: var(--muted); margin-bottom: 14px; align-items: center; }
+  .badge { border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; color: var(--text); background: var(--surface-2); }
+  .badge.new { border-color: var(--ok); color: var(--ok); font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--gap); }
+  .primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 18px;
+    background: var(--accent); color: var(--on-accent); border-radius: var(--radius); font-weight: 700; text-decoration: none; flex: 1 1 160px;
+  }
+  .primary:hover { filter: brightness(1.08); }
+  .actions button { flex: 1 1 120px; }
+  @media (max-width: 479px) {
+    .primary { flex-basis: 100%; }
+    .goal { flex-wrap: wrap; }
+    .goal .bar { order: 3; flex-basis: 100%; }
+    .goal-text { flex: 1; }
+  }
+  .more { font-size: 14px; margin-top: 10px; color: var(--muted); }
+  .more a { margin-right: 12px; display: inline-block; padding: 10px 0; }
+  svg { width: 18px; height: 18px; flex: none; }
+
+  .empty, .error { text-align: center; padding: 48px 16px; color: var(--muted); }
+  .error { color: var(--danger); }
+  #toast {
+    position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translate(-50%, 120%);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 8px 8px 16px;
+    display: flex; align-items: center; gap: 12px; transition: transform .2s ease-out; z-index: 40; max-width: calc(100% - 32px);
+  }
+  #toast.show { transform: translate(-50%, 0); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#list">Aller aux offres</a>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <h1>Veille alternance</h1>
+      <span id="updated" role="status">Chargement…</span>
+    </div>
+    <div class="goal">
+      <span class="goal-text"><strong id="done">0</strong> / <span id="goal">10</span> candidatures aujourd'hui</span>
+      <div class="bar" role="progressbar" aria-label="Objectif du jour" aria-valuemin="0" aria-valuenow="0" aria-valuemax="10"><div id="bar"></div></div>
+      <button id="setGoal" type="button">Objectif</button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Statut">
+      <button role="tab" data-status="todo" aria-selected="true">À postuler<span class="count" id="c-todo"></span></button>
+      <button role="tab" data-status="applied" aria-selected="false">Postulées<span class="count" id="c-applied"></span></button>
+      <button role="tab" data-status="ignored" aria-selected="false">Ignorées<span class="count" id="c-ignored"></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="filters">
+    <div><label for="q">Rechercher un titre ou une entreprise</label><input id="q" type="search" autocomplete="off"></div>
+    <div><label for="source">Site</label><select id="source"><option value="">Tous les sites</option></select></div>
+  </div>
+  <div class="chips" id="profiles" role="group" aria-label="Profil"></div>
+  <ul id="list" aria-live="polite"></ul>
+</main>
+
+<div id="toast" role="status" aria-live="polite"><span id="toastText"></span><button id="undo" type="button">Annuler</button></div>
+
+<script>
+const ICON_OUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>';
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+let offers = [];
+let marks = store.get("marks", {});      // clé d'offre -> {status, at}
+let goal = store.get("goal", 10);
+const view = { status: "todo", profile: "", source: "", q: "" };
+let lastAction = null;
+
+const statusOf = (o) => (marks[o.key] || {}).status || "todo";
+const dayOf = (iso) => new Date(iso).toDateString();
+const safeUrl = (u) => (/^https:\/\//.test(u) ? u : "#");
+
+function el(tag, props = {}, ...children) {
+  const n = Object.assign(document.createElement(tag), props);
+  n.append(...children);
+  return n;
+}
+
+function ago(iso) {
+  const min = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (min < 1) return "à l'instant";
+  if (min < 60) return `il y a ${min} min`;
+  if (min < 1440) return `il y a ${Math.round(min / 60)} h`;
+  return `il y a ${Math.round(min / 1440)} j`;
+}
+
+function mark(o, status) {
+  lastAction = { key: o.key, prev: marks[o.key] };
+  if (status === "todo") delete marks[o.key];
+  else marks[o.key] = { status, at: new Date().toISOString() };
+  store.set("marks", marks);
+  render();
+  $("toastText").textContent = { applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status];
+  $("toast").classList.add("show");
+  clearTimeout(mark.t);
+  mark.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
+}
+
+function card(o) {
+  const st = statusOf(o);
+  const isNew = Date.now() - new Date(o.first_seen) < 864e5;
+  const meta = el("div", { className: "meta" });
+  if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
+  meta.append(
+    el("span", { className: "badge", textContent: o.profile }),
+    el("span", { textContent: `CV : ${o.cv}` }),
+    el("span", { textContent: `Repérée ${ago(o.first_seen)}` }),
+  );
+  if (o.published) meta.append(el("span", { textContent: `Publiée le ${new Date(o.published).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
+
+  const first = o.links[0];
+  const apply = el("a", { className: "primary", href: safeUrl(first.url), target: "_blank", rel: "noopener noreferrer" });
+  apply.innerHTML = ICON_OUT;
+  apply.append(`Postuler sur ${first.source}`);
+
+  const actions = el("div", { className: "actions" }, apply);
+  if (st !== "applied") actions.append(el("button", { type: "button", textContent: "Postulée", onclick: () => mark(o, "applied") }));
+  if (st === "todo") actions.append(el("button", { type: "button", textContent: "Ignorer", onclick: () => mark(o, "ignored") }));
+  if (st !== "todo") actions.append(el("button", { type: "button", textContent: "Remettre à postuler", onclick: () => mark(o, "todo") }));
+
+  const li = el("li", { className: "card" },
+    el("h2", { textContent: o.title }),
+    el("p", { className: "where", textContent: [o.company, o.location].filter(Boolean).join(" · ") || "Entreprise non précisée" }),
+    meta, actions);
+  if (o.links.length > 1) {
+    const more = el("div", { className: "more" }, "Aussi sur : ");
+    for (const l of o.links.slice(1)) more.append(el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer", textContent: l.source }));
+    li.append(more);
+  }
+  return li;
+}
+
+function render() {
+  const counts = { todo: 0, applied: 0, ignored: 0 };
+  for (const o of offers) counts[statusOf(o)]++;
+  for (const k in counts) $("c-" + k).textContent = counts[k];
+
+  const today = new Date().toDateString();
+  const done = Object.values(marks).filter((m) => m.status === "applied" && dayOf(m.at) === today).length;
+  $("done").textContent = done;
+  $("goal").textContent = goal;
+  $("bar").style.width = Math.min(100, (done / goal) * 100) + "%";
+  const pb = document.querySelector(".bar");
+  pb.setAttribute("aria-valuenow", done);
+  pb.setAttribute("aria-valuemax", goal);
+
+  const q = view.q.trim().toLowerCase();
+  const shown = offers.filter((o) =>
+    statusOf(o) === view.status &&
+    (!view.profile || o.profile === view.profile) &&
+    (!view.source || o.links.some((l) => l.source === view.source)) &&
+    (!q || (o.title + " " + o.company).toLowerCase().includes(q)));
+
+  const list = $("list");
+  list.replaceChildren(...shown.slice(0, 200).map(card));
+  if (!shown.length) {
+    const msg = { todo: "Aucune offre à traiter avec ces filtres. La veille repasse toutes les dix minutes.", applied: "Aucune candidature marquée pour l'instant.", ignored: "Aucune offre ignorée." }[view.status];
+    list.append(el("li", { className: "empty", textContent: msg }));
+  }
+}
+
+function buildFilters() {
+  const profiles = [...new Set(offers.map((o) => o.profile))].sort();
+  const box = $("profiles");
+  box.replaceChildren(...["", ...profiles].map((p) =>
+    el("button", {
+      type: "button", textContent: p || "Tous les profils", ariaPressed: String(view.profile === p),
+      onclick: () => { view.profile = p; buildFilters(); render(); },
+    })));
+  const sel = $("source");
+  const sources = [...new Set(offers.flatMap((o) => o.links.map((l) => l.source)))].sort();
+  sel.replaceChildren(el("option", { value: "", textContent: "Tous les sites" }), ...sources.map((s) => el("option", { value: s, textContent: s })));
+  sel.value = view.source;
+}
+
+async function load() {
+  try {
+    const r = await fetch("data/offers.json", { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    offers = data.offers || [];
+    const up = $("updated");
+    const stale = Date.now() - new Date(data.updated) > 45 * 60000;
+    up.textContent = `Dernier passage ${ago(data.updated)}` + ((data.errors || []).length ? ` · ${data.errors.length} site en erreur` : "");
+    up.classList.toggle("stale", stale || (data.errors || []).length > 0);
+    buildFilters();
+    render();
+  } catch (e) {
+    if (!offers.length) $("list").replaceChildren(el("li", { className: "error", textContent: "Impossible de lire data/offers.json. Lance un premier passage de la veille, puis recharge la page." }));
+    $("updated").textContent = "Lecture impossible";
+  }
+}
+
+document.querySelectorAll('[role="tab"]').forEach((b) => b.addEventListener("click", () => {
+  view.status = b.dataset.status;
+  document.querySelectorAll('[role="tab"]').forEach((x) => x.setAttribute("aria-selected", String(x === b)));
+  render();
+}));
+$("q").addEventListener("input", (e) => { view.q = e.target.value; render(); });
+$("source").addEventListener("change", (e) => { view.source = e.target.value; render(); });
+$("undo").addEventListener("click", () => {
+  if (!lastAction) return;
+  if (lastAction.prev) marks[lastAction.key] = lastAction.prev; else delete marks[lastAction.key];
+  store.set("marks", marks);
+  lastAction = null;
+  $("toast").classList.remove("show");
+  render();
+});
+$("setGoal").addEventListener("click", () => {
+  const n = parseInt(prompt("Nombre de candidatures visé par jour :", goal), 10);
+  if (n > 0) { goal = n; store.set("goal", n); render(); }
+});
+
+load();
+setInterval(load, 120000);
+</script>
+</body>
+</html>
