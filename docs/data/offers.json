@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant chef de projet ia is/it|thales",
+   "title": "Alternant - Chef de Projet IA IS/IT",
+   "company": "Thales",
+   "location": "Élancourt",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-14",
+   "first_seen": "2026-10-14T22:30:57+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:d58e89c0-1f61-404b-974e-dd9499b7fc27",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/thales/jobs/alternant-chef-de-projet-ia-is-it_elancourt"
+    }
+   ]
+  },
+  {
    "key": "ingenieur computer vision alternance|capgemini",
    "title": "Ingénieur(e) Computer Vision - Alternance",
    "company": "Capgemini",
@@ -470,7 +487,7 @@
    ]
   }
  ],
- "updated": "2026-10-14T22:20:39+00:00",
+ "updated": "2026-10-14T22:30:57+00:00",
  "errors": [],
  "heartbeat": "2026-10-14",
  "error_streak": 0,
