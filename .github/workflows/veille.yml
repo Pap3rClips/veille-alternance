@@ -2,7 +2,8 @@ name: Veille alternance
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    # Minutes décalées : GitHub sature à l'heure pile et aux multiples de 5.
+    - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
 
 permissions:

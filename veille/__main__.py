@@ -82,6 +82,12 @@ def main():
     by_id = {link["id"]: o for o in known for link in o["links"]}
     by_key = {o["key"]: o for o in known}
 
+    # Un changement de profils dans config.toml s'applique aussi aux offres déjà connues.
+    for o in known:
+        p = classify(o["title"], cfg)
+        if p:
+            o["profile"], o["cv"] = p["name"], p["cv"]
+
     raw, errors = collect(cfg)
     fresh = []
     for o in raw:
@@ -153,6 +159,7 @@ def main():
     state["offers"] = sorted((o for o in known if o["first_seen"] >= cutoff), key=lambda o: o["first_seen"], reverse=True)
     state["updated"] = now
     state["errors"] = errors
+    state["profiles"] = [p["name"] for p in cfg["profiles"]]
     DATA.parent.mkdir(parents=True, exist_ok=True)
     DATA.write_text(json.dumps(state, ensure_ascii=False, indent=1), encoding="utf-8")
 

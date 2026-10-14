@@ -12,6 +12,10 @@ queries = [
   "GRC sécurité",
   "développeur web",
   "data analyst",
+  "pentest",
+  "sécurité offensive",
+  "intelligence artificielle",
+  "machine learning",
 ]
 
 region = "Île-de-France"
@@ -53,9 +57,19 @@ cv = "Hadrien GRC RSSI"
 keywords = ["grc", "gouvernance", "conformite", "iso 27001", "27001", "rssi", "risque", "rgpd", "audit", "dpo", "data protection", "protection des donnees"]
 
 [[profiles]]
+name = "Pentest"
+cv = "Analyste Cyber"
+keywords = ["pentest", "pentester", "test d intrusion", "tests d intrusion", "intrusion", "red team", "offensive", "ethical hack", "bug bounty", "redteam", "auditeur technique", "audit technique"]
+
+[[profiles]]
+name = "IA"
+cv = "IA"
+keywords = ["ia", "ai", "intelligence artificielle", "machine learning", "deep learning", "llm", "genai", "nlp", "computer vision", "data scientist", "ml"]
+
+[[profiles]]
 name = "Cyber"
 cv = "Analyste Cyber"
-keywords = ["cyber", "securite", "security", "soc", "pentest", "ssi", "red team", "blue team", "forensic", "vulnerabilit", "iam", "cert", "csirt"]
+keywords = ["cyber", "securite", "security", "soc", "ssi", "blue team", "forensic", "vulnerabilit", "iam", "cert", "csirt"]
 
 [[profiles]]
 name = "DevOps"
@@ -76,11 +90,6 @@ keywords = ["systeme", "systemes", "reseau", "reseaux", "infrastructure", "infra
 name = "Support"
 cv = "Hadrien Support"
 keywords = ["support informatique", "support it", "support technique", "support utilisateur", "support applicatif", "technicien support", "technicien informatique", "technicien it", "technicien systeme", "technician", "helpdesk", "help desk", "proximite", "poste de travail", "service desk", "workplace", "informatique", "it"]
-
-[[profiles]]
-name = "IA"
-cv = "IA"
-keywords = ["ia", "ai", "intelligence artificielle", "machine learning", "llm", "genai"]
 
 [[profiles]]
 name = "Data"

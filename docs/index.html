@@ -138,6 +138,7 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 let offers = [];
+let profileNames = [];
 let marks = store.get("marks", {});      // clé d'offre -> {status, at}
 let goal = store.get("goal", 10);
 const view = { status: "todo", profile: "", source: "", q: "" };
@@ -166,6 +167,7 @@ function mark(o, status) {
   if (status === "todo") delete marks[o.key];
   else marks[o.key] = { status, at: new Date().toISOString() };
   store.set("marks", marks);
+  buildFilters();
   render();
   $("toastText").textContent = { applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status];
   $("toast").classList.add("show");
@@ -228,6 +230,10 @@ function render() {
     (!view.source || o.links.some((l) => l.source === view.source)) &&
     (!q || (o.title + " " + o.company).toLowerCase().includes(q)));
 
+  // Plus récentes en tête : date de publication, puis heure de repérage pour départager.
+  shown.sort((a, b) => (b.published || b.first_seen.slice(0, 10)).localeCompare(a.published || a.first_seen.slice(0, 10))
+    || b.first_seen.localeCompare(a.first_seen));
+
   const list = $("list");
   list.replaceChildren(...shown.slice(0, 200).map(card));
   if (!shown.length) {
@@ -237,11 +243,13 @@ function render() {
 }
 
 function buildFilters() {
-  const profiles = [...new Set(offers.map((o) => o.profile))].sort();
+  const profiles = profileNames.length ? profileNames : [...new Set(offers.map((o) => o.profile))].sort();
+  const todo = offers.filter((o) => statusOf(o) === "todo");
+  const n = (p) => todo.filter((o) => !p || o.profile === p).length;
   const box = $("profiles");
   box.replaceChildren(...["", ...profiles].map((p) =>
     el("button", {
-      type: "button", textContent: p || "Tous les profils", ariaPressed: String(view.profile === p),
+      type: "button", textContent: `${p || "Tous les profils"} (${n(p)})`, ariaPressed: String(view.profile === p),
       onclick: () => { view.profile = p; buildFilters(); render(); },
     })));
   const sel = $("source");
@@ -256,6 +264,7 @@ async function load() {
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
     offers = data.offers || [];
+    profileNames = data.profiles || [];
     const up = $("updated");
     const stale = Date.now() - new Date(data.updated) > 45 * 60000;
     up.textContent = `Dernier passage ${ago(data.updated)}` + ((data.errors || []).length ? ` · ${data.errors.length} site en erreur` : "");
@@ -281,6 +290,7 @@ $("undo").addEventListener("click", () => {
   store.set("marks", marks);
   lastAction = null;
   $("toast").classList.remove("show");
+  buildFilters();
   render();
 });
 $("setGoal").addEventListener("click", () => {

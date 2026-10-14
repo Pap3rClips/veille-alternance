@@ -1,6 +1,130 @@
 {
  "offers": [
   {
+   "key": "ingenieur computer vision alternance|capgemini",
+   "title": "Ingénieur(e) Computer Vision - Alternance",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-02",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:84181a04-6012-4083-8acb-fc4782bc871c",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/capgemini/jobs/ingenieur-computer-vision-alternance_issy-les-moulineaux"
+    }
+   ]
+  },
+  {
+   "key": "ingenieur data solaire et ia debutant h/f|totalenergies",
+   "title": "Ingénieur Data Solaire et IA débutant H/F",
+   "company": "TotalEnergies",
+   "location": "Palaiseau",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-13",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:de920774-1d62-4709-84b9-aef98f0a7c10",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/totalenergies/jobs/ingenieur-data-solaire-et-ia-debutant-h-f_palaiseau"
+    }
+   ]
+  },
+  {
+   "key": "cdd contrat apprentissage chef de projet pole ia h/f|plateforme des donnees de sante",
+   "title": "CDD - Contrat Apprentissage - Chef de Projet - Pôle IA H/F",
+   "company": "Plateforme des Donnees de Sante",
+   "location": "Paris 15e - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-10",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84308742",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84308742.html"
+    }
+   ]
+  },
+  {
+   "key": "alternant support ia et developpement h/f|",
+   "title": "Alternant Support IA et Développement H/F",
+   "company": "",
+   "location": "Paris 1er - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-06",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84116971",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84116971.html"
+    }
+   ]
+  },
+  {
+   "key": "ingenieur computer vision alternance h/f|capgemini engineering",
+   "title": "Ingénieur Computer Vision - Alternance H/F",
+   "company": "Capgemini Engineering",
+   "location": "Issy-les-Moulineaux - 92",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-10",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84308792",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84308792.html"
+    }
+   ]
+  },
+  {
+   "key": "apprenti developpeur ia et automatisation sav n h/f|e l m leblanc sas",
+   "title": "Apprenti Développeur IA et Automatisation SAV - N H/F",
+   "company": "e.l.m. leblanc SAS",
+   "location": "Drancy - 93",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-10",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84308768",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84308768.html"
+    },
+    {
+     "id": "HelloWork:84308695",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84308695.html"
+    }
+   ]
+  },
+  {
+   "key": "concepteur developpeur d applications|",
+   "title": "Concepteur développeur d'applications (H/F)",
+   "company": "",
+   "location": "75 - Paris 9e Arrondissement",
+   "profile": "Web",
+   "cv": "Web",
+   "published": "2026-10-06",
+   "first_seen": "2026-10-14T12:39:46+00:00",
+   "links": [
+    {
+     "id": "France Travail:7678023",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7678023"
+    }
+   ]
+  },
+  {
    "key": "alternant assistant data protection officer/ dpo cal f corporate filiales/ succursales h/f|credit agricole",
    "title": "Alternant(e) - Assistant(e) Data Protection Officer/ DPO CAL&F (Corporate & Filiales/ Succursales) H/F",
    "company": "Crédit Agricole",
@@ -299,8 +423,8 @@
    "title": "Alternance Développement Cloud / IA / DevOps (H/F)",
    "company": "IGE",
    "location": "92 - COLOMBES",
-   "profile": "DevOps",
-   "cv": "DevOps",
+   "profile": "IA",
+   "cv": "IA",
    "published": "2026-10-07",
    "first_seen": "2026-10-13T10:46:18+00:00",
    "links": [
@@ -346,8 +470,20 @@
    ]
   }
  ],
- "updated": "2026-10-14T10:51:35+00:00",
+ "updated": "2026-10-14T12:39:46+00:00",
  "errors": [],
  "heartbeat": "2026-10-14",
- "error_streak": 0
+ "error_streak": 0,
+ "profiles": [
+  "GRC",
+  "Pentest",
+  "IA",
+  "Cyber",
+  "DevOps",
+  "Radio",
+  "Sys & Réseaux",
+  "Support",
+  "Data",
+  "Web"
+ ]
 }
