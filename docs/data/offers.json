@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprenti intervenant support utilisateurs h/f|siege de l ap hp",
+   "title": "Apprenti Intervenant Support Utilisateurs H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T07:01:15+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79044911",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044911.html"
+    }
+   ]
+  },
+  {
    "key": "apprenti intervenant support utilisateurs orbis medication h/f|siege de l ap hp",
    "title": "Apprenti Intervenant Support Utilisateurs Orbis Medication H/F",
    "company": "Siège de l'AP-HP",
@@ -657,7 +674,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T06:50:42+00:00",
+ "updated": "2026-10-15T07:01:15+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
