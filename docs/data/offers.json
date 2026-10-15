@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprentie sante securite environnement h/f|safran",
+   "title": "Apprenti·e Santé Sécurité Environnement H/F",
+   "company": "Safran",
+   "location": "Saint-Pierre-du-Perray - 91",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T22:31:00+00:00",
+   "links": [
+    {
+     "id": "HelloWork:81352836",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/81352836.html"
+    }
+   ]
+  },
+  {
    "key": "alternance cyber securite|arundo re",
    "title": "Alternance - Cyber Sécurité (H/F)",
    "company": "Arundo Re",
@@ -713,7 +730,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T22:20:41+00:00",
+ "updated": "2026-10-15T22:31:00+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
