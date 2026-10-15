@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "manager des operations en cybersecurite h/f|la poste",
+   "title": "Manager des Opérations en Cybersécurité H/F",
+   "company": "la Poste",
+   "location": "Paris 15e - 75",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:30:57+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84453755",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84453755.html"
+    }
+   ]
+  },
+  {
    "key": "pilote d exploitation h/f|la poste",
    "title": "Pilote d'Exploitation H/F",
    "company": "la Poste",
@@ -589,7 +606,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T06:20:38+00:00",
+ "updated": "2026-10-15T06:30:57+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
