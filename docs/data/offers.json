@@ -1,6 +1,57 @@
 {
  "offers": [
   {
+   "key": "pilote d exploitation h/f|la poste",
+   "title": "Pilote d'Exploitation H/F",
+   "company": "la Poste",
+   "location": "Paris 15e - 75",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:20:38+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84453624",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84453624.html"
+    }
+   ]
+  },
+  {
+   "key": "hyperviseur soc h/f|la poste",
+   "title": "Hyperviseur Soc H/F",
+   "company": "la Poste",
+   "location": "Paris 15e - 75",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:20:38+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84453318",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84453318.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance data analyst h/f|solocal",
+   "title": "Alternance Data Analyst H/F",
+   "company": "Solocal",
+   "location": "Boulogne-Billancourt - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:20:38+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84453582",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84453582.html"
+    }
+   ]
+  },
+  {
    "key": "alternance apprentissage technicien informatique h/f|institut francais",
    "title": "Alternance - Apprentissage - Technicien Informatique H/F",
    "company": "Institut Francais",
@@ -538,7 +589,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T06:10:43+00:00",
+ "updated": "2026-10-15T06:20:38+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
