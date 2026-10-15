@@ -1,6 +1,57 @@
 {
  "offers": [
   {
+   "key": "apprenti intervenant support utilisateurs orbis medication h/f|siege de l ap hp",
+   "title": "Apprenti Intervenant Support Utilisateurs Orbis Medication H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:50:42+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79044910",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044910.html"
+    }
+   ]
+  },
+  {
+   "key": "apprenti ingenieur infrastructure devops h/f|siege de l ap hp",
+   "title": "Apprenti Ingénieur Infrastructure DevOps H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "DevOps",
+   "cv": "DevOps",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:50:42+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79044890",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044890.html"
+    }
+   ]
+  },
+  {
+   "key": "apprenti data engineer h/f|siege de l ap hp",
+   "title": "Apprenti Data Engineer H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:50:42+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79044915",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044915.html"
+    }
+   ]
+  },
+  {
    "key": "manager des operations en cybersecurite h/f|la poste",
    "title": "Manager des Opérations en Cybersécurité H/F",
    "company": "la Poste",
@@ -606,7 +657,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T06:40:44+00:00",
+ "updated": "2026-10-15T06:50:42+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
