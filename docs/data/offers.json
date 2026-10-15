@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "administrateur reseau et systemes junior alternance|space management",
+   "title": "Administrateur(trice) réseau et systèmes junior - Alternance (H/F)",
+   "company": "SPACE MANAGEMENT",
+   "location": "75 - PARIS",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-13",
+   "first_seen": "2026-10-15T07:20:44+00:00",
+   "links": [
+    {
+     "id": "France Travail:215DFSK",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/215DFSK"
+    }
+   ]
+  },
+  {
    "key": "apprenti intervenant support utilisateurs h/f|siege de l ap hp",
    "title": "Apprenti Intervenant Support Utilisateurs H/F",
    "company": "Siège de l'AP-HP",
@@ -674,7 +691,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T07:10:39+00:00",
+ "updated": "2026-10-15T07:20:44+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
