@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance support applicatif e commerce h/f|raja france",
+   "title": "Alternance Support Applicatif E-Commerce H/F",
+   "company": "Raja France",
+   "location": "93 - Tremblay-en-France",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T05:20:41+00:00",
+   "links": [
+    {
+     "id": "France Travail:7939798",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7939798"
+    }
+   ]
+  },
+  {
    "key": "alternant chef de projet ia is it h/f|thales",
    "title": "Alternant - Chef de Projet IA Is - IT H/F",
    "company": "Thales",
@@ -504,7 +521,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T05:10:44+00:00",
+ "updated": "2026-10-15T05:20:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-14",
  "error_streak": 0,
