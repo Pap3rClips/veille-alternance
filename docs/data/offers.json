@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance apprentissage technicien informatique h/f|institut francais",
+   "title": "Alternance - Apprentissage - Technicien Informatique H/F",
+   "company": "Institut Francais",
+   "location": "Paris 11e - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-15",
+   "first_seen": "2026-10-15T06:10:43+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84452382",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84452382.html"
+    }
+   ]
+  },
+  {
    "key": "alternance support applicatif e commerce h/f|raja france",
    "title": "Alternance Support Applicatif E-Commerce H/F",
    "company": "Raja France",
@@ -521,7 +538,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T06:01:13+00:00",
+ "updated": "2026-10-15T06:10:43+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
