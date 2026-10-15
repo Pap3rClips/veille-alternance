@@ -636,6 +636,11 @@
      "id": "France Travail:7886280",
      "source": "France Travail",
      "url": "https://candidat.francetravail.fr/offres/recherche/detail/7886280"
+    },
+    {
+     "id": "France Travail:7957016",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7957016"
     }
    ]
   },
@@ -691,7 +696,7 @@
    ]
   }
  ],
- "updated": "2026-10-15T09:50:43+00:00",
+ "updated": "2026-10-15T10:01:16+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
