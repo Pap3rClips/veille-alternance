@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "engineer ia generative agents ia alternance h/f|groupe pasteur mutualite",
+   "title": "Engineer - IA Générative & Agents IA - Alternance H/F",
+   "company": "Groupe Pasteur Mutualité",
+   "location": "Paris 15e - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-16",
+   "first_seen": "2026-10-16T22:20:37+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84529371",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84529371.html"
+    }
+   ]
+  },
+  {
    "key": "alternante securite conformite|moka care",
    "title": "Alternant·e Sécurité & Conformité",
    "company": "moka.care",
@@ -752,7 +769,7 @@
    ]
   }
  ],
- "updated": "2026-10-16T22:10:38+00:00",
+ "updated": "2026-10-16T22:20:37+00:00",
  "errors": [],
  "heartbeat": "2026-10-16",
  "error_streak": 0,
