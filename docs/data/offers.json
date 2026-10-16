@@ -631,6 +631,11 @@
      "id": "France Travail:7487765",
      "source": "France Travail",
      "url": "https://candidat.francetravail.fr/offres/recherche/detail/7487765"
+    },
+    {
+     "id": "France Travail:7992189",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7992189"
     }
    ]
   },
@@ -747,7 +752,7 @@
    ]
   }
  ],
- "updated": "2026-10-16T03:40:42+00:00",
+ "updated": "2026-10-16T03:50:43+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
