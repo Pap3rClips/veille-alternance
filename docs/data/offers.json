@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "assistant cybersecurite alternance h/f|mydigitalschool saint quentin en yvelines",
+   "title": "Assistant Cybersécurité - Alternance H/F",
+   "company": "MyDigitalSchool Saint Quentin en Yvelines",
+   "location": "Montigny-le-Bretonneux - 78",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-16",
+   "first_seen": "2026-10-16T22:30:58+00:00",
+   "links": [
+    {
+     "id": "HelloWork:80199499",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/80199499.html"
+    }
+   ]
+  },
+  {
    "key": "engineer ia generative agents ia alternance h/f|groupe pasteur mutualite",
    "title": "Engineer - IA Générative & Agents IA - Alternance H/F",
    "company": "Groupe Pasteur Mutualité",
@@ -769,7 +786,7 @@
    ]
   }
  ],
- "updated": "2026-10-16T22:20:37+00:00",
+ "updated": "2026-10-16T22:30:58+00:00",
  "errors": [],
  "heartbeat": "2026-10-16",
  "error_streak": 0,
