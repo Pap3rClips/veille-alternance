@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternante securite conformite|moka care",
+   "title": "Alternant·e Sécurité & Conformité",
+   "company": "moka.care",
+   "location": "Paris",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-10-16",
+   "first_seen": "2026-10-16T03:01:14+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:62eb3f30-e918-4300-8502-005f69a3a93b",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/moka-care/jobs/alternant-e-securite-conformite_paris"
+    }
+   ]
+  },
+  {
    "key": "apprentie sante securite environnement h/f|safran",
    "title": "Apprenti·e Santé Sécurité Environnement H/F",
    "company": "Safran",
@@ -730,7 +747,7 @@
    ]
   }
  ],
- "updated": "2026-10-16T02:50:38+00:00",
+ "updated": "2026-10-16T03:01:14+00:00",
  "errors": [],
  "heartbeat": "2026-10-15",
  "error_streak": 0,
