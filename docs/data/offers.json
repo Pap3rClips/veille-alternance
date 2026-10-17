@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "dr snum technicien support de proximite|ministere de l interieur",
+   "title": "DR-SNUM - Technicien(ne) support de proximité",
+   "company": "Ministère de l'Intérieur",
+   "location": "Saint-Denis",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-17",
+   "first_seen": "2026-10-17T20:10:36+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:54aecf31-faa9-478c-8177-8bf3115bdb78",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/ministere-de-l-interieur/jobs/dr-snum-technicien-ne-support-de-proximite_saint-denis"
+    }
+   ]
+  },
+  {
    "key": "assistant cybersecurite alternance h/f|mydigitalschool saint quentin en yvelines",
    "title": "Assistant Cybersécurité - Alternance H/F",
    "company": "MyDigitalSchool Saint Quentin en Yvelines",
@@ -786,7 +803,7 @@
    ]
   }
  ],
- "updated": "2026-10-17T20:01:06+00:00",
+ "updated": "2026-10-17T20:10:36+00:00",
  "errors": [],
  "heartbeat": "2026-10-17",
  "error_streak": 0,
