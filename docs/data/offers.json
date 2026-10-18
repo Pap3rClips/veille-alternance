@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "developpeur logiciel java f/h|docaposte",
+   "title": "DEVELOPPEUR LOGICIEL JAVA F/H",
+   "company": "Docaposte",
+   "location": "La Défense",
+   "profile": "Web",
+   "cv": "Web",
+   "published": "2026-10-18",
+   "first_seen": "2026-10-18T22:10:39+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:a6429091-a077-41b4-a020-eb10e71e1400",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/docaposte-1/jobs/developpeur-logiciel-java-f-h_la-defense"
+    }
+   ]
+  },
+  {
    "key": "dr snum technicien support de proximite|ministere de l interieur",
    "title": "DR-SNUM - Technicien(ne) support de proximité",
    "company": "Ministère de l'Intérieur",
@@ -803,7 +820,7 @@
    ]
   }
  ],
- "updated": "2026-10-18T22:01:08+00:00",
+ "updated": "2026-10-18T22:10:39+00:00",
  "errors": [],
  "heartbeat": "2026-10-18",
  "error_streak": 0,
