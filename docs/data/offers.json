@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "technicien technicienne informatique h/f|organisation et developpement",
+   "title": "Technicien - Technicienne Informatique H/F",
+   "company": "Organisation et Developpement",
+   "location": "Courbevoie - 92",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-19",
+   "first_seen": "2026-10-19T04:40:38+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84557551",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84557551.html"
+    }
+   ]
+  },
+  {
    "key": "developpeur logiciel java f/h|docaposte",
    "title": "DEVELOPPEUR LOGICIEL JAVA F/H",
    "company": "Docaposte",
@@ -820,7 +837,7 @@
    ]
   }
  ],
- "updated": "2026-10-19T04:31:00+00:00",
+ "updated": "2026-10-19T04:40:38+00:00",
  "errors": [],
  "heartbeat": "2026-10-18",
  "error_streak": 0,
