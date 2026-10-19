@@ -1,6 +1,74 @@
 {
  "offers": [
   {
+   "key": "data analyst junior en alternance h/f|",
+   "title": "Data Analyst Junior en Alternance H/F",
+   "company": "",
+   "location": "Paris - 75",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-19",
+   "first_seen": "2026-10-19T23:01:06+00:00",
+   "links": [
+    {
+     "id": "HelloWork:77025365",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/77025365.html"
+    }
+   ]
+  },
+  {
+   "key": "apprenticeship data office chanel europe january 2027 m h/f|chanel",
+   "title": "Apprenticeship - Data Office - Chanel Europe - January 2027 - M H/F",
+   "company": "Chanel",
+   "location": "Paris - 75",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-19",
+   "first_seen": "2026-10-19T23:01:06+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83449031",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83449031.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance business data analyste h/f|imc alternance",
+   "title": "Alternance - Business - Data Analyste H/F",
+   "company": "IMC Alternance",
+   "location": "Saint-Denis - 93",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-19",
+   "first_seen": "2026-10-19T23:01:06+00:00",
+   "links": [
+    {
+     "id": "HelloWork:81465147",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/81465147.html"
+    }
+   ]
+  },
+  {
+   "key": "data analyst apprentice h/f|opmobility",
+   "title": "Data Analyst Apprentice H/F",
+   "company": "OPmobility",
+   "location": "Levallois-Perret - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-19",
+   "first_seen": "2026-10-19T23:01:06+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83420961",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83420961.html"
+    }
+   ]
+  },
+  {
    "key": "alternance alternant infrastructure ot multi technologies h/f|gie axa",
    "title": "Alternance - Alternant Infrastructure OT - Multi-Technologies H/F",
    "company": "GIE Axa",
@@ -631,6 +699,11 @@
      "id": "HelloWork:78824163",
      "source": "HelloWork",
      "url": "https://www.hellowork.com/fr-fr/emplois/78824163.html"
+    },
+    {
+     "id": "HelloWork:77024503",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/77024503.html"
     }
    ]
   },
@@ -854,7 +927,7 @@
    ]
   }
  ],
- "updated": "2026-10-19T22:50:40+00:00",
+ "updated": "2026-10-19T23:01:06+00:00",
  "errors": [],
  "heartbeat": "2026-10-19",
  "error_streak": 0,
