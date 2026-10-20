@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "charge de mission data service lad en alternance|carrefour",
+   "title": "Chargé de mission DATA - Service LAD (F/H) en alternance",
+   "company": "Carrefour",
+   "location": "Villeneuve-la-Garenne",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T21:40:41+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:edb8e6f3-0c1d-4cc6-a664-dc30721b2d0f",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/charge-de-mission-data-service-lad-f-h-en-alternance_villeneuve-la-garenne"
+    }
+   ]
+  },
+  {
    "key": "charge de mission data service lad en alternance h/f|carrefour",
    "title": "Chargé de Mission Data - Service Lad en Alternance H/F",
    "company": "Carrefour",
@@ -995,7 +1012,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T21:30:52+00:00",
+ "updated": "2026-10-20T21:40:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
