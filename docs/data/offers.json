@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant ia et excellence operationnelle digitale e commerce h/f|carrefour",
+   "title": "Alternant IA et Excellence Opérationnelle & Digitale E-Commerce H/F",
+   "company": "Carrefour",
+   "location": "Massy - 91",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T11:31:02+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84617593",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84617593.html"
+    }
+   ]
+  },
+  {
    "key": "alternance technicien support informatique h/f|skillie",
    "title": "Alternance - Technicien Support Informatique H/F",
    "company": "SKILLIE",
@@ -961,7 +978,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T11:20:47+00:00",
+ "updated": "2026-10-20T11:31:02+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
