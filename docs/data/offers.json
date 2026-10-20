@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance alternant infrastructure ot multi technologies|axa",
+   "title": "Alternance - Alternant Infrastructure OT – Multi-technologies",
+   "company": "AXA",
+   "location": "Paris",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T01:10:37+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:808c429f-c27d-4195-9251-a7e8a678510a",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/axa/jobs/alternance-alternant-infrastructure-ot-multi-technologies_paris"
+    }
+   ]
+  },
+  {
    "key": "data analyst junior en alternance h/f|",
    "title": "Data Analyst Junior en Alternance H/F",
    "company": "",
@@ -927,7 +944,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T01:01:04+00:00",
+ "updated": "2026-10-20T01:10:37+00:00",
  "errors": [],
  "heartbeat": "2026-10-19",
  "error_streak": 0,
