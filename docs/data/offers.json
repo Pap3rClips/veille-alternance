@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance technicien support informatique h/f|skillie",
+   "title": "Alternance - Technicien Support Informatique H/F",
+   "company": "SKILLIE",
+   "location": "Paris 12e - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T08:40:42+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84609299",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84609299.html"
+    }
+   ]
+  },
+  {
    "key": "alternance alternant infrastructure ot multi technologies|axa",
    "title": "Alternance - Alternant Infrastructure OT – Multi-technologies",
    "company": "AXA",
@@ -944,7 +961,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T08:30:57+00:00",
+ "updated": "2026-10-20T08:40:42+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
