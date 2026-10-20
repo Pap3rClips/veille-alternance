@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "charge de mission data service lad en alternance h/f|carrefour",
+   "title": "Chargé de Mission Data - Service Lad en Alternance H/F",
+   "company": "Carrefour",
+   "location": "Villeneuve-la-Garenne - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T19:50:41+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84637716",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84637716.html"
+    }
+   ]
+  },
+  {
    "key": "alternant ia et excellence operationnelle digitale e commerce h/f|carrefour",
    "title": "Alternant IA et Excellence Opérationnelle & Digitale E-Commerce H/F",
    "company": "Carrefour",
@@ -978,7 +995,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T19:40:42+00:00",
+ "updated": "2026-10-20T19:50:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
