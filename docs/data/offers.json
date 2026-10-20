@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance data analyst objectif du poste missions principales competences requises h/f|opmobility",
+   "title": "Alternance - Data Analyst Objectif du Poste Missions Principales Compétences Requises H/F",
+   "company": "OPmobility",
+   "location": "Levallois-Perret - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-20",
+   "first_seen": "2026-10-20T22:30:51+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83420971",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83420971.html"
+    }
+   ]
+  },
+  {
    "key": "charge de mission data service lad en alternance|carrefour",
    "title": "Chargé de mission DATA - Service LAD (F/H) en alternance",
    "company": "Carrefour",
@@ -1012,7 +1029,7 @@
    ]
   }
  ],
- "updated": "2026-10-20T22:20:46+00:00",
+ "updated": "2026-10-20T22:30:51+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
