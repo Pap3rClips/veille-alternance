@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "specialiste support technique informatique|inflight sales group sas",
+   "title": "Spécialiste support technique informatique (H/F)",
+   "company": "INFLIGHT SALES GROUP (EUROPE) SAS",
+   "location": "94 - Limeil-Brévannes",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-21",
+   "first_seen": "2026-10-21T03:30:57+00:00",
+   "links": [
+    {
+     "id": "France Travail:8111806",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8111806"
+    }
+   ]
+  },
+  {
    "key": "alternance data analyst objectif du poste missions principales competences requises h/f|opmobility",
    "title": "Alternance - Data Analyst Objectif du Poste Missions Principales Compétences Requises H/F",
    "company": "OPmobility",
@@ -1029,7 +1046,7 @@
    ]
   }
  ],
- "updated": "2026-10-21T03:20:39+00:00",
+ "updated": "2026-10-21T03:30:57+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
