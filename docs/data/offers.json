@@ -99,6 +99,11 @@
      "id": "HelloWork:84617593",
      "source": "HelloWork",
      "url": "https://www.hellowork.com/fr-fr/emplois/84617593.html"
+    },
+    {
+     "id": "France Travail:8117472",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8117472"
     }
    ]
   },
@@ -116,6 +121,11 @@
      "id": "HelloWork:84609299",
      "source": "HelloWork",
      "url": "https://www.hellowork.com/fr-fr/emplois/84609299.html"
+    },
+    {
+     "id": "France Travail:8115479",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8115479"
     }
    ]
   },
@@ -1063,7 +1073,7 @@
    ]
   }
  ],
- "updated": "2026-10-21T05:10:38+00:00",
+ "updated": "2026-10-21T05:20:38+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
