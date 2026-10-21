@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant technicien superieur informatique|axys",
+   "title": "Alternant Technicien supérieur informatique (H/F)",
+   "company": "Axys",
+   "location": "Levallois-Perret",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-21",
+   "first_seen": "2026-10-21T16:01:14+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:6d495170-8723-4ec6-9512-3e4eea89f871",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/axys-consultants/jobs/alternant-technicien-superieur-informatique-h-f_levallois-perret_AXYS_V87P1pW"
+    }
+   ]
+  },
+  {
    "key": "specialiste ia et cybersecurite f/h|brain networks",
    "title": "Spécialiste IA et Cybersécurité F/H",
    "company": "BRAIN NETWORKS",
@@ -1073,7 +1090,7 @@
    ]
   }
  ],
- "updated": "2026-10-21T15:50:43+00:00",
+ "updated": "2026-10-21T16:01:14+00:00",
  "errors": [],
  "heartbeat": "2026-10-21",
  "error_streak": 0,
