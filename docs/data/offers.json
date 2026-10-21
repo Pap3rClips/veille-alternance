@@ -1090,12 +1090,10 @@
    ]
   }
  ],
- "updated": "2026-10-21T16:10:44+00:00",
- "errors": [
-  "francetravail (DevOps) : HTTPSConnectionPool(host='candidat.francetravail.fr', port=443): Read timed out. (read timeout=25)"
- ],
+ "updated": "2026-10-21T16:20:43+00:00",
+ "errors": [],
  "heartbeat": "2026-10-21",
- "error_streak": 1,
+ "error_streak": 0,
  "profiles": [
   "GRC",
   "Pentest",
