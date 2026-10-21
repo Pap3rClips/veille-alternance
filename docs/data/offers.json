@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "specialiste ia et cybersecurite f/h|brain networks",
+   "title": "Spécialiste IA et Cybersécurité F/H",
+   "company": "BRAIN NETWORKS",
+   "location": "92 - Colombes",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-21",
+   "first_seen": "2026-10-21T03:40:40+00:00",
+   "links": [
+    {
+     "id": "France Travail:8112238",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8112238"
+    }
+   ]
+  },
+  {
    "key": "specialiste support technique informatique|inflight sales group sas",
    "title": "Spécialiste support technique informatique (H/F)",
    "company": "INFLIGHT SALES GROUP (EUROPE) SAS",
@@ -1046,7 +1063,7 @@
    ]
   }
  ],
- "updated": "2026-10-21T03:30:57+00:00",
+ "updated": "2026-10-21T03:40:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-20",
  "error_streak": 0,
