@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant consultant junior solutions d ia generative fh h/f|colliers france",
+   "title": "Alternant - Consultant Junior Solutions d'IA Générative Fh H/F",
+   "company": "Colliers France",
+   "location": "Levallois-Perret - 92",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-22",
+   "first_seen": "2026-10-22T12:10:41+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84693313",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84693313.html"
+    }
+   ]
+  },
+  {
    "key": "assistant ingenieur support exploitation irve h/f|park n plug",
    "title": "Assistant Ingénieur Support & Exploitation Irve H/F",
    "company": "Park'n Plug",
@@ -1124,7 +1141,7 @@
    ]
   }
  ],
- "updated": "2026-10-22T12:01:18+00:00",
+ "updated": "2026-10-22T12:10:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-22",
  "error_streak": 0,
