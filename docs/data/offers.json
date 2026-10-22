@@ -1175,10 +1175,12 @@
    ]
   }
  ],
- "updated": "2026-10-22T23:40:39+00:00",
- "errors": [],
+ "updated": "2026-10-22T23:50:38+00:00",
+ "errors": [
+  "francetravail (cybersécurité) : 404 Client Error: Not Found for url: https://candidat.francetravail.fr/offres/recherche?motsCles=cybers%C3%A9curit%C3%A9&natureOffre=E2&lieux=11R&tri=1&offresPartenaires=true"
+ ],
  "heartbeat": "2026-10-22",
- "error_streak": 0,
+ "error_streak": 1,
  "profiles": [
   "GRC",
   "Pentest",
