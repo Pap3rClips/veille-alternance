@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant consultant junior solutions d ia generative|colliers france",
+   "title": "Alternant(e) – Consultant Junior Solutions d'IA Générative (FH)",
+   "company": "Colliers France",
+   "location": "Levallois-Perret",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-22",
+   "first_seen": "2026-10-22T22:10:43+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:2dc10023-1a8c-43fd-9a1b-94b784e8d182",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/colliers-france/jobs/alternant-consultant-junior-solutions-d-ia-generative-fh_levallois-perret"
+    }
+   ]
+  },
+  {
    "key": "carrefour links chef de projet data alternance|carrefour",
    "title": "Carrefour Links Chef de Projet Data (F/H) - Alternance",
    "company": "Carrefour",
@@ -1158,7 +1175,7 @@
    ]
   }
  ],
- "updated": "2026-10-22T22:01:15+00:00",
+ "updated": "2026-10-22T22:10:43+00:00",
  "errors": [],
  "heartbeat": "2026-10-22",
  "error_streak": 0,
