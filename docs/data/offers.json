@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "assistant ingenieur support exploitation irve h/f|park n plug",
+   "title": "Assistant Ingénieur Support & Exploitation Irve H/F",
+   "company": "Park'n Plug",
+   "location": "Boulogne-Billancourt - 92",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-22",
+   "first_seen": "2026-10-22T09:50:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84687689",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84687689.html"
+    }
+   ]
+  },
+  {
    "key": "developpeur / developpeuse ia|etoile automobiles 92",
    "title": "Développeur / Développeuse IA (H/F)",
    "company": "ETOILE AUTOMOBILES 92",
@@ -1107,7 +1124,7 @@
    ]
   }
  ],
- "updated": "2026-10-22T09:40:40+00:00",
+ "updated": "2026-10-22T09:50:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-22",
  "error_streak": 0,
