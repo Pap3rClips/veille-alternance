@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "carrefour links chef de projet data alternance|carrefour",
+   "title": "Carrefour Links Chef de Projet Data (F/H) - Alternance",
+   "company": "Carrefour",
+   "location": "Massy",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-22",
+   "first_seen": "2026-10-22T21:30:59+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:be67619f-f670-4b78-b713-b4b8b4c825f1",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/carrefour-links-chef-de-projet-data-f-h-alternance_massy"
+    }
+   ]
+  },
+  {
    "key": "alternant consultant junior solutions d ia generative fh h/f|colliers france",
    "title": "Alternant - Consultant Junior Solutions d'IA Générative Fh H/F",
    "company": "Colliers France",
@@ -1141,7 +1158,7 @@
    ]
   }
  ],
- "updated": "2026-10-22T21:20:42+00:00",
+ "updated": "2026-10-22T21:30:59+00:00",
  "errors": [],
  "heartbeat": "2026-10-22",
  "error_streak": 0,
