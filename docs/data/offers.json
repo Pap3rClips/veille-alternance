@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprenti service informatique|ministere de la culture",
+   "title": "Apprenti Service informatique (H/F)",
+   "company": "Ministère de la Culture",
+   "location": "Versailles",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T00:40:39+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:7ed9da80-8dd5-44d0-877e-d7f0b64d3f42",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/ministere-de-la-culture/jobs/apprenti-service-informatique-h-f_versailles_MDLC_kMge0ke"
+    }
+   ]
+  },
+  {
    "key": "alternant consultant junior solutions d ia generative|colliers france",
    "title": "Alternant(e) – Consultant Junior Solutions d'IA Générative (FH)",
    "company": "Colliers France",
@@ -1175,7 +1192,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T00:30:57+00:00",
+ "updated": "2026-10-23T00:40:39+00:00",
  "errors": [],
  "heartbeat": "2026-10-22",
  "error_streak": 0,
