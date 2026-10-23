@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data analyst / scientist startup a impact|holis",
+   "title": "Data Analyst / Scientist - Startup à impact  (H/F)",
+   "company": "Holis",
+   "location": "75 - Paris",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T16:40:44+00:00",
+   "links": [
+    {
+     "id": "France Travail:8221059",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8221059"
+    }
+   ]
+  },
+  {
    "key": "data analyst charge du traitement des donnees au sein du pole performance de la douane h/f|direction generale des douanes et droits indirects",
    "title": "Data Analyst Chargé du Traitement des Données au Sein du Pôle Performance de la Douane H/F",
    "company": "Direction générale des douanes et droits indirects",
@@ -1209,7 +1226,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T16:31:02+00:00",
+ "updated": "2026-10-23T16:40:44+00:00",
  "errors": [],
  "heartbeat": "2026-10-23",
  "error_streak": 0,
