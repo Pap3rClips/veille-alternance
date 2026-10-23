@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data analyst charge du traitement des donnees au sein du pole performance de la douane h/f|direction generale des douanes et droits indirects",
+   "title": "Data Analyst Chargé du Traitement des Données au Sein du Pôle Performance de la Douane H/F",
+   "company": "Direction générale des douanes et droits indirects",
+   "location": "Montreuil - 93",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T09:40:41+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84730027",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84730027.html"
+    }
+   ]
+  },
+  {
    "key": "apprenti service informatique|ministere de la culture",
    "title": "Apprenti Service informatique (H/F)",
    "company": "Ministère de la Culture",
@@ -1192,7 +1209,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T09:31:02+00:00",
+ "updated": "2026-10-23T09:40:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-23",
  "error_streak": 0,
