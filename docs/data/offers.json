@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance assistant data|la halle",
+   "title": "Alternance Assistant(e) Data  (H/F)",
+   "company": "LA HALLE",
+   "location": "75 - Paris 12e Arrondissement",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T18:50:38+00:00",
+   "links": [
+    {
+     "id": "France Travail:8224059",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8224059"
+    }
+   ]
+  },
+  {
    "key": "alternance ingenieur support projet digitalisation conformite h/f|framatome",
    "title": "Alternance - Ingénieur Support Projet Digitalisation & Conformité H/F",
    "company": "Framatome",
@@ -1243,7 +1260,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T18:40:38+00:00",
+ "updated": "2026-10-23T18:50:38+00:00",
  "errors": [],
  "heartbeat": "2026-10-23",
  "error_streak": 0,
