@@ -1,6 +1,57 @@
 {
  "offers": [
   {
+   "key": "information security apprentice h/f|didomi",
+   "title": "Information Security Apprentice H/F",
+   "company": "Didomi",
+   "location": "Paris - 75",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T22:30:58+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83674941",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83674941.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance data analyst assistant septembre 2026 h/f|shiseido",
+   "title": "Alternance - Data Analyst Assistant - Septembre 2026 H/F",
+   "company": "Shiseido",
+   "location": "Neuilly-sur-Seine - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T22:30:58+00:00",
+   "links": [
+    {
+     "id": "HelloWork:76756927",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/76756927.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance chef de projet transformation ia processus h/f|elior group",
+   "title": "Alternance - Chef de Projet Transformation IA & Processus H/F",
+   "company": "Elior Group",
+   "location": "Créteil - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T22:30:58+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83677969",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83677969.html"
+    }
+   ]
+  },
+  {
    "key": "alternance ingenieur support projet digitalisation conformite f/h|framatome",
    "title": "Alternance - Ingénieur(e) Support Projet Digitalisation & Conformité F/H",
    "company": "Framatome",
@@ -1277,7 +1328,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T22:20:40+00:00",
+ "updated": "2026-10-23T22:30:58+00:00",
  "errors": [],
  "heartbeat": "2026-10-23",
  "error_streak": 0,
