@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance ingenieur support projet digitalisation conformite f/h|framatome",
+   "title": "Alternance - Ingénieur(e) Support Projet Digitalisation & Conformité F/H",
+   "company": "Framatome",
+   "location": "La Défense",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-10-23",
+   "first_seen": "2026-10-23T22:10:38+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:ce5256fb-0d52-4297-a735-537a14e7cf61",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/framatome-1/jobs/alternance-ingenieur-support-projet-digitalisation-conformite-f-h_la-defense"
+    }
+   ]
+  },
+  {
    "key": "alternance assistant data|la halle",
    "title": "Alternance Assistant(e) Data  (H/F)",
    "company": "LA HALLE",
@@ -1260,7 +1277,7 @@
    ]
   }
  ],
- "updated": "2026-10-23T22:01:15+00:00",
+ "updated": "2026-10-23T22:10:38+00:00",
  "errors": [],
  "heartbeat": "2026-10-23",
  "error_streak": 0,
