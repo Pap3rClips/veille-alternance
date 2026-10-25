@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance assistant bi reporting system|rexel france",
+   "title": "Alternance: assistant(e) BI reporting system",
+   "company": "Rexel France",
+   "location": "Paris",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-25",
+   "first_seen": "2026-10-25T23:01:12+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:a2550aaa-e2c7-4371-9983-d875aadf9974",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/rexel-france/jobs/alternance-assistant-bi-reporting-system_paris"
+    }
+   ]
+  },
+  {
    "key": "charge de mission gouvernance executive cybersecurite alternance h/f|capgemini",
    "title": "Chargé de Mission Gouvernance Exécutive & Cybersécurité Alternance H/F",
    "company": "Capgemini",
@@ -1362,7 +1379,7 @@
    ]
   }
  ],
- "updated": "2026-10-25T22:50:40+00:00",
+ "updated": "2026-10-25T23:01:12+00:00",
  "errors": [],
  "heartbeat": "2026-10-25",
  "error_streak": 0,
