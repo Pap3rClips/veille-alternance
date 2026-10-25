@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "charge de mission gouvernance executive cybersecurite alternance h/f|capgemini",
+   "title": "Chargé de Mission Gouvernance Exécutive & Cybersécurité Alternance H/F",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux - 92",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-10-25",
+   "first_seen": "2026-10-25T05:30:54+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84780266",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84780266.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance security officer h/f|capgemini",
+   "title": "Alternance Security Officer H/F",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux - 92",
+   "profile": "Cyber",
+   "cv": "Analyste Cyber",
+   "published": "2026-10-25",
+   "first_seen": "2026-10-25T05:30:54+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84780281",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84780281.html"
+    }
+   ]
+  },
+  {
    "key": "information security apprentice h/f|didomi",
    "title": "Information Security Apprentice H/F",
    "company": "Didomi",
@@ -1328,7 +1362,7 @@
    ]
   }
  ],
- "updated": "2026-10-25T05:20:40+00:00",
+ "updated": "2026-10-25T05:30:54+00:00",
  "errors": [],
  "heartbeat": "2026-10-24",
  "error_streak": 0,
