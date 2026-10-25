@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance data ia chargee de la gouvernance des donnees h/f|mgen",
+   "title": "Alternance Data & IA Chargé·e de la Gouvernance des Données H/F",
+   "company": "MGEN",
+   "location": "Paris - 75",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-10-25",
+   "first_seen": "2026-10-25T23:30:56+00:00",
+   "links": [
+    {
+     "id": "HelloWork:80594082",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/80594082.html"
+    }
+   ]
+  },
+  {
    "key": "alternance assistant bi reporting system|rexel france",
    "title": "Alternance: assistant(e) BI reporting system",
    "company": "Rexel France",
@@ -1379,7 +1396,7 @@
    ]
   }
  ],
- "updated": "2026-10-25T23:20:38+00:00",
+ "updated": "2026-10-25T23:30:56+00:00",
  "errors": [],
  "heartbeat": "2026-10-25",
  "error_streak": 0,
