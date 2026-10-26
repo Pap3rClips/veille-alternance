@@ -1,6 +1,28 @@
 {
  "offers": [
   {
+   "key": "alternance support it f m h/f|cheerz",
+   "title": "Alternance Support IT F - M H/F",
+   "company": "Cheerz",
+   "location": "Paris 8e - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-26T23:50:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83804002",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83804002.html"
+    },
+    {
+     "id": "HelloWork:83804092",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83804092.html"
+    }
+   ]
+  },
+  {
    "key": "alternant chargee de projet intelligence artificielle|credit mutuel alliance federale",
    "title": "Alternant(e) - Chargée de projet Intelligence Artificielle (IA) (F/H)",
    "company": "Crédit Mutuel Alliance Fédérale",
@@ -1481,7 +1503,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T23:40:40+00:00",
+ "updated": "2026-10-26T23:50:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
