@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant chargee de projet intelligence artificielle ia h/f|groupe la francaise",
+   "title": "Alternant - Chargée de Projet Intelligence Artificielle IA H/F",
+   "company": "Groupe La Française",
+   "location": "Paris 6e - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-26T15:20:42+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84805143",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84805143.html"
+    }
+   ]
+  },
+  {
    "key": "alternance ai product assistant h/f|engie",
    "title": "Alternance - ai Product Assistant H/F",
    "company": "ENGIE",
@@ -1447,7 +1464,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T15:10:48+00:00",
+ "updated": "2026-10-26T15:20:42+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
