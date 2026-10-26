@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance charge de securite pilotage audit cyber technique h/f|ag2r la mondiale",
+   "title": "Alternance - Chargé de Sécurité Pilotage Audit Cyber Technique H/F",
+   "company": "AG2R LA MONDIALE",
+   "location": "Paris - 75",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-26T11:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84793012",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84793012.html"
+    }
+   ]
+  },
+  {
    "key": "alternance developpement d un outil ia de generation de sysmlv2 a partir de langage naturel h/f|safran",
    "title": "Alternance - Développement d'Un Outil IA de Génération de Sysmlv2 à Partir de Langage Naturel H/F",
    "company": "Safran",
@@ -1413,7 +1430,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T11:01:12+00:00",
+ "updated": "2026-10-26T11:10:39+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
