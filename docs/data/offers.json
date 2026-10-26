@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance developpement d un outil ia de generation de sysmlv2 a partir de langage naturel h/f|safran",
+   "title": "Alternance - Développement d'Un Outil IA de Génération de Sysmlv2 à Partir de Langage Naturel H/F",
+   "company": "Safran",
+   "location": "Réau - 77",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-26T10:01:13+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84790532",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84790532.html"
+    }
+   ]
+  },
+  {
    "key": "alternance data ia chargee de la gouvernance des donnees h/f|mgen",
    "title": "Alternance Data & IA Chargé·e de la Gouvernance des Données H/F",
    "company": "MGEN",
@@ -1396,7 +1413,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T09:50:41+00:00",
+ "updated": "2026-10-26T10:01:13+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
