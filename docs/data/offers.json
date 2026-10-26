@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance ai product assistant h/f|engie",
+   "title": "Alternance - ai Product Assistant H/F",
+   "company": "ENGIE",
+   "location": "La Garenne-Colombes - 92",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-26T12:20:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84796301",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84796301.html"
+    }
+   ]
+  },
+  {
    "key": "alternance charge de securite pilotage audit cyber technique h/f|ag2r la mondiale",
    "title": "Alternance - Chargé de Sécurité Pilotage Audit Cyber Technique H/F",
    "company": "AG2R LA MONDIALE",
@@ -1430,7 +1447,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T12:10:39+00:00",
+ "updated": "2026-10-26T12:20:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
