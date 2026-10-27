@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "junior front end developer|beloy",
+   "title": "Junior Front-End Developer",
+   "company": "Beloy",
+   "location": "Paris",
+   "profile": "Web",
+   "cv": "Web",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T19:40:42+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:da952fb2-4bc8-4304-bb6b-8345b7e5098c",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/junior-front-end-developer_paris"
+    }
+   ]
+  },
+  {
    "key": "alternant ai et automatisation engineer r d h/f|valeo",
    "title": "Alternant - ai et Automatisation Engineer R&D H/F",
    "company": "Valeo",
@@ -1605,7 +1622,7 @@
    ]
   }
  ],
- "updated": "2026-10-27T19:30:58+00:00",
+ "updated": "2026-10-27T19:40:42+00:00",
  "errors": [],
  "heartbeat": "2026-10-27",
  "error_streak": 0,
