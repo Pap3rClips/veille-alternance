@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "charge de projets rh ia analyst alternance h/f|capgemini",
+   "title": "Chargé de Projets RH & IA Analyst - Alternance H/F",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux - 92",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T12:20:47+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84839827",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84839827.html"
+    }
+   ]
+  },
+  {
    "key": "alternance chef fe de produit intelligence artificielle product manager h/f|secretariat general ministere de la justice",
    "title": "Alternance - Chef.Fe de Produit Intelligence Artificielle Product Manager H/F",
    "company": "Secrétariat Général - Ministère de la Justice",
@@ -1554,7 +1571,7 @@
    ]
   }
  ],
- "updated": "2026-10-27T12:10:44+00:00",
+ "updated": "2026-10-27T12:20:47+00:00",
  "errors": [],
  "heartbeat": "2026-10-27",
  "error_streak": 0,
