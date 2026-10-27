@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "data analyst bts sio alternance h/f|imc alternance",
+   "title": "Data Analyst - BTS Sio - Alternance H/F",
+   "company": "IMC Alternance",
+   "location": "Courbevoie - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T00:01:12+00:00",
+   "links": [
+    {
+     "id": "HelloWork:81746493",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/81746493.html"
+    }
+   ]
+  },
+  {
+   "key": "alternance consultant business ia h/f|immersia",
+   "title": "Alternance Consultant Business & IA H/F",
+   "company": "Immersia",
+   "location": "Levallois-Perret - 92",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T00:01:12+00:00",
+   "links": [
+    {
+     "id": "HelloWork:82746683",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/82746683.html"
+    }
+   ]
+  },
+  {
    "key": "alternance support it f m h/f|cheerz",
    "title": "Alternance Support IT F - M H/F",
    "company": "Cheerz",
@@ -1503,7 +1537,7 @@
    ]
   }
  ],
- "updated": "2026-10-26T23:50:40+00:00",
+ "updated": "2026-10-27T00:01:12+00:00",
  "errors": [],
  "heartbeat": "2026-10-26",
  "error_streak": 0,
