@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance sales ops outils ia|muchbetter ai",
+   "title": "Alternance Sales Ops, outils & IA",
+   "company": "muchbetter.ai",
+   "location": "Paris",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T13:40:41+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:c4e5e6c6-0a48-4ce8-b60e-d7589f075bd5",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/muchbetter-ai/jobs/alternance-sales-ops-outils-ia_paris"
+    }
+   ]
+  },
+  {
    "key": "charge de projets rh ia analyst alternance h/f|capgemini",
    "title": "Chargé de Projets RH & IA Analyst - Alternance H/F",
    "company": "Capgemini",
@@ -1571,7 +1588,7 @@
    ]
   }
  ],
- "updated": "2026-10-27T13:31:08+00:00",
+ "updated": "2026-10-27T13:40:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-27",
  "error_streak": 0,
