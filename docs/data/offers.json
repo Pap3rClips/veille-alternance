@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant ai et automatisation engineer r d h/f|valeo",
+   "title": "Alternant - ai et Automatisation Engineer R&D H/F",
+   "company": "Valeo",
+   "location": "Créteil - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-27",
+   "first_seen": "2026-10-27T18:10:43+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84866740",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84866740.html"
+    }
+   ]
+  },
+  {
    "key": "alternance sales ops outils ia|muchbetter ai",
    "title": "Alternance Sales Ops, outils & IA",
    "company": "muchbetter.ai",
@@ -1588,7 +1605,7 @@
    ]
   }
  ],
- "updated": "2026-10-27T18:01:36+00:00",
+ "updated": "2026-10-27T18:10:43+00:00",
  "errors": [],
  "heartbeat": "2026-10-27",
  "error_streak": 0,
