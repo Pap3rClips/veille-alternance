@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance chargee de projet ia ai builder h/f|livementor",
+   "title": "Alternance - Chargé·e de Projet IA - ai Builder H/F",
+   "company": "LIVEMENTOR",
+   "location": "Paris - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-28",
+   "first_seen": "2026-10-28T23:30:55+00:00",
+   "links": [
+    {
+     "id": "HelloWork:83872246",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/83872246.html"
+    }
+   ]
+  },
+  {
    "key": "data business analyste confirme h/f|capgemini",
    "title": "Data Business Analyste Confirmé H/F",
    "company": "Capgemini",
@@ -1690,7 +1707,7 @@
    ]
   }
  ],
- "updated": "2026-10-28T23:20:43+00:00",
+ "updated": "2026-10-28T23:30:55+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
