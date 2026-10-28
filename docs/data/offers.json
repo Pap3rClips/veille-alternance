@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data solution engineer|beloy",
+   "title": "Data Solution Engineer",
+   "company": "Beloy",
+   "location": "Paris",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-28",
+   "first_seen": "2026-10-28T19:10:41+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:2fe117ed-32db-4f1c-af6a-07ebe69afb2d",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/data-solutions-engineer_paris"
+    }
+   ]
+  },
+  {
    "key": "data business analyste confirme|capgemini",
    "title": "Data Business Analyste Confirmé (F/H)",
    "company": "Capgemini",
@@ -1656,7 +1673,7 @@
    ]
   }
  ],
- "updated": "2026-10-28T19:01:12+00:00",
+ "updated": "2026-10-28T19:10:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
