@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data business analyste confirme|capgemini",
+   "title": "Data Business Analyste Confirmé (F/H)",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-28",
+   "first_seen": "2026-10-28T16:31:03+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:097df51c-f173-47bd-8713-662ff4da7833",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/capgemini/jobs/data-business-analyste-confirme-f-h_issy-les-moulineaux"
+    }
+   ]
+  },
+  {
    "key": "apprenti ingenieur systeme reseaux et devops h/f|direction generale du tresor",
    "title": "Apprenti Ingénieur Système Réseaux et DevOps H/F",
    "company": "Direction générale du trésor",
@@ -1639,7 +1656,7 @@
    ]
   }
  ],
- "updated": "2026-10-28T16:20:39+00:00",
+ "updated": "2026-10-28T16:31:03+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
