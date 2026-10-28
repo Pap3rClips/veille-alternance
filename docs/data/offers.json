@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprenti ingenieur systeme reseaux et devops h/f|direction generale du tresor",
+   "title": "Apprenti Ingénieur Système Réseaux et DevOps H/F",
+   "company": "Direction générale du trésor",
+   "location": "Paris 12e - 75",
+   "profile": "DevOps",
+   "cv": "DevOps",
+   "published": "2026-10-28",
+   "first_seen": "2026-10-28T12:01:11+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84888269",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84888269.html"
+    }
+   ]
+  },
+  {
    "key": "junior front end developer|beloy",
    "title": "Junior Front-End Developer",
    "company": "Beloy",
@@ -1622,7 +1639,7 @@
    ]
   }
  ],
- "updated": "2026-10-28T11:50:43+00:00",
+ "updated": "2026-10-28T12:01:11+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
