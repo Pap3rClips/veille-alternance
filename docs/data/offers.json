@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data business analyste confirme h/f|capgemini",
+   "title": "Data Business Analyste Confirmé H/F",
+   "company": "Capgemini",
+   "location": "Issy-les-Moulineaux - 92",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-28",
+   "first_seen": "2026-10-28T19:20:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84912582",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84912582.html"
+    }
+   ]
+  },
+  {
    "key": "data solution engineer|beloy",
    "title": "Data Solution Engineer",
    "company": "Beloy",
@@ -1673,7 +1690,7 @@
    ]
   }
  ],
- "updated": "2026-10-28T19:10:41+00:00",
+ "updated": "2026-10-28T19:20:39+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
