@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprenti developpeur informatique sur applications web h/f|siege de l ap hp",
+   "title": "Apprenti Développeur Informatique sur Applications Web H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T23:30:56+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79532798",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79532798.html"
+    }
+   ]
+  },
+  {
    "key": "next gen full stack developer h/f|alegria group",
    "title": "Next Gen Full-Stack Developer H/F",
    "company": "Alegria.group",
@@ -1831,7 +1848,7 @@
    ]
   }
  ],
- "updated": "2026-10-29T23:20:37+00:00",
+ "updated": "2026-10-29T23:30:56+00:00",
  "errors": [],
  "heartbeat": "2026-10-29",
  "error_streak": 0,
