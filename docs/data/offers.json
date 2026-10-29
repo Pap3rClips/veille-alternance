@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "alternant intelligence artificielle et automatisation des metiers h/f|beming",
+   "title": "Alternant - Intelligence Artificielle et Automatisation des Métiers H/F",
+   "company": "Beming",
+   "location": "Villebon-sur-Yvette - 91",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T06:40:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84923663",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84923663.html"
+    }
+   ]
+  },
+  {
+   "key": "developpeur developpeuse ia h/f|kometa consulting",
+   "title": "Développeur - Développeuse IA H/F",
+   "company": "Kometa Consulting",
+   "location": "La Frette-sur-Seine - 95",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T06:40:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84923688",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84923688.html"
+    }
+   ]
+  },
+  {
    "key": "developpeur / developpeuse ia|kometa consulting",
    "title": "Développeur / Développeuse IA (H/F)",
    "company": "KOMETA CONSULTING",
@@ -82,6 +116,11 @@
      "id": "HelloWork:84912582",
      "source": "HelloWork",
      "url": "https://www.hellowork.com/fr-fr/emplois/84912582.html"
+    },
+    {
+     "id": "France Travail:8390302",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8390302"
     }
    ]
   },
@@ -1758,7 +1797,7 @@
    ]
   }
  ],
- "updated": "2026-10-29T06:30:58+00:00",
+ "updated": "2026-10-29T06:40:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
