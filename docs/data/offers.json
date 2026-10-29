@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "developpeur / developpeuse ia|kometa consulting",
+   "title": "Développeur / Développeuse IA (H/F)",
+   "company": "KOMETA CONSULTING",
+   "location": "95 - Frette-sur-Seine",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T04:30:53+00:00",
+   "links": [
+    {
+     "id": "France Travail:8376478",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376478"
+    }
+   ]
+  },
+  {
+   "key": "developpeur / developpeuse ia|beming",
+   "title": "Développeur / Développeuse IA (H/F)",
+   "company": "BEMING",
+   "location": "91 - Villebon-sur-Yvette",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T04:30:53+00:00",
+   "links": [
+    {
+     "id": "France Travail:8376462",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376462"
+    }
+   ]
+  },
+  {
    "key": "alternance recherche et developpement ia f/h|v02 group",
    "title": "Alternance recherche et développement IA F/H",
    "company": "V02 GROUP",
@@ -1724,7 +1758,7 @@
    ]
   }
  ],
- "updated": "2026-10-29T04:20:39+00:00",
+ "updated": "2026-10-29T04:30:53+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
