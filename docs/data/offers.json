@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "consultant web analytics h/f alternance janvier 2027|converteo",
+   "title": "Consultant Web Analytics H/F - alternance Janvier 2027",
+   "company": "Converteo",
+   "location": "Paris",
+   "profile": "Web",
+   "cv": "Web",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T07:50:44+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:f50c45a5-0c08-4c1c-886e-7311b33776b5",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/converteo/jobs/consultant-web-analytics-h-f-stage-de-6-mois-ou-alternance-janvier-2027_paris"
+    }
+   ]
+  },
+  {
    "key": "alternant intelligence artificielle et automatisation des metiers h/f|beming",
    "title": "Alternant - Intelligence Artificielle et Automatisation des Métiers H/F",
    "company": "Beming",
@@ -1797,7 +1814,7 @@
    ]
   }
  ],
- "updated": "2026-10-29T07:40:40+00:00",
+ "updated": "2026-10-29T07:50:44+00:00",
  "errors": [],
  "heartbeat": "2026-10-29",
  "error_streak": 0,
