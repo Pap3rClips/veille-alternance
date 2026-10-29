@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance recherche et developpement ia f/h|v02 group",
+   "title": "Alternance recherche et développement IA F/H",
+   "company": "V02 GROUP",
+   "location": "75 - Paris 2e Arrondissement",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-29",
+   "first_seen": "2026-10-29T01:20:41+00:00",
+   "links": [
+    {
+     "id": "France Travail:8371099",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8371099"
+    }
+   ]
+  },
+  {
    "key": "alternance chargee de projet ia ai builder h/f|livementor",
    "title": "Alternance - Chargé·e de Projet IA - ai Builder H/F",
    "company": "LIVEMENTOR",
@@ -1707,7 +1724,7 @@
    ]
   }
  ],
- "updated": "2026-10-29T01:10:40+00:00",
+ "updated": "2026-10-29T01:20:41+00:00",
  "errors": [],
  "heartbeat": "2026-10-28",
  "error_streak": 0,
