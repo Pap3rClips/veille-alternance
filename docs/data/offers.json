@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "administrateur systemes et reseaux en alternance|mister ia",
+   "title": "Administrateur systèmes et réseaux en alternance (H/F)",
+   "company": "MISTER IA",
+   "location": "Paris",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-30",
+   "first_seen": "2026-10-30T15:01:11+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:15dfbae8-39a4-4f6e-8a36-eb656d113a46",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/mister-ia/jobs/operations-analyst-paris-cdi-h-f_paris"
+    }
+   ]
+  },
+  {
    "key": "alternant charge de mission ia h/f|paprec",
    "title": "Alternant Chargé de Mission IA H/F",
    "company": "Paprec",
@@ -1882,7 +1899,7 @@
    ]
   }
  ],
- "updated": "2026-10-30T14:50:40+00:00",
+ "updated": "2026-10-30T15:01:11+00:00",
  "errors": [],
  "heartbeat": "2026-10-30",
  "error_streak": 0,
