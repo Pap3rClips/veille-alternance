@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "assistant metier systemes d informations h/f|action logement",
+   "title": "Assistant Métier Systemes d'Informations H/F",
+   "company": "Action Logement",
+   "location": "Paris - 75",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-10-30",
+   "first_seen": "2026-10-30T23:31:04+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79609815",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79609815.html"
+    }
+   ]
+  },
+  {
    "key": "data engineer en alternance|carrefour",
    "title": "Data Engineer (F/H) - en alternance",
    "company": "Carrefour",
@@ -1921,7 +1938,7 @@
    ]
   }
  ],
- "updated": "2026-10-30T23:20:37+00:00",
+ "updated": "2026-10-30T23:31:04+00:00",
  "errors": [],
  "heartbeat": "2026-10-30",
  "error_streak": 0,
