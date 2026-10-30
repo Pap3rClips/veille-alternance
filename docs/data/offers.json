@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternant charge de mission ia h/f|paprec",
+   "title": "Alternant Chargé de Mission IA H/F",
+   "company": "Paprec",
+   "location": "La Courneuve - 93",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-10-30",
+   "first_seen": "2026-10-30T14:01:13+00:00",
+   "links": [
+    {
+     "id": "HelloWork:84985191",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/84985191.html"
+    }
+   ]
+  },
+  {
    "key": "data business analyste confirme f/h|capgemini",
    "title": "Data Business Analyste Confirmé F/H",
    "company": "Capgemini",
@@ -1865,7 +1882,7 @@
    ]
   }
  ],
- "updated": "2026-10-30T13:50:40+00:00",
+ "updated": "2026-10-30T14:01:13+00:00",
  "errors": [],
  "heartbeat": "2026-10-30",
  "error_streak": 0,
