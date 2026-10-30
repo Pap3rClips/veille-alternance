@@ -1848,12 +1848,12 @@
    ]
   }
  ],
- "updated": "2026-10-30T00:30:54+00:00",
+ "updated": "2026-10-30T00:40:38+00:00",
  "errors": [
   "francetravail (cybersécurité) : HTTPSConnectionPool(host='candidat.francetravail.fr', port=443): Read timed out. (read timeout=25)"
  ],
  "heartbeat": "2026-10-29",
- "error_streak": 1,
+ "error_streak": 2,
  "profiles": [
   "GRC",
   "Pentest",
