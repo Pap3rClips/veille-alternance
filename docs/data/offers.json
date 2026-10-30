@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data business analyste confirme f/h|capgemini",
+   "title": "Data Business Analyste Confirmé F/H",
+   "company": "Capgemini",
+   "location": "92 - Issy-les-Moulineaux",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-30",
+   "first_seen": "2026-10-30T01:20:40+00:00",
+   "links": [
+    {
+     "id": "France Travail:8406213",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8406213"
+    }
+   ]
+  },
+  {
    "key": "apprenti developpeur informatique sur applications web h/f|siege de l ap hp",
    "title": "Apprenti Développeur Informatique sur Applications Web H/F",
    "company": "Siège de l'AP-HP",
@@ -1848,7 +1865,7 @@
    ]
   }
  ],
- "updated": "2026-10-30T01:10:39+00:00",
+ "updated": "2026-10-30T01:20:40+00:00",
  "errors": [],
  "heartbeat": "2026-10-29",
  "error_streak": 0,
