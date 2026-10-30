@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "data engineer en alternance|carrefour",
+   "title": "Data Engineer (F/H) - en alternance",
+   "company": "Carrefour",
+   "location": "Massy",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-10-26",
+   "first_seen": "2026-10-30T22:29:52+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:0db6d168-b071-42b9-8428-8f4688479595",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/data-engineer-f-h-en-alternance_massy_CARRE_WlQPxjY"
+    }
+   ]
+  },
+  {
    "key": "administrateur systemes et reseaux en alternance|mister ia",
    "title": "Administrateur systèmes et réseaux en alternance (H/F)",
    "company": "MISTER IA",
@@ -1904,7 +1921,7 @@
    ]
   }
  ],
- "updated": "2026-10-30T22:20:37+00:00",
+ "updated": "2026-10-30T22:29:52+00:00",
  "errors": [],
  "heartbeat": "2026-10-30",
  "error_streak": 0,
