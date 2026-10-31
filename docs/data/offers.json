@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "assistant informatique alternance|allianz france",
+   "title": "Assistant Informatique (H/F) - Alternance",
+   "company": "Allianz France",
+   "location": "La Garenne-Colombes",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-10-31",
+   "first_seen": "2026-10-31T01:10:35+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:79cb7764-7716-4dbf-9b33-aa36d5a21afe",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/allianz/jobs/assistant-informatique-h-f-alternance_la-garenne-colombes"
+    }
+   ]
+  },
+  {
    "key": "assistant metier systemes d informations h/f|action logement",
    "title": "Assistant Métier Systemes d'Informations H/F",
    "company": "Action Logement",
@@ -1938,7 +1955,7 @@
    ]
   }
  ],
- "updated": "2026-10-31T01:01:04+00:00",
+ "updated": "2026-10-31T01:10:35+00:00",
  "errors": [],
  "heartbeat": "2026-10-30",
  "error_streak": 0,
