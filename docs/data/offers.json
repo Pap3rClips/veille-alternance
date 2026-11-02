@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance innovation bim ia developpement logiciel h/f|artelia",
+   "title": "Alternance - Innovation Bim IA & Développement Logiciel H/F",
+   "company": "Artelia",
+   "location": "Saint-Ouen-sur-Seine - 93",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-02",
+   "first_seen": "2026-11-02T10:01:04+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85037710",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85037710.html"
+    }
+   ]
+  },
+  {
    "key": "assistant informatique alternance|allianz france",
    "title": "Assistant Informatique (H/F) - Alternance",
    "company": "Allianz France",
@@ -1960,7 +1977,7 @@
    ]
   }
  ],
- "updated": "2026-11-02T09:50:38+00:00",
+ "updated": "2026-11-02T10:01:04+00:00",
  "errors": [],
  "heartbeat": "2026-11-02",
  "error_streak": 0,
