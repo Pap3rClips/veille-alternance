@@ -99,6 +99,11 @@
      "id": "France Travail:8406213",
      "source": "France Travail",
      "url": "https://candidat.francetravail.fr/offres/recherche/detail/8406213"
+    },
+    {
+     "id": "France Travail:8461753",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8461753"
     }
    ]
   },
@@ -1955,7 +1960,7 @@
    ]
   }
  ],
- "updated": "2026-11-02T01:01:09+00:00",
+ "updated": "2026-11-02T01:10:39+00:00",
  "errors": [],
  "heartbeat": "2026-11-01",
  "error_streak": 0,
