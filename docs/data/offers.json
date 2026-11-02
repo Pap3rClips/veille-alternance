@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "ts t alternant strategie it organisation et performance de la dsi f/h|deloitte",
+   "title": "TS&T - Alternant Stratégie IT - Organisation et Performance de la DSI F/H",
+   "company": "Deloitte",
+   "location": "Paris",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-11-02",
+   "first_seen": "2026-11-02T23:20:40+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:1445925a-5bb3-4783-a270-12c203530de8",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/deloitte/jobs/ts-t-alternant-strategie-it-organisation-et-performance-de-la-dsi-f-h_paris"
+    }
+   ]
+  },
+  {
+   "key": "controleur de gestion sociale data analyst rh h/f|siege de l ap hp",
+   "title": "Contrôleur de Gestion Sociale - Data Analyst RH H/F",
+   "company": "Siège de l'AP-HP",
+   "location": "Paris - 75",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-02",
+   "first_seen": "2026-11-02T23:20:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79678663",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79678663.html"
+    }
+   ]
+  },
+  {
    "key": "alternance juriste conformite et protection des donnees personnelles decembre 2026 h/f|sgs france",
    "title": "Alternance - Juriste Conformité et Protection des Données Personnelles - Décembre 2026. H/F",
    "company": "SGS France",
@@ -1994,7 +2028,7 @@
    ]
   }
  ],
- "updated": "2026-11-02T23:10:37+00:00",
+ "updated": "2026-11-02T23:20:40+00:00",
  "errors": [],
  "heartbeat": "2026-11-02",
  "error_streak": 0,
