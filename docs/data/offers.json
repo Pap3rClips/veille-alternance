@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance juriste conformite et protection des donnees personnelles decembre 2026 h/f|sgs france",
+   "title": "Alternance - Juriste Conformité et Protection des Données Personnelles - Décembre 2026. H/F",
+   "company": "SGS France",
+   "location": "Arcueil - 94",
+   "profile": "GRC",
+   "cv": "Hadrien GRC RSSI",
+   "published": "2026-11-02",
+   "first_seen": "2026-11-02T10:50:44+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85039081",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85039081.html"
+    }
+   ]
+  },
+  {
    "key": "alternance innovation bim ia developpement logiciel h/f|artelia",
    "title": "Alternance - Innovation Bim IA & Développement Logiciel H/F",
    "company": "Artelia",
@@ -1977,7 +1994,7 @@
    ]
   }
  ],
- "updated": "2026-11-02T10:40:48+00:00",
+ "updated": "2026-11-02T10:50:44+00:00",
  "errors": [],
  "heartbeat": "2026-11-02",
  "error_streak": 0,
