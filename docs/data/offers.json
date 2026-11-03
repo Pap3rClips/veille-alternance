@@ -1,6 +1,40 @@
 {
  "offers": [
   {
+   "key": "alternance technicien reseaux et infrastructures entreprises h/f|imc alternance",
+   "title": "Alternance - Technicien Réseaux et Infrastructures Entreprises H/F",
+   "company": "IMC Alternance",
+   "location": "Clamart - 92",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T23:30:55+00:00",
+   "links": [
+    {
+     "id": "HelloWork:79800830",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/79800830.html"
+    }
+   ]
+  },
+  {
+   "key": "alternant robotisation et intelligence artificielle h/f|elior",
+   "title": "Alternant Robotisation et Intelligence Artificielle H/F",
+   "company": "Elior",
+   "location": "Créteil - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T23:30:55+00:00",
+   "links": [
+    {
+     "id": "HelloWork:82988263",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/82988263.html"
+    }
+   ]
+  },
+  {
    "key": "data analyst logiciel alternance h/f|aivancity",
    "title": "Data Analyst - Logiciel Alternance H/F",
    "company": "aivancity",
@@ -2191,7 +2225,7 @@
    ]
   }
  ],
- "updated": "2026-11-03T23:20:41+00:00",
+ "updated": "2026-11-03T23:30:55+00:00",
  "errors": [],
  "heartbeat": "2026-11-03",
  "error_streak": 0,
