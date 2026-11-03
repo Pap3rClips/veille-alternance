@@ -2186,10 +2186,12 @@
    ]
   }
  ],
- "updated": "2026-11-03T18:50:50+00:00",
- "errors": [],
+ "updated": "2026-11-03T19:01:09+00:00",
+ "errors": [
+  "francetravail (cybersécurité) : ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+ ],
  "heartbeat": "2026-11-03",
- "error_streak": 0,
+ "error_streak": 1,
  "profiles": [
   "GRC",
   "Pentest",
