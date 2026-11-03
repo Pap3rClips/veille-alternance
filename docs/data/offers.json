@@ -969,6 +969,11 @@
      "id": "France Travail:8423790",
      "source": "France Travail",
      "url": "https://candidat.francetravail.fr/offres/recherche/detail/8423790"
+    },
+    {
+     "id": "France Travail:8520152",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8520152"
     }
    ]
   },
@@ -2181,7 +2186,7 @@
    ]
   }
  ],
- "updated": "2026-11-03T17:20:42+00:00",
+ "updated": "2026-11-03T17:30:59+00:00",
  "errors": [],
  "heartbeat": "2026-11-03",
  "error_streak": 0,
