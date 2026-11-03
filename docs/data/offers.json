@@ -1,6 +1,159 @@
 {
  "offers": [
   {
+   "key": "data analyst logiciel alternance h/f|aivancity",
+   "title": "Data Analyst - Logiciel Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85091064",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091064.html"
+    }
+   ]
+  },
+  {
+   "key": "data analyst energie alternance h/f|aivancity",
+   "title": "Data Analyst - Energie Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85091069",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091069.html"
+    }
+   ]
+  },
+  {
+   "key": "data analyst secteur aeronautique alternance h/f|aivancity",
+   "title": "Data Analyst - Secteur Aéronautique Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85090963",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090963.html"
+    }
+   ]
+  },
+  {
+   "key": "data analyst btp alternance h/f|aivancity",
+   "title": "Data Analyst - BTP Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85090938",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090938.html"
+    }
+   ]
+  },
+  {
+   "key": "data analyst alternance h/f|aivancity",
+   "title": "Data Analyst Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85090930",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090930.html"
+    }
+   ]
+  },
+  {
+   "key": "ingenieur en ia alternance secteur defense h/f|aivancity",
+   "title": "Ingénieur en IA Alternance - Secteur Défense H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85091194",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091194.html"
+    }
+   ]
+  },
+  {
+   "key": "ingenieur en ia alternance secteur reseaux h/f|aivancity",
+   "title": "Ingénieur en IA Alternance - Secteur Réseaux H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85091195",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091195.html"
+    }
+   ]
+  },
+  {
+   "key": "ingenieur en ia alternance secteur aeronautique h/f|aivancity",
+   "title": "Ingénieur en IA Alternance - Secteur Aéronautique H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85090962",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090962.html"
+    }
+   ]
+  },
+  {
+   "key": "data engineer btp alternance h/f|aivancity",
+   "title": "Data Engineer - BTP Alternance H/F",
+   "company": "aivancity",
+   "location": "Villejuif - 94",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-03",
+   "first_seen": "2026-11-03T10:10:39+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85090951",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090951.html"
+    }
+   ]
+  },
+  {
    "key": "ts t alternant strategie it organisation et performance de la dsi f/h|deloitte",
    "title": "TS&T - Alternant Stratégie IT - Organisation et Performance de la DSI F/H",
    "company": "Deloitte",
@@ -2028,7 +2181,7 @@
    ]
   }
  ],
- "updated": "2026-11-03T10:01:09+00:00",
+ "updated": "2026-11-03T10:10:39+00:00",
  "errors": [],
  "heartbeat": "2026-11-03",
  "error_streak": 0,
