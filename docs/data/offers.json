@@ -2186,12 +2186,12 @@
    ]
   }
  ],
- "updated": "2026-11-03T19:01:09+00:00",
+ "updated": "2026-11-03T19:10:46+00:00",
  "errors": [
-  "francetravail (cybersécurité) : ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+  "francetravail (cybersécurité) : HTTPSConnectionPool(host='candidat.francetravail.fr', port=443): Read timed out. (read timeout=25)"
  ],
  "heartbeat": "2026-11-03",
- "error_streak": 1,
+ "error_streak": 2,
  "profiles": [
   "GRC",
   "Pentest",
