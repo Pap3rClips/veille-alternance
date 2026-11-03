@@ -743,6 +743,11 @@
      "id": "HelloWork:84796301",
      "source": "HelloWork",
      "url": "https://www.hellowork.com/fr-fr/emplois/84796301.html"
+    },
+    {
+     "id": "HelloWork:85123321",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85123321.html"
     }
    ]
   },
@@ -2186,7 +2191,7 @@
    ]
   }
  ],
- "updated": "2026-11-03T23:10:40+00:00",
+ "updated": "2026-11-03T23:20:41+00:00",
  "errors": [],
  "heartbeat": "2026-11-03",
  "error_streak": 0,
