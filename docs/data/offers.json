@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "support aux utilisateurs en informatique|layan",
+   "title": "Support aux utilisateurs en informatique (H/F)",
+   "company": "Layan",
+   "location": "75 - Paris 13e Arrondissement",
+   "profile": "Support",
+   "cv": "Hadrien Support",
+   "published": "2026-11-04",
+   "first_seen": "2026-11-04T05:10:38+00:00",
+   "links": [
+    {
+     "id": "France Travail:8529316",
+     "source": "France Travail",
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8529316"
+    }
+   ]
+  },
+  {
    "key": "apprenti bac+5 ingenieur data scientist h/f|samsic groupe",
    "title": "Apprenti Bac+5 Ingénieur - Data Scientist H/F",
    "company": "Samsic Groupe",
@@ -2242,7 +2259,7 @@
    ]
   }
  ],
- "updated": "2026-11-04T05:01:08+00:00",
+ "updated": "2026-11-04T05:10:38+00:00",
  "errors": [],
  "heartbeat": "2026-11-03",
  "error_streak": 0,
