@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprenti bac+5 ingenieur data scientist h/f|samsic groupe",
+   "title": "Apprenti Bac+5 Ingénieur - Data Scientist H/F",
+   "company": "Samsic Groupe",
+   "location": "Tremblay-en-France - 93",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-04",
+   "first_seen": "2026-11-04T00:01:08+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85123185",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85123185.html"
+    }
+   ]
+  },
+  {
    "key": "alternance technicien reseaux et infrastructures entreprises h/f|imc alternance",
    "title": "Alternance - Technicien Réseaux et Infrastructures Entreprises H/F",
    "company": "IMC Alternance",
@@ -2225,10 +2242,12 @@
    ]
   }
  ],
- "updated": "2026-11-03T23:50:42+00:00",
- "errors": [],
+ "updated": "2026-11-04T00:01:08+00:00",
+ "errors": [
+  "francetravail (cybersécurité) : HTTPSConnectionPool(host='candidat.francetravail.fr', port=443): Read timed out. (read timeout=25)"
+ ],
  "heartbeat": "2026-11-03",
- "error_streak": 0,
+ "error_streak": 1,
  "profiles": [
   "GRC",
   "Pentest",
