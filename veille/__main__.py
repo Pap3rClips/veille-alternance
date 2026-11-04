@@ -7,7 +7,7 @@ import json
 import os
 import sys
 import tomllib
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -20,6 +20,25 @@ KEEP_DAYS = 90
 HEARTBEAT_HOUR = 8  # heure de Paris du résumé quotidien
 ERROR_ALERT_AFTER = 3  # passages en échec d'affilée avant alerte
 ALTERNANCE_TERMS = ["alternance", "alternant", "alternante", "apprenti", "apprentie", "apprentissage", "contrat pro"]
+REPUBLISH_MIN_GAP_DAYS = 7  # écart minimal entre deux publications pour parler de republication
+
+
+def is_republication(entry, offer):
+    """Même titre chez la même entreprise, remis en ligne sur le même site avec un nouvel identifiant,
+    au moins REPUBLISH_MIN_GAP_DAYS jours après la dernière date connue.
+
+    Le site peut republier parce que le poste est resté vacant ou parce qu'une embauche est tombée à l'eau :
+    on ne sait pas lequel, mais le besoin est de nouveau actif. Une copie qui apparaît sur un autre site
+    n'est pas comptée (les sites se recopient avec retard). Sans date de publication fiable, on ne conclut pas.
+    """
+    if not offer.published or not any(l["source"] == offer.source for l in entry["links"]):
+        return False
+    known = entry.get("published") or entry["first_seen"][:10]
+    try:
+        limit = date.fromisoformat(known) + timedelta(days=REPUBLISH_MIN_GAP_DAYS)
+        return date.fromisoformat(offer.published) >= limit
+    except ValueError:  # date illisible : on ne conclut pas
+        return False
 
 
 def classify(title, cfg):
@@ -89,7 +108,7 @@ def main():
             o["profile"], o["cv"] = p["name"], p["cv"]
 
     raw, errors = collect(cfg)
-    fresh = []
+    fresh, republished = [], []
     for o in raw:
         if o.id in by_id:
             continue
@@ -98,9 +117,18 @@ def main():
             continue
         link = {"id": o.id, "source": o.source, "url": o.url}
         key = f"{norm(o.title)}|{norm(o.company)}"
-        if key in by_key:  # même offre vue sur un autre site : on ajoute le lien, sans notifier
-            by_key[key]["links"].append(link)
-            by_id[o.id] = by_key[key]
+        if key in by_key:
+            entry = by_key[key]
+            if is_republication(entry, o):  # remise en ligne : le lien vivant passe en premier
+                entry["links"].insert(0, link)
+                entry["published"] = o.published
+                entry["reopened_at"] = now
+                entry["reopen_count"] = entry.get("reopen_count", 0) + 1
+                if entry not in republished:
+                    republished.append(entry)
+            else:  # même offre vue sur un autre site : on ajoute le lien, sans notifier
+                entry["links"].append(link)
+            by_id[o.id] = entry
             continue
         entry = {
             "key": key,
@@ -117,11 +145,13 @@ def main():
         by_key[key] = by_id[o.id] = entry
         fresh.append(entry)
 
-    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(errors)} erreurs")
+    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(republished)} republiées, {len(errors)} erreurs")
     for e in errors:
         print("  ERREUR", e)
     for e in fresh:
         print(f"  [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
+    for e in republished:
+        print(f"  REPUBLIÉE [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
     if dry:
         return
 
@@ -140,6 +170,15 @@ def main():
             )
         if len(fresh) > limit:
             push(topic, f"{len(fresh) - limit} autres nouvelles offres", "Ouvre le tableau de bord pour les voir.", url=os.environ.get("DASHBOARD_URL"))
+        for e in republished[:limit]:
+            push(
+                topic,
+                f"Republiée : [{e['profile']}] {e['title']}",
+                f"{e['company']} · {e['location']}\n{e['links'][0]['source']} · CV : {e['cv']}\nL'entreprise a remis l'offre en ligne.",
+                url=e["links"][0]["url"],
+                tags=["repeat"],
+                priority=4,
+            )
 
     # Résumé du matin : prouve que la veille tourne, même sans nouvelle offre.
     paris = datetime.now(ZoneInfo("Europe/Paris"))

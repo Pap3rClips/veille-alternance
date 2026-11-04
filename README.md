@@ -33,8 +33,23 @@ python -m http.server 5180 --directory docs   # tableau de bord sur http://local
 
 Tout se passe dans `config.toml` : recherches, mots exclus, écoles à écarter, profils et CV associé. Le premier profil dont un mot-clé figure dans le titre l'emporte.
 
+## Offres republiées
+
+Quand une entreprise remet en ligne, sur le même site, une offre déjà vue (même titre, même entreprise, publiée au moins 7 jours après la précédente), la veille envoie une notification « Republiée » et la carte porte un badge pendant 14 jours. Le besoin est redevenu actif : poste resté vacant ou embauche tombée à l'eau, la veille ne peut pas savoir lequel. Une copie qui apparaît sur un autre site n'est pas comptée, et un site qui rafraîchit la date sans changer l'identifiant de l'offre n'est pas détecté.
+
+## Relances
+
+L'onglet « À relancer » liste les candidatures marquées « Postulée » sans suite depuis 7 jours. « Relancée » repousse la suivante de 7 jours, deux relances au maximum. Une relance ne compte pas dans l'objectif du jour.
+
+## Tests
+
+```bash
+python -m unittest discover -s tests
+```
+
 ## Limites
 
+- Les offres republiées ne couvrent qu'une partie des postes qui se libèrent : beaucoup d'entreprises redemandent un profil à leur école ou à leur réseau sans republier d'annonce.
 - GitHub retarde souvent les tâches planifiées de 5 à 15 minutes.
 - Le tableau de bord enregistre les statuts (postulée, ignorée) dans le navigateur : le téléphone et le PC tiennent chacun leur liste.
 - Un site qui change sa page casse sa source. Le tableau de bord affiche alors « 1 site en erreur ».

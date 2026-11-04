@@ -28,7 +28,10 @@ exclude_title = [
   "comptab", "juridique", "vente", "vendeur", "communication", "charge de comptes",
   "incendie", "hse", "qhse", "surete", "agent de securite", "alimentaire", "routiere",
   "paie", "achats", "immobilier", "stagiaire", "stage", "industriel", "industrielle",
-  "automatisme", "finance", "financier", "maintenance", "intervention", "crm", "credit",
+  "automatisme", "finance", "financier", "intervention", "crm", "credit",
+  # « maintenance » seul écartait aussi la maintenance informatique : on cible les métiers hors IT.
+  "maintenance industrielle", "maintenance mecanique", "maintenance electrique", "maintenance batiment",
+  "maintenance multitechnique", "maintenance automobile", "maintenance aeronautique", "sante securite",
 ]
 
 # Écoles et organismes de formation qui publient de fausses offres pour recruter des étudiants.
@@ -38,6 +41,7 @@ exclude_company = [
   "pigier", "isitech", "ensup", "talentis", "cfa", "ecole", "school", "institut f2i",
   "2i academy", "digital college", "campus", "formation", "academy", "akor alternance",
   "nexa", "sup de vinci", "livecampus", "iris", "redsup", "academie", "wedr", "esiee-it", "itic paris", "groupe alternance", "collège de paris",
+  "aivancity", "mydigitalschool",
 ]
 
 [sources]

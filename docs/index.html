@@ -46,6 +46,7 @@
 
   .tabs { display: flex; gap: var(--gap); margin-top: 12px; }
   .tabs button { flex: 1; }
+  @media (max-width: 480px) { .tabs { gap: 4px; } .tabs button { padding: 8px 2px; font-size: 14px; } .count { margin-left: 2px; } }
   button, select, input {
     font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); min-height: 44px; padding: 8px 12px; touch-action: manipulation;
@@ -114,6 +115,7 @@
     <div class="tabs" role="tablist" aria-label="Statut">
       <button role="tab" data-status="todo" aria-selected="true">À postuler<span class="count" id="c-todo"></span></button>
       <button role="tab" data-status="applied" aria-selected="false">Postulées<span class="count" id="c-applied"></span></button>
+      <button role="tab" data-status="relance" aria-selected="false">À relancer<span class="count" id="c-relance"></span></button>
       <button role="tab" data-status="ignored" aria-selected="false">Ignorées<span class="count" id="c-ignored"></span></button>
     </div>
   </div>
@@ -144,7 +146,17 @@ let goal = store.get("goal", 10);
 const view = { status: "todo", profile: "", source: "", q: "" };
 let lastAction = null;
 
+const RELANCE_AFTER_DAYS = 7;  // délai sans nouvelle avant de relancer
+const MAX_RELANCES = 2;        // au-delà, on laisse tomber
+const REPUBLISHED_DAYS = 14;   // durée d'affichage du badge « Republiée »
+
 const statusOf = (o) => (marks[o.key] || {}).status || "todo";
+const dueRelance = (o) => {
+  const m = marks[o.key];
+  return !!m && m.status === "applied" && (m.relances || 0) < MAX_RELANCES
+    && Date.now() - new Date(m.last || m.at) >= RELANCE_AFTER_DAYS * 864e5;
+};
+const inView = (o) => (view.status === "relance" ? dueRelance(o) : statusOf(o) === view.status);
 const dayOf = (iso) => new Date(iso).toDateString();
 const safeUrl = (u) => (/^https:\/\//.test(u) ? u : "#");
 
@@ -162,6 +174,13 @@ function ago(iso) {
   return `il y a ${Math.round(min / 1440)} j`;
 }
 
+function showToast(text) {
+  $("toastText").textContent = text;
+  $("toast").classList.add("show");
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
+}
+
 function mark(o, status) {
   lastAction = { key: o.key, prev: marks[o.key] };
   if (status === "todo") delete marks[o.key];
@@ -169,22 +188,36 @@ function mark(o, status) {
   store.set("marks", marks);
   buildFilters();
   render();
-  $("toastText").textContent = { applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status];
-  $("toast").classList.add("show");
-  clearTimeout(mark.t);
-  mark.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
+  showToast({ applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status]);
+}
+
+// Une relance garde la date de candidature (l'objectif du jour ne bouge pas) et repousse la suivante.
+function markRelance(o) {
+  const prev = marks[o.key];
+  lastAction = { key: o.key, prev };
+  marks[o.key] = { ...prev, relances: (prev.relances || 0) + 1, last: new Date().toISOString() };
+  store.set("marks", marks);
+  buildFilters();
+  render();
+  showToast("Relance enregistrée");
 }
 
 function card(o) {
   const st = statusOf(o);
   const isNew = Date.now() - new Date(o.first_seen) < 864e5;
   const meta = el("div", { className: "meta" });
-  if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
+  const republished = o.reopened_at && Date.now() - new Date(o.reopened_at) < REPUBLISHED_DAYS * 864e5;
+  const m = marks[o.key];
+  if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
+  else if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
   meta.append(
     el("span", { className: "badge", textContent: o.profile }),
     el("span", { textContent: `CV : ${o.cv}` }),
-    el("span", { textContent: `Repérée ${ago(o.first_seen)}` }),
+    el("span", { textContent: republished ? `Remise en ligne ${ago(o.reopened_at)}` : `Repérée ${ago(o.first_seen)}` }),
   );
+  if (view.status === "relance" && m) {
+    meta.append(el("span", { textContent: `Dernier contact ${ago(m.last || m.at)} · relance n°${(m.relances || 0) + 1}` }));
+  }
   if (o.published) meta.append(el("span", { textContent: `Publiée le ${new Date(o.published).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
 
   const first = o.links[0];
@@ -193,6 +226,7 @@ function card(o) {
   apply.append(`Postuler sur ${first.source}`);
 
   const actions = el("div", { className: "actions" }, apply);
+  if (view.status === "relance") actions.append(el("button", { type: "button", textContent: "Relancée", onclick: () => markRelance(o) }));
   if (st !== "applied") actions.append(el("button", { type: "button", textContent: "Postulée", onclick: () => mark(o, "applied") }));
   if (st === "todo") actions.append(el("button", { type: "button", textContent: "Ignorer", onclick: () => mark(o, "ignored") }));
   if (st !== "todo") actions.append(el("button", { type: "button", textContent: "Remettre à postuler", onclick: () => mark(o, "todo") }));
@@ -210,8 +244,11 @@ function card(o) {
 }
 
 function render() {
-  const counts = { todo: 0, applied: 0, ignored: 0 };
-  for (const o of offers) counts[statusOf(o)]++;
+  const counts = { todo: 0, applied: 0, ignored: 0, relance: 0 };
+  for (const o of offers) {
+    counts[statusOf(o)]++;
+    if (dueRelance(o)) counts.relance++;
+  }
   for (const k in counts) $("c-" + k).textContent = counts[k];
 
   const today = new Date().toDateString();
@@ -225,7 +262,7 @@ function render() {
 
   const q = view.q.trim().toLowerCase();
   const shown = offers.filter((o) =>
-    statusOf(o) === view.status &&
+    inView(o) &&
     (!view.profile || o.profile === view.profile) &&
     (!view.source || o.links.some((l) => l.source === view.source)) &&
     (!q || (o.title + " " + o.company).toLowerCase().includes(q)));
@@ -237,7 +274,7 @@ function render() {
   const list = $("list");
   list.replaceChildren(...shown.slice(0, 200).map(card));
   if (!shown.length) {
-    const msg = { todo: "Aucune offre à traiter avec ces filtres. La veille repasse toutes les dix minutes.", applied: "Aucune candidature marquée pour l'instant.", ignored: "Aucune offre ignorée." }[view.status];
+    const msg = { todo: "Aucune offre à traiter avec ces filtres. La veille repasse toutes les dix minutes.", applied: "Aucune candidature marquée pour l'instant.", relance: "Rien à relancer pour l'instant. Une relance est proposée 7 jours après la candidature.", ignored: "Aucune offre ignorée." }[view.status];
     list.append(el("li", { className: "empty", textContent: msg }));
   }
 }

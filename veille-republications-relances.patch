@@ -1,0 +1,421 @@
+diff --git a/README.md b/README.md
+index 2d6c58d..33f3614 100644
+--- a/README.md
++++ b/README.md
+@@ -33,8 +33,23 @@ python -m http.server 5180 --directory docs   # tableau de bord sur http://local
+ 
+ Tout se passe dans `config.toml` : recherches, mots exclus, écoles à écarter, profils et CV associé. Le premier profil dont un mot-clé figure dans le titre l'emporte.
+ 
++## Offres republiées
++
++Quand une entreprise remet en ligne, sur le même site, une offre déjà vue (même titre, même entreprise, publiée au moins 7 jours après la précédente), la veille envoie une notification « Republiée » et la carte porte un badge pendant 14 jours. Le besoin est redevenu actif : poste resté vacant ou embauche tombée à l'eau, la veille ne peut pas savoir lequel. Une copie qui apparaît sur un autre site n'est pas comptée, et un site qui rafraîchit la date sans changer l'identifiant de l'offre n'est pas détecté.
++
++## Relances
++
++L'onglet « À relancer » liste les candidatures marquées « Postulée » sans suite depuis 7 jours. « Relancée » repousse la suivante de 7 jours, deux relances au maximum. Une relance ne compte pas dans l'objectif du jour.
++
++## Tests
++
++```bash
++python -m unittest discover -s tests
++```
++
+ ## Limites
+ 
++- Les offres republiées ne couvrent qu'une partie des postes qui se libèrent : beaucoup d'entreprises redemandent un profil à leur école ou à leur réseau sans republier d'annonce.
+ - GitHub retarde souvent les tâches planifiées de 5 à 15 minutes.
+ - Le tableau de bord enregistre les statuts (postulée, ignorée) dans le navigateur : le téléphone et le PC tiennent chacun leur liste.
+ - Un site qui change sa page casse sa source. Le tableau de bord affiche alors « 1 site en erreur ».
+diff --git a/config.toml b/config.toml
+index edd4315..772efde 100644
+--- a/config.toml
++++ b/config.toml
+@@ -28,7 +28,10 @@ exclude_title = [
+   "comptab", "juridique", "vente", "vendeur", "communication", "charge de comptes",
+   "incendie", "hse", "qhse", "surete", "agent de securite", "alimentaire", "routiere",
+   "paie", "achats", "immobilier", "stagiaire", "stage", "industriel", "industrielle",
+-  "automatisme", "finance", "financier", "maintenance", "intervention", "crm", "credit",
++  "automatisme", "finance", "financier", "intervention", "crm", "credit",
++  # « maintenance » seul écartait aussi la maintenance informatique : on cible les métiers hors IT.
++  "maintenance industrielle", "maintenance mecanique", "maintenance electrique", "maintenance batiment",
++  "maintenance multitechnique", "maintenance automobile", "maintenance aeronautique", "sante securite",
+ ]
+ 
+ # Écoles et organismes de formation qui publient de fausses offres pour recruter des étudiants.
+@@ -38,6 +41,7 @@ exclude_company = [
+   "pigier", "isitech", "ensup", "talentis", "cfa", "ecole", "school", "institut f2i",
+   "2i academy", "digital college", "campus", "formation", "academy", "akor alternance",
+   "nexa", "sup de vinci", "livecampus", "iris", "redsup", "academie", "wedr", "esiee-it", "itic paris", "groupe alternance", "collège de paris",
++  "aivancity", "mydigitalschool",
+ ]
+ 
+ [sources]
+diff --git a/docs/index.html b/docs/index.html
+index 3eaf52e..108ddce 100644
+--- a/docs/index.html
++++ b/docs/index.html
+@@ -46,6 +46,7 @@
+ 
+   .tabs { display: flex; gap: var(--gap); margin-top: 12px; }
+   .tabs button { flex: 1; }
++  @media (max-width: 480px) { .tabs { gap: 4px; } .tabs button { padding: 8px 2px; font-size: 14px; } .count { margin-left: 2px; } }
+   button, select, input {
+     font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border);
+     border-radius: var(--radius); min-height: 44px; padding: 8px 12px; touch-action: manipulation;
+@@ -114,6 +115,7 @@
+     <div class="tabs" role="tablist" aria-label="Statut">
+       <button role="tab" data-status="todo" aria-selected="true">À postuler<span class="count" id="c-todo"></span></button>
+       <button role="tab" data-status="applied" aria-selected="false">Postulées<span class="count" id="c-applied"></span></button>
++      <button role="tab" data-status="relance" aria-selected="false">À relancer<span class="count" id="c-relance"></span></button>
+       <button role="tab" data-status="ignored" aria-selected="false">Ignorées<span class="count" id="c-ignored"></span></button>
+     </div>
+   </div>
+@@ -144,7 +146,17 @@ let goal = store.get("goal", 10);
+ const view = { status: "todo", profile: "", source: "", q: "" };
+ let lastAction = null;
+ 
++const RELANCE_AFTER_DAYS = 7;  // délai sans nouvelle avant de relancer
++const MAX_RELANCES = 2;        // au-delà, on laisse tomber
++const REPUBLISHED_DAYS = 14;   // durée d'affichage du badge « Republiée »
++
+ const statusOf = (o) => (marks[o.key] || {}).status || "todo";
++const dueRelance = (o) => {
++  const m = marks[o.key];
++  return !!m && m.status === "applied" && (m.relances || 0) < MAX_RELANCES
++    && Date.now() - new Date(m.last || m.at) >= RELANCE_AFTER_DAYS * 864e5;
++};
++const inView = (o) => (view.status === "relance" ? dueRelance(o) : statusOf(o) === view.status);
+ const dayOf = (iso) => new Date(iso).toDateString();
+ const safeUrl = (u) => (/^https:\/\//.test(u) ? u : "#");
+ 
+@@ -162,6 +174,13 @@ function ago(iso) {
+   return `il y a ${Math.round(min / 1440)} j`;
+ }
+ 
++function showToast(text) {
++  $("toastText").textContent = text;
++  $("toast").classList.add("show");
++  clearTimeout(showToast.t);
++  showToast.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
++}
++
+ function mark(o, status) {
+   lastAction = { key: o.key, prev: marks[o.key] };
+   if (status === "todo") delete marks[o.key];
+@@ -169,22 +188,36 @@ function mark(o, status) {
+   store.set("marks", marks);
+   buildFilters();
+   render();
+-  $("toastText").textContent = { applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status];
+-  $("toast").classList.add("show");
+-  clearTimeout(mark.t);
+-  mark.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
++  showToast({ applied: "Marquée postulée", ignored: "Offre ignorée", todo: "Remise à postuler" }[status]);
++}
++
++// Une relance garde la date de candidature (l'objectif du jour ne bouge pas) et repousse la suivante.
++function markRelance(o) {
++  const prev = marks[o.key];
++  lastAction = { key: o.key, prev };
++  marks[o.key] = { ...prev, relances: (prev.relances || 0) + 1, last: new Date().toISOString() };
++  store.set("marks", marks);
++  buildFilters();
++  render();
++  showToast("Relance enregistrée");
+ }
+ 
+ function card(o) {
+   const st = statusOf(o);
+   const isNew = Date.now() - new Date(o.first_seen) < 864e5;
+   const meta = el("div", { className: "meta" });
+-  if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
++  const republished = o.reopened_at && Date.now() - new Date(o.reopened_at) < REPUBLISHED_DAYS * 864e5;
++  const m = marks[o.key];
++  if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
++  else if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
+   meta.append(
+     el("span", { className: "badge", textContent: o.profile }),
+     el("span", { textContent: `CV : ${o.cv}` }),
+-    el("span", { textContent: `Repérée ${ago(o.first_seen)}` }),
++    el("span", { textContent: republished ? `Remise en ligne ${ago(o.reopened_at)}` : `Repérée ${ago(o.first_seen)}` }),
+   );
++  if (view.status === "relance" && m) {
++    meta.append(el("span", { textContent: `Dernier contact ${ago(m.last || m.at)} · relance n°${(m.relances || 0) + 1}` }));
++  }
+   if (o.published) meta.append(el("span", { textContent: `Publiée le ${new Date(o.published).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
+ 
+   const first = o.links[0];
+@@ -193,6 +226,7 @@ function card(o) {
+   apply.append(`Postuler sur ${first.source}`);
+ 
+   const actions = el("div", { className: "actions" }, apply);
++  if (view.status === "relance") actions.append(el("button", { type: "button", textContent: "Relancée", onclick: () => markRelance(o) }));
+   if (st !== "applied") actions.append(el("button", { type: "button", textContent: "Postulée", onclick: () => mark(o, "applied") }));
+   if (st === "todo") actions.append(el("button", { type: "button", textContent: "Ignorer", onclick: () => mark(o, "ignored") }));
+   if (st !== "todo") actions.append(el("button", { type: "button", textContent: "Remettre à postuler", onclick: () => mark(o, "todo") }));
+@@ -210,8 +244,11 @@ function card(o) {
+ }
+ 
+ function render() {
+-  const counts = { todo: 0, applied: 0, ignored: 0 };
+-  for (const o of offers) counts[statusOf(o)]++;
++  const counts = { todo: 0, applied: 0, ignored: 0, relance: 0 };
++  for (const o of offers) {
++    counts[statusOf(o)]++;
++    if (dueRelance(o)) counts.relance++;
++  }
+   for (const k in counts) $("c-" + k).textContent = counts[k];
+ 
+   const today = new Date().toDateString();
+@@ -225,7 +262,7 @@ function render() {
+ 
+   const q = view.q.trim().toLowerCase();
+   const shown = offers.filter((o) =>
+-    statusOf(o) === view.status &&
++    inView(o) &&
+     (!view.profile || o.profile === view.profile) &&
+     (!view.source || o.links.some((l) => l.source === view.source)) &&
+     (!q || (o.title + " " + o.company).toLowerCase().includes(q)));
+@@ -237,7 +274,7 @@ function render() {
+   const list = $("list");
+   list.replaceChildren(...shown.slice(0, 200).map(card));
+   if (!shown.length) {
+-    const msg = { todo: "Aucune offre à traiter avec ces filtres. La veille repasse toutes les dix minutes.", applied: "Aucune candidature marquée pour l'instant.", ignored: "Aucune offre ignorée." }[view.status];
++    const msg = { todo: "Aucune offre à traiter avec ces filtres. La veille repasse toutes les dix minutes.", applied: "Aucune candidature marquée pour l'instant.", relance: "Rien à relancer pour l'instant. Une relance est proposée 7 jours après la candidature.", ignored: "Aucune offre ignorée." }[view.status];
+     list.append(el("li", { className: "empty", textContent: msg }));
+   }
+ }
+diff --git a/tests/test_veille.py b/tests/test_veille.py
+new file mode 100644
+index 0000000..e122bc0
+--- /dev/null
++++ b/tests/test_veille.py
+@@ -0,0 +1,127 @@
++"""Tests de la détection des republications et des réglages du filtre.
++
++    python -m unittest discover -s tests
++"""
++import json
++import sys
++import tempfile
++import tomllib
++import unittest
++from datetime import date
++from pathlib import Path
++from unittest import mock
++
++ROOT = Path(__file__).resolve().parent.parent
++sys.path.insert(0, str(ROOT))
++
++from veille import __main__ as veille_main  # noqa: E402
++from veille.common import Offer  # noqa: E402
++
++CFG = tomllib.loads((ROOT / "config.toml").read_text(encoding="utf-8"))
++
++
++def offer(source_id, published, source="Welcome to the Jungle", title="Alternance - Technicien Support Informatique H/F", company="Acme"):
++    return Offer(source=source, source_id=source_id, title=title, company=company,
++                 location="Paris", url=f"https://exemple.fr/{source_id}", published=published)
++
++
++class Republication(unittest.TestCase):
++    def run_passes(self, *passes):
++        """Joue plusieurs passages successifs de la veille ; renvoie l'état final et les notifications."""
++        pushed = []
++        with tempfile.TemporaryDirectory() as tmp:
++            data = Path(tmp) / "offers.json"
++            batches = iter(passes)
++            with mock.patch.object(veille_main, "DATA", data), \
++                 mock.patch.object(veille_main, "today", lambda: date(2026, 11, 4)), \
++                 mock.patch.object(veille_main, "collect", lambda cfg: (next(batches), [])), \
++                 mock.patch.object(veille_main, "push", lambda topic, title, message, **kw: pushed.append(title)), \
++                 mock.patch.object(sys, "argv", ["veille"]):
++                for _ in passes:
++                    veille_main.main()
++                state = json.loads(data.read_text(encoding="utf-8"))
++        return state, pushed
++
++    def test_meme_site_nouvel_identifiant_dix_jours_apres(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-22")],
++            [offer("a1", "2026-10-22"), offer("a2", "2026-11-03")],
++        )
++        self.assertEqual(len(state["offers"]), 1)
++        e = state["offers"][0]
++        self.assertEqual(e["published"], "2026-11-03")
++        self.assertEqual(e["reopen_count"], 1)
++        self.assertIn("reopened_at", e)
++        self.assertEqual(e["links"][0]["id"], "Welcome to the Jungle:a2", "le lien vivant doit passer en premier")
++        self.assertEqual(len(e["links"]), 2)
++        self.assertTrue(any(t.startswith("Republiée") for t in pushed), pushed)
++
++    def test_copie_sur_un_autre_site_nest_pas_une_republication(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-22")],
++            [offer("h9", "2026-11-03", source="HelloWork")],
++        )
++        e = state["offers"][0]
++        self.assertNotIn("reopened_at", e)
++        self.assertEqual(len(e["links"]), 2)
++        self.assertFalse(any(t.startswith("Republiée") for t in pushed))
++
++    def test_ecart_trop_court(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-30")],
++            [offer("a2", "2026-11-03")],
++        )
++        self.assertNotIn("reopened_at", state["offers"][0])
++        self.assertFalse(any(t.startswith("Republiée") for t in pushed))
++
++    def test_sans_date_on_ne_conclut_pas(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-25")],
++            [offer("a2", "")],
++        )
++        self.assertNotIn("reopened_at", state["offers"][0])
++
++    def test_une_seule_notification_par_offre_et_par_passage(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-22")],
++            [offer("a2", "2026-11-03"), offer("a3", "2026-11-04")],
++        )
++        self.assertEqual(sum(t.startswith("Republiée") for t in pushed), 1)
++
++    def test_offre_nouvelle_toujours_notifiee(self):
++        state, pushed = self.run_passes(
++            [offer("a1", "2026-10-22")],
++            [offer("b1", "2026-11-03", title="Alternance Administrateur systèmes et réseaux H/F", company="Autre")],
++        )
++        self.assertEqual(len(state["offers"]), 2)
++        self.assertTrue(any("Administrateur" in t for t in pushed))
++
++
++class Filtre(unittest.TestCase):
++    def profile(self, title):
++        p = veille_main.classify(title, CFG)
++        return p["name"] if p else None
++
++    def test_maintenance_informatique_reste_visible(self):
++        self.assertEqual(self.profile("Technicien de maintenance informatique en apprentissage"), "Support")
++
++    def test_maintenance_hors_it_reste_ecartee(self):
++        self.assertIsNone(self.profile("Technicien de maintenance industrielle - alternance"))
++        self.assertIsNone(self.profile("Alternant maintenance électrique et systèmes"))
++
++    def test_sante_securite_environnement_ecarte(self):
++        self.assertIsNone(self.profile("Apprenti·e Santé Sécurité Environnement H/F"))
++
++    def test_cyber_toujours_classee(self):
++        self.assertEqual(self.profile("Alternance Security Officer H/F"), "Cyber")
++
++    def test_ecoles_ecartees(self):
++        for company in ("aivancity", "MyDigitalSchool Saint Quentin en Yvelines"):
++            o = offer("x", "2026-11-03", title="Assistant Cybersécurité - Alternance H/F", company=company)
++            self.assertIsNone(veille_main.keep(o, CFG), company)
++        ok = offer("y", "2026-11-03", title="Assistant Cybersécurité - Alternance H/F", company="Capgemini")
++        self.assertIsNotNone(veille_main.keep(ok, CFG))
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/veille/__main__.py b/veille/__main__.py
+index 0ed9d0c..a3f95dd 100644
+--- a/veille/__main__.py
++++ b/veille/__main__.py
+@@ -7,7 +7,7 @@ import json
+ import os
+ import sys
+ import tomllib
+-from datetime import datetime, timedelta, timezone
++from datetime import date, datetime, timedelta, timezone
+ from pathlib import Path
+ from zoneinfo import ZoneInfo
+ 
+@@ -20,6 +20,25 @@ KEEP_DAYS = 90
+ HEARTBEAT_HOUR = 8  # heure de Paris du résumé quotidien
+ ERROR_ALERT_AFTER = 3  # passages en échec d'affilée avant alerte
+ ALTERNANCE_TERMS = ["alternance", "alternant", "alternante", "apprenti", "apprentie", "apprentissage", "contrat pro"]
++REPUBLISH_MIN_GAP_DAYS = 7  # écart minimal entre deux publications pour parler de republication
++
++
++def is_republication(entry, offer):
++    """Même titre chez la même entreprise, remis en ligne sur le même site avec un nouvel identifiant,
++    au moins REPUBLISH_MIN_GAP_DAYS jours après la dernière date connue.
++
++    Le site peut republier parce que le poste est resté vacant ou parce qu'une embauche est tombée à l'eau :
++    on ne sait pas lequel, mais le besoin est de nouveau actif. Une copie qui apparaît sur un autre site
++    n'est pas comptée (les sites se recopient avec retard). Sans date de publication fiable, on ne conclut pas.
++    """
++    if not offer.published or not any(l["source"] == offer.source for l in entry["links"]):
++        return False
++    known = entry.get("published") or entry["first_seen"][:10]
++    try:
++        limit = date.fromisoformat(known) + timedelta(days=REPUBLISH_MIN_GAP_DAYS)
++        return date.fromisoformat(offer.published) >= limit
++    except ValueError:  # date illisible : on ne conclut pas
++        return False
+ 
+ 
+ def classify(title, cfg):
+@@ -89,7 +108,7 @@ def main():
+             o["profile"], o["cv"] = p["name"], p["cv"]
+ 
+     raw, errors = collect(cfg)
+-    fresh = []
++    fresh, republished = [], []
+     for o in raw:
+         if o.id in by_id:
+             continue
+@@ -98,9 +117,18 @@ def main():
+             continue
+         link = {"id": o.id, "source": o.source, "url": o.url}
+         key = f"{norm(o.title)}|{norm(o.company)}"
+-        if key in by_key:  # même offre vue sur un autre site : on ajoute le lien, sans notifier
+-            by_key[key]["links"].append(link)
+-            by_id[o.id] = by_key[key]
++        if key in by_key:
++            entry = by_key[key]
++            if is_republication(entry, o):  # remise en ligne : le lien vivant passe en premier
++                entry["links"].insert(0, link)
++                entry["published"] = o.published
++                entry["reopened_at"] = now
++                entry["reopen_count"] = entry.get("reopen_count", 0) + 1
++                if entry not in republished:
++                    republished.append(entry)
++            else:  # même offre vue sur un autre site : on ajoute le lien, sans notifier
++                entry["links"].append(link)
++            by_id[o.id] = entry
+             continue
+         entry = {
+             "key": key,
+@@ -117,11 +145,13 @@ def main():
+         by_key[key] = by_id[o.id] = entry
+         fresh.append(entry)
+ 
+-    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(errors)} erreurs")
++    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(republished)} republiées, {len(errors)} erreurs")
+     for e in errors:
+         print("  ERREUR", e)
+     for e in fresh:
+         print(f"  [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
++    for e in republished:
++        print(f"  REPUBLIÉE [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
+     if dry:
+         return
+ 
+@@ -140,6 +170,15 @@ def main():
+             )
+         if len(fresh) > limit:
+             push(topic, f"{len(fresh) - limit} autres nouvelles offres", "Ouvre le tableau de bord pour les voir.", url=os.environ.get("DASHBOARD_URL"))
++        for e in republished[:limit]:
++            push(
++                topic,
++                f"Republiée : [{e['profile']}] {e['title']}",
++                f"{e['company']} · {e['location']}\n{e['links'][0]['source']} · CV : {e['cv']}\nL'entreprise a remis l'offre en ligne.",
++                url=e["links"][0]["url"],
++                tags=["repeat"],
++                priority=4,
++            )
+ 
+     # Résumé du matin : prouve que la veille tourne, même sans nouvelle offre.
+     paris = datetime.now(ZoneInfo("Europe/Paris"))
