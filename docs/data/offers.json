@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance portfolio data analyst h/f|allianz partners",
+   "title": "Alternance - Portfolio & Data Analyst H/F",
+   "company": "Allianz Partners",
+   "location": "Saint-Ouen-sur-Seine - 93",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-05",
+   "first_seen": "2026-11-05T16:50:40+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85204355",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85204355.html"
+    }
+   ]
+  },
+  {
    "key": "alternance infrastructure h/f|safran",
    "title": "Alternance - Infrastructure H/F",
    "company": "Safran",
@@ -2293,7 +2310,7 @@
    ]
   }
  ],
- "updated": "2026-11-05T16:40:40+00:00",
+ "updated": "2026-11-05T16:50:40+00:00",
  "errors": [],
  "heartbeat": "2026-11-05",
  "error_streak": 0,
