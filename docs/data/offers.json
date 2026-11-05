@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "administrateurrice systeme reseau alternance bac +2 evidensee h/f|groupe igf",
+   "title": "Administrateur·rice Système Réseau - Alternance - Bac +2 - Evidensee H/F",
+   "company": "Groupe IGF",
+   "location": "Paris - 75",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-11-05",
+   "first_seen": "2026-11-05T23:30:51+00:00",
+   "links": [
+    {
+     "id": "HelloWork:78738173",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/78738173.html"
+    }
+   ]
+  },
+  {
    "key": "alternance portfolio data analyst h/f|allianz partners",
    "title": "Alternance - Portfolio & Data Analyst H/F",
    "company": "Allianz Partners",
@@ -2310,7 +2327,7 @@
    ]
   }
  ],
- "updated": "2026-11-05T23:10:39+00:00",
+ "updated": "2026-11-05T23:30:51+00:00",
  "errors": [],
  "heartbeat": "2026-11-05",
  "error_streak": 0,
