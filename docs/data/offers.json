@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance infrastructure h/f|safran",
+   "title": "Alternance - Infrastructure H/F",
+   "company": "Safran",
+   "location": "Moissy-Cramayel - 77",
+   "profile": "Sys & Réseaux",
+   "cv": "Hadrien Admin sys et réseaux",
+   "published": "2026-11-05",
+   "first_seen": "2026-11-05T08:10:37+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85177577",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85177577.html"
+    }
+   ]
+  },
+  {
    "key": "alternance ingenieur r d intelligence artificielle h/f|devoteam france",
    "title": "Alternance - Ingénieur R&D Intelligence Artificielle H/F",
    "company": "Devoteam France",
@@ -2276,7 +2293,7 @@
    ]
   }
  ],
- "updated": "2026-11-05T08:01:07+00:00",
+ "updated": "2026-11-05T08:10:37+00:00",
  "errors": [],
  "heartbeat": "2026-11-05",
  "error_streak": 0,
