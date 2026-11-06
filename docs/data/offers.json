@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "ai agentic adlc engineering|societe generale",
+   "title": "AI & Agentic ADLC Engineering",
+   "company": "Société Générale",
+   "location": "Courbevoie",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-06",
+   "first_seen": "2026-11-06T23:10:39+00:00",
+   "links": [
+    {
+     "id": "Welcome to the Jungle:6bd0f4f9-91c3-4994-8b48-e8d9eeeb0715",
+     "source": "Welcome to the Jungle",
+     "url": "https://www.welcometothejungle.com/fr/companies/societe-generale/jobs/ai-agentic-adlc-engineering_la-defense"
+    }
+   ]
+  },
+  {
    "key": "apprenti juriste droit de la securite sociale/droit social|la securite sociale",
    "title": "Apprenti Juriste Droit de la Sécurité Sociale/Droit Social",
    "company": "La Sécurité Sociale",
@@ -2361,7 +2378,7 @@
    ]
   }
  ],
- "updated": "2026-11-06T23:01:06+00:00",
+ "updated": "2026-11-06T23:10:39+00:00",
  "errors": [],
  "heartbeat": "2026-11-06",
  "error_streak": 0,
