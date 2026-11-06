@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "apprentissage chargee d analyse de donnees de pilotage h/f|france travail",
+   "title": "Apprentissage - Chargé·e d'Analyse de Données de Pilotage H/F",
+   "company": "France Travail",
+   "location": "Paris 20e - 75",
+   "profile": "Data",
+   "cv": "Data",
+   "published": "2026-11-06",
+   "first_seen": "2026-11-06T05:01:04+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85222809",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85222809.html"
+    }
+   ]
+  },
+  {
    "key": "administrateurrice systeme reseau alternance bac +2 evidensee h/f|groupe igf",
    "title": "Administrateur·rice Système Réseau - Alternance - Bac +2 - Evidensee H/F",
    "company": "Groupe IGF",
@@ -2327,7 +2344,7 @@
    ]
   }
  ],
- "updated": "2026-11-06T04:50:37+00:00",
+ "updated": "2026-11-06T05:01:04+00:00",
  "errors": [],
  "heartbeat": "2026-11-05",
  "error_streak": 0,
