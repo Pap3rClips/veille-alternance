@@ -1,6 +1,23 @@
 {
  "offers": [
   {
+   "key": "alternance charge de projet ia si h/f|euroelec smart energy",
+   "title": "Alternance Chargé de Projet IA & Si H/F",
+   "company": "Euroelec-Smart Energy",
+   "location": "Paris 5e - 75",
+   "profile": "IA",
+   "cv": "IA",
+   "published": "2026-11-07",
+   "first_seen": "2026-11-07T06:01:08+00:00",
+   "links": [
+    {
+     "id": "HelloWork:85274981",
+     "source": "HelloWork",
+     "url": "https://www.hellowork.com/fr-fr/emplois/85274981.html"
+    }
+   ]
+  },
+  {
    "key": "ai agentic adlc engineering|societe generale",
    "title": "AI & Agentic ADLC Engineering",
    "company": "Société Générale",
@@ -2378,7 +2395,7 @@
    ]
   }
  ],
- "updated": "2026-11-07T05:50:38+00:00",
+ "updated": "2026-11-07T06:01:08+00:00",
  "errors": [],
  "heartbeat": "2026-11-06",
  "error_streak": 0,
