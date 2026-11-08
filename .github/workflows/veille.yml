@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -34,5 +34,15 @@ jobs:
           git config user.name "veille-bot"
           git config user.email "veille-bot@users.noreply.github.com"
           git add docs/data/offers.json
-          git diff --cached --quiet || git commit -m "Mise à jour des offres"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "Mise à jour des offres"
+          # Le push échoue parfois : erreur transitoire côté GitHub
+          # ("fatal error in commit_refs") ou main a bougé entre-temps
+          # ("fetch first"). On rebase puis on réessaie.
+          for i in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push refusé (tentative $i), nouvel essai dans $((i * 5)) s"
+            sleep $((i * 5))
+            git pull --rebase origin main || { git rebase --abort; exit 1; }
+          done
+          exit 1
