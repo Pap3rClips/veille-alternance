@@ -39,8 +39,11 @@
   #updated.stale { color: var(--warn); }
 
   .goal { margin-top: 10px; display: flex; align-items: center; gap: 12px; }
+  .goal-rows { flex: 1; display: grid; gap: 4px; min-width: 0; }
+  .goal-row { display: grid; grid-template-columns: 9.5em 1fr; align-items: center; gap: 10px; }
   .goal-text { font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .goal-text strong { font-size: 18px; }
+  .goal-text strong { font-size: 16px; }
+  .goal-row.met .goal-text { color: var(--ok); }
   .bar { flex: 1; height: 8px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
   .bar > div { height: 100%; width: 0; background: var(--ok); transition: width .25s ease-out; }
   .goal button { min-height: 44px; }
@@ -85,9 +88,6 @@
   .actions button { flex: 1 1 120px; }
   @media (max-width: 479px) {
     .primary { flex-basis: 100%; }
-    .goal { flex-wrap: wrap; }
-    .goal .bar { order: 3; flex-basis: 100%; }
-    .goal-text { flex: 1; }
   }
   .more { font-size: 14px; margin-top: 10px; color: var(--muted); }
   .more a { margin-right: 12px; display: inline-block; padding: 10px 0; }
@@ -154,9 +154,17 @@
       <span id="updated" role="status">Chargement…</span>
     </div>
     <div class="goal">
-      <span class="goal-text"><strong id="done">0</strong> / <span id="goal">10</span> candidatures aujourd'hui</span>
-      <div class="bar" role="progressbar" aria-label="Objectif du jour" aria-valuemin="0" aria-valuenow="0" aria-valuemax="10"><div id="bar"></div></div>
-      <button id="setGoal" type="button">Objectif</button>
+      <div class="goal-rows">
+        <div class="goal-row" id="row-classique">
+          <span class="goal-text">Classiques <strong id="done-classique">0</strong> / <span id="goal-classique">5</span></span>
+          <div class="bar" role="progressbar" aria-label="Candidatures classiques aujourd'hui" aria-valuemin="0" aria-valuenow="0" aria-valuemax="5"><div id="bar-classique"></div></div>
+        </div>
+        <div class="goal-row" id="row-spontanee">
+          <span class="goal-text">Spontanées <strong id="done-spontanee">0</strong> / <span id="goal-spontanee">5</span></span>
+          <div class="bar" role="progressbar" aria-label="Candidatures spontanées aujourd'hui" aria-valuemin="0" aria-valuenow="0" aria-valuemax="5"><div id="bar-spontanee"></div></div>
+        </div>
+      </div>
+      <button id="setGoal" type="button">Objectifs</button>
     </div>
     <div class="tabs" role="tablist" aria-label="Statut">
       <button role="tab" data-status="todo" aria-selected="true">À postuler<span class="count" id="c-todo"></span></button>
@@ -228,7 +236,8 @@ let manual = store.get("manual", []);    // candidatures ajoutées à la main (m
 let details = store.get("details", {});  // clé d'offre -> {recruiter, notes}
 const MANUAL_SOURCE = "Ajoutée à la main";
 let marks = store.get("marks", {});      // clé d'offre -> {status, at}
-let goal = store.get("goal", 10);
+// Objectifs quotidiens séparés : candidatures classiques (offres) et spontanées.
+let goals = { classique: 5, spontanee: 5, ...store.get("goals", {}) };
 const view = { status: "todo", profile: "", source: "", kind: "", q: "" };
 let lastAction = null;
 
@@ -368,13 +377,23 @@ function render() {
   for (const k in counts) $("c-" + k).textContent = counts[k];
 
   const today = new Date().toDateString();
-  const done = Object.values(marks).filter((m) => m.status === "applied" && dayOf(m.at) === today).length;
-  $("done").textContent = done;
-  $("goal").textContent = goal;
-  $("bar").style.width = Math.min(100, (done / goal) * 100) + "%";
-  const pb = document.querySelector(".bar");
-  pb.setAttribute("aria-valuenow", done);
-  pb.setAttribute("aria-valuemax", goal);
+  // Une clé de marque absente des offres (offre sortie de la veille) reste une candidature classique.
+  const byKey = new Map(offers.map((o) => [o.key, o]));
+  const done = { classique: 0, spontanee: 0 };
+  for (const [key, m] of Object.entries(marks)) {
+    if (m.status !== "applied" || dayOf(m.at) !== today) continue;
+    const o = byKey.get(key);
+    done[o ? kindOf(o) : "classique"]++;
+  }
+  for (const k of ["classique", "spontanee"]) {
+    $("done-" + k).textContent = done[k];
+    $("goal-" + k).textContent = goals[k];
+    $("bar-" + k).style.width = Math.min(100, (done[k] / goals[k]) * 100) + "%";
+    $("row-" + k).classList.toggle("met", done[k] >= goals[k]);
+    const pb = $("row-" + k).querySelector(".bar");
+    pb.setAttribute("aria-valuenow", done[k]);
+    pb.setAttribute("aria-valuemax", goals[k]);
+  }
 
   if (view.status === "notes") return;  // onglet pense-bête : pas de liste à dessiner
   const q = view.q.trim().toLowerCase();
@@ -555,8 +574,14 @@ $("form").addEventListener("submit", (e) => {
 });
 
 $("setGoal").addEventListener("click", () => {
-  const n = parseInt(prompt("Nombre de candidatures visé par jour :", goal), 10);
-  if (n > 0) { goal = n; store.set("goal", n); render(); }
+  for (const [k, label] of [["classique", "classiques"], ["spontanee", "spontanées"]]) {
+    const answer = prompt(`Candidatures ${label} visées par jour :`, goals[k]);
+    if (answer === null) return;  // Annuler : on garde les objectifs actuels
+    const n = parseInt(answer, 10);
+    if (n > 0) goals[k] = n;
+  }
+  store.set("goals", goals);
+  render();
 });
 
 load();
