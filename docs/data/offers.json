@@ -13,7 +13,8 @@
     {
      "id": "HelloWork:85274981",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85274981.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85274981.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -30,7 +31,8 @@
     {
      "id": "Welcome to the Jungle:6bd0f4f9-91c3-4994-8b48-e8d9eeeb0715",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/societe-generale/jobs/ai-agentic-adlc-engineering_la-defense"
+     "url": "https://www.welcometothejungle.com/fr/companies/societe-generale/jobs/ai-agentic-adlc-engineering_la-defense",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -47,7 +49,8 @@
     {
      "id": "Welcome to the Jungle:c750f42c-6bf7-44be-b04b-6295f173690d",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/securitesociale/jobs/apprenti-juriste-droit-de-la-securite-sociale-droit-social_saint-ouen-sur-seine"
+     "url": "https://www.welcometothejungle.com/fr/companies/securitesociale/jobs/apprenti-juriste-droit-de-la-securite-sociale-droit-social_saint-ouen-sur-seine",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -64,7 +67,8 @@
     {
      "id": "HelloWork:85222809",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85222809.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85222809.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -81,7 +85,8 @@
     {
      "id": "HelloWork:78738173",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/78738173.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/78738173.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -98,9 +103,12 @@
     {
      "id": "HelloWork:85204355",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85204355.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85204355.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance infrastructure h/f|safran",
@@ -115,7 +123,8 @@
     {
      "id": "HelloWork:85177577",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85177577.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85177577.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -132,9 +141,12 @@
     {
      "id": "HelloWork:85166283",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85166283.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85166283.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "support aux utilisateurs en informatique|layan",
@@ -149,7 +161,8 @@
     {
      "id": "France Travail:8529316",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8529316"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8529316",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -166,9 +179,12 @@
     {
      "id": "HelloWork:85123185",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85123185.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85123185.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance technicien reseaux et infrastructures entreprises h/f|imc alternance",
@@ -183,7 +199,8 @@
     {
      "id": "HelloWork:79800830",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79800830.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79800830.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -200,9 +217,12 @@
     {
      "id": "HelloWork:82988263",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/82988263.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/82988263.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "data analyst logiciel alternance h/f|aivancity",
@@ -217,7 +237,8 @@
     {
      "id": "HelloWork:85091064",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85091064.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091064.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -234,7 +255,8 @@
     {
      "id": "HelloWork:85091069",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85091069.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091069.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -251,7 +273,8 @@
     {
      "id": "HelloWork:85090963",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85090963.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090963.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -268,7 +291,8 @@
     {
      "id": "HelloWork:85090938",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85090938.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090938.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -285,7 +309,8 @@
     {
      "id": "HelloWork:85090930",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85090930.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090930.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -302,7 +327,8 @@
     {
      "id": "HelloWork:85091194",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85091194.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091194.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -319,7 +345,8 @@
     {
      "id": "HelloWork:85091195",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85091195.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85091195.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -336,7 +363,8 @@
     {
      "id": "HelloWork:85090962",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85090962.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090962.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -353,7 +381,8 @@
     {
      "id": "HelloWork:85090951",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85090951.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85090951.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -370,7 +399,8 @@
     {
      "id": "Welcome to the Jungle:1445925a-5bb3-4783-a270-12c203530de8",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/deloitte/jobs/ts-t-alternant-strategie-it-organisation-et-performance-de-la-dsi-f-h_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/deloitte/jobs/ts-t-alternant-strategie-it-organisation-et-performance-de-la-dsi-f-h_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -387,7 +417,8 @@
     {
      "id": "HelloWork:79678663",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79678663.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79678663.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -404,9 +435,12 @@
     {
      "id": "HelloWork:85039081",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85039081.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85039081.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance innovation bim ia developpement logiciel h/f|artelia",
@@ -421,9 +455,12 @@
     {
      "id": "HelloWork:85037710",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85037710.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85037710.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "assistant informatique alternance|allianz france",
@@ -438,9 +475,12 @@
     {
      "id": "Welcome to the Jungle:79cb7764-7716-4dbf-9b33-aa36d5a21afe",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/allianz/jobs/assistant-informatique-h-f-alternance_la-garenne-colombes"
+     "url": "https://www.welcometothejungle.com/fr/companies/allianz/jobs/assistant-informatique-h-f-alternance_la-garenne-colombes",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "assistant metier systemes d informations h/f|action logement",
@@ -455,7 +495,8 @@
     {
      "id": "HelloWork:79609815",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79609815.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79609815.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -472,7 +513,8 @@
     {
      "id": "Welcome to the Jungle:0db6d168-b071-42b9-8428-8f4688479595",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/data-engineer-f-h-en-alternance_massy_CARRE_WlQPxjY"
+     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/data-engineer-f-h-en-alternance_massy_CARRE_WlQPxjY",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -489,7 +531,8 @@
     {
      "id": "Welcome to the Jungle:15dfbae8-39a4-4f6e-8a36-eb656d113a46",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/mister-ia/jobs/operations-analyst-paris-cdi-h-f_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/mister-ia/jobs/operations-analyst-paris-cdi-h-f_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -506,7 +549,8 @@
     {
      "id": "HelloWork:84985191",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84985191.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84985191.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -523,12 +567,15 @@
     {
      "id": "France Travail:8406213",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8406213"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8406213",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     },
     {
      "id": "France Travail:8461753",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8461753"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8461753",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -545,7 +592,8 @@
     {
      "id": "HelloWork:79532798",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79532798.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79532798.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -562,9 +610,12 @@
     {
      "id": "Welcome to the Jungle:2cefd3b4-c389-41c4-ad57-81828d60934d",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/alegria-group/jobs/next-gen-full-stack-developer-h-f_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/alegria-group/jobs/next-gen-full-stack-developer-h-f_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "consultant web analytics h/f alternance janvier 2027|converteo",
@@ -579,9 +630,12 @@
     {
      "id": "Welcome to the Jungle:f50c45a5-0c08-4c1c-886e-7311b33776b5",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/converteo/jobs/consultant-web-analytics-h-f-stage-de-6-mois-ou-alternance-janvier-2027_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/converteo/jobs/consultant-web-analytics-h-f-stage-de-6-mois-ou-alternance-janvier-2027_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternant intelligence artificielle et automatisation des metiers h/f|beming",
@@ -596,9 +650,12 @@
     {
      "id": "HelloWork:84923663",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84923663.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84923663.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "developpeur developpeuse ia h/f|kometa consulting",
@@ -613,9 +670,12 @@
     {
      "id": "HelloWork:84923688",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84923688.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84923688.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "developpeur / developpeuse ia|kometa consulting",
@@ -630,9 +690,12 @@
     {
      "id": "France Travail:8376478",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376478"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376478",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "developpeur / developpeuse ia|beming",
@@ -647,9 +710,12 @@
     {
      "id": "France Travail:8376462",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376462"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8376462",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance recherche et developpement ia f/h|v02 group",
@@ -664,7 +730,8 @@
     {
      "id": "France Travail:8371099",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8371099"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8371099",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -681,9 +748,12 @@
     {
      "id": "HelloWork:83872246",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/83872246.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/83872246.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "data business analyste confirme h/f|capgemini",
@@ -698,12 +768,14 @@
     {
      "id": "HelloWork:84912582",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84912582.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84912582.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     },
     {
      "id": "France Travail:8390302",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8390302"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8390302",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -720,9 +792,12 @@
     {
      "id": "Welcome to the Jungle:2fe117ed-32db-4f1c-af6a-07ebe69afb2d",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/data-solutions-engineer_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/data-solutions-engineer_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "data business analyste confirme|capgemini",
@@ -737,7 +812,8 @@
     {
      "id": "Welcome to the Jungle:097df51c-f173-47bd-8713-662ff4da7833",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/capgemini/jobs/data-business-analyste-confirme-f-h_issy-les-moulineaux"
+     "url": "https://www.welcometothejungle.com/fr/companies/capgemini/jobs/data-business-analyste-confirme-f-h_issy-les-moulineaux",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -754,9 +830,12 @@
     {
      "id": "HelloWork:84888269",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84888269.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84888269.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "junior front end developer|beloy",
@@ -771,9 +850,12 @@
     {
      "id": "Welcome to the Jungle:da952fb2-4bc8-4304-bb6b-8345b7e5098c",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/junior-front-end-developer_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/beloy/jobs/junior-front-end-developer_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternant ai et automatisation engineer r d h/f|valeo",
@@ -788,9 +870,12 @@
     {
      "id": "HelloWork:84866740",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84866740.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84866740.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance sales ops outils ia|muchbetter ai",
@@ -805,7 +890,8 @@
     {
      "id": "Welcome to the Jungle:c4e5e6c6-0a48-4ce8-b60e-d7589f075bd5",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/muchbetter-ai/jobs/alternance-sales-ops-outils-ia_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/muchbetter-ai/jobs/alternance-sales-ops-outils-ia_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -822,7 +908,8 @@
     {
      "id": "HelloWork:84839827",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84839827.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84839827.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -839,7 +926,8 @@
     {
      "id": "HelloWork:84831625",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84831625.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84831625.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -856,7 +944,8 @@
     {
      "id": "HelloWork:81746493",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/81746493.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/81746493.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -873,7 +962,8 @@
     {
      "id": "HelloWork:82746683",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/82746683.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/82746683.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -890,14 +980,19 @@
     {
      "id": "HelloWork:83804002",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/83804002.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/83804002.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     },
     {
      "id": "HelloWork:83804092",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/83804092.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/83804092.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternant chargee de projet intelligence artificielle|credit mutuel alliance federale",
@@ -912,9 +1007,12 @@
     {
      "id": "Welcome to the Jungle:14764c6c-8592-4aa6-8d75-68db306db5bb",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/credit-mutuel-alliance-federale/jobs/alternant-chargee-de-projet-intelligence-artificielle-ia-f-h_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/credit-mutuel-alliance-federale/jobs/alternant-chargee-de-projet-intelligence-artificielle-ia-f-h_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternant chargee de projet intelligence artificielle ia h/f|groupe la francaise",
@@ -929,9 +1027,12 @@
     {
      "id": "HelloWork:84805143",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84805143.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84805143.html",
+     "checked_at": "2026-11-09T13:51:14+00:00",
+     "closed": true
     }
-   ]
+   ],
+   "closed_at": "2026-11-09T13:51:14+00:00"
   },
   {
    "key": "alternance ai product assistant h/f|engie",
@@ -951,7 +1052,8 @@
     {
      "id": "HelloWork:85123321",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/85123321.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/85123321.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1002,7 +1104,8 @@
     {
      "id": "HelloWork:80594082",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/80594082.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/80594082.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1019,7 +1122,8 @@
     {
      "id": "Welcome to the Jungle:a2550aaa-e2c7-4371-9983-d875aadf9974",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/rexel-france/jobs/alternance-assistant-bi-reporting-system_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/rexel-france/jobs/alternance-assistant-bi-reporting-system_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1070,7 +1174,8 @@
     {
      "id": "HelloWork:83674941",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/83674941.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/83674941.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1087,7 +1192,8 @@
     {
      "id": "HelloWork:76756927",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/76756927.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/76756927.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1138,7 +1244,8 @@
     {
      "id": "France Travail:8224059",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8224059"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8224059",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1182,7 +1289,8 @@
     {
      "id": "France Travail:8520152",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8520152"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/8520152",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1250,7 +1358,8 @@
     {
      "id": "Welcome to the Jungle:be67619f-f670-4b78-b713-b4b8b4c825f1",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/carrefour-links-chef-de-projet-data-f-h-alternance_massy"
+     "url": "https://www.welcometothejungle.com/fr/companies/carrefour/jobs/carrefour-links-chef-de-projet-data-f-h-alternance_massy",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1481,7 +1590,8 @@
     {
      "id": "HelloWork:77025365",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/77025365.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/77025365.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1515,7 +1625,8 @@
     {
      "id": "HelloWork:81465147",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/81465147.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/81465147.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1600,7 +1711,8 @@
     {
      "id": "Welcome to the Jungle:54aecf31-faa9-478c-8177-8bf3115bdb78",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/ministere-de-l-interieur/jobs/dr-snum-technicien-ne-support-de-proximite_saint-denis"
+     "url": "https://www.welcometothejungle.com/fr/companies/ministere-de-l-interieur/jobs/dr-snum-technicien-ne-support-de-proximite_saint-denis",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1617,7 +1729,8 @@
     {
      "id": "HelloWork:80199499",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/80199499.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/80199499.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1719,7 +1832,8 @@
     {
      "id": "HelloWork:79044911",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79044911.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044911.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1753,7 +1867,8 @@
     {
      "id": "HelloWork:79044890",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79044890.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044890.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1770,7 +1885,8 @@
     {
      "id": "HelloWork:79044915",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/79044915.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/79044915.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1872,7 +1988,8 @@
     {
      "id": "France Travail:7939798",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7939798"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/7939798",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1940,7 +2057,8 @@
     {
      "id": "Welcome to the Jungle:de920774-1d62-4709-84b9-aef98f0a7c10",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/totalenergies/jobs/ingenieur-data-solaire-et-ia-debutant-h-f_palaiseau"
+     "url": "https://www.welcometothejungle.com/fr/companies/totalenergies/jobs/ingenieur-data-solaire-et-ia-debutant-h-f_palaiseau",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -1974,7 +2092,8 @@
     {
      "id": "HelloWork:84116971",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/84116971.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/84116971.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2098,7 +2217,8 @@
     {
      "id": "Welcome to the Jungle:6af14300-75ea-4165-87f0-e8e57e76a556",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/galadrim/jobs/alternance-charge-de-projet-iso-27001_paris"
+     "url": "https://www.welcometothejungle.com/fr/companies/galadrim/jobs/alternance-charge-de-projet-iso-27001_paris",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2115,7 +2235,8 @@
     {
      "id": "Welcome to the Jungle:4b3adb0d-8dc9-4901-bd75-1b3fb7f4d104",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/l-acoustics/jobs/digital-workplace-support-technician-apprentice_marcoussis"
+     "url": "https://www.welcometothejungle.com/fr/companies/l-acoustics/jobs/digital-workplace-support-technician-apprentice_marcoussis",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2149,7 +2270,8 @@
     {
      "id": "Welcome to the Jungle:47cf7bd2-90f1-4531-877c-3de62c748197",
      "source": "Welcome to the Jungle",
-     "url": "https://www.welcometothejungle.com/fr/companies/ika-conseil/jobs/developpeur-se-fullstack-junior_boulogne-billancourt_IAIC_ogAJrXO"
+     "url": "https://www.welcometothejungle.com/fr/companies/ika-conseil/jobs/developpeur-se-fullstack-junior_boulogne-billancourt_IAIC_ogAJrXO",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2166,12 +2288,14 @@
     {
      "id": "HelloWork:78824163",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/78824163.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/78824163.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     },
     {
      "id": "HelloWork:77024503",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/77024503.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/77024503.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2188,7 +2312,8 @@
     {
      "id": "HelloWork:83892083",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/83892083.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/83892083.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2256,7 +2381,8 @@
     {
      "id": "HelloWork:80733348",
      "source": "HelloWork",
-     "url": "https://www.hellowork.com/fr-fr/emplois/80733348.html"
+     "url": "https://www.hellowork.com/fr-fr/emplois/80733348.html",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2356,7 +2482,8 @@
     {
      "id": "France Travail:214XXXM",
      "source": "France Travail",
-     "url": "https://candidat.francetravail.fr/offres/recherche/detail/214XXXM"
+     "url": "https://candidat.francetravail.fr/offres/recherche/detail/214XXXM",
+     "checked_at": "2026-11-09T13:51:14+00:00"
     }
    ]
   },
@@ -2395,7 +2522,7 @@
    ]
   }
  ],
- "updated": "2026-11-09T13:40:43+00:00",
+ "updated": "2026-11-09T13:50:44+00:00",
  "errors": [],
  "heartbeat": "2026-11-09",
  "error_streak": 0,
