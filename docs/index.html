@@ -21,6 +21,7 @@
     }
   }
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
     margin: 0; background: var(--bg); color: var(--text);
     font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -46,7 +47,8 @@
 
   .tabs { display: flex; gap: var(--gap); margin-top: 12px; }
   .tabs button { flex: 1; }
-  @media (max-width: 480px) { .tabs { gap: 4px; } .tabs button { padding: 8px 2px; font-size: 14px; } .count { margin-left: 2px; } }
+  /* Petit écran : les cinq onglets passent sur deux lignes (3 + 2) plutôt que de déborder. */
+  @media (max-width: 480px) { .tabs { gap: 4px; flex-wrap: wrap; } .tabs button { flex: 1 1 calc(33.33% - 4px); padding: 8px 2px; font-size: 14px; } .count { margin-left: 2px; } }
   button, select, input {
     font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); min-height: 44px; padding: 8px 12px; touch-action: manipulation;
@@ -122,6 +124,12 @@
   .form-actions .submit { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
   .form-actions .delete { color: var(--danger); margin-right: auto; }
   .hint { font-size: 13px; color: var(--muted); margin: 0; }
+  #notesView { padding: 16px 0 96px; }
+  #memo {
+    width: 100%; min-height: 60vh; resize: vertical; font: inherit; line-height: 1.6; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px;
+  }
+  #memoState { min-height: 1.5em; margin-top: 6px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -143,11 +151,17 @@
       <button role="tab" data-status="applied" aria-selected="false">Postulées<span class="count" id="c-applied"></span></button>
       <button role="tab" data-status="relance" aria-selected="false">À relancer<span class="count" id="c-relance"></span></button>
       <button role="tab" data-status="ignored" aria-selected="false">Ignorées<span class="count" id="c-ignored"></span></button>
+      <button role="tab" data-status="notes" aria-selected="false">Notes</button>
     </div>
   </div>
 </header>
 
 <main class="wrap">
+  <section id="notesView" hidden>
+    <label for="memo">Pense-bête</label>
+    <textarea id="memo" placeholder="Idées, contacts à rappeler, entreprises à surveiller…"></textarea>
+    <p class="hint" id="memoState" role="status">Enregistré automatiquement dans ce navigateur.</p>
+  </section>
   <div class="toolbar"><button id="addBtn" type="button">+ Ajouter une candidature</button></div>
   <div class="filters">
     <div><label for="q">Rechercher un titre ou une entreprise</label><input id="q" type="search" autocomplete="off"></div>
@@ -337,6 +351,7 @@ function render() {
   pb.setAttribute("aria-valuenow", done);
   pb.setAttribute("aria-valuemax", goal);
 
+  if (view.status === "notes") return;  // onglet pense-bête : pas de liste à dessiner
   const q = view.q.trim().toLowerCase();
   const shown = offers.filter((o) =>
     inView(o) &&
@@ -392,8 +407,30 @@ async function load() {
   }
 }
 
+// Onglet Notes : un pense-bête libre à la place de la liste d'offres.
+const OFFER_PARTS = [".toolbar", ".filters", "#profiles", "#list"];
+function showNotes(on) {
+  $("notesView").hidden = !on;
+  for (const sel of OFFER_PARTS) document.querySelector(sel).hidden = on;
+}
+$("memo").value = store.get("memo", "");
+$("memo").addEventListener("input", () => {
+  $("memoState").textContent = "Enregistrement…";
+  clearTimeout(showNotes.t);
+  showNotes.t = setTimeout(() => {
+    store.set("memo", $("memo").value);
+    $("memoState").textContent = "Enregistré dans ce navigateur.";
+  }, 400);
+});
+// Même pense-bête ouvert dans un autre onglet : on reprend la dernière version.
+window.addEventListener("storage", (e) => {
+  if (e.key === "memo" && document.activeElement !== $("memo")) $("memo").value = store.get("memo", "");
+});
+
 document.querySelectorAll('[role="tab"]').forEach((b) => b.addEventListener("click", () => {
   view.status = b.dataset.status;
+  showNotes(view.status === "notes");
+  if (view.status === "notes") { document.querySelectorAll('[role="tab"]').forEach((x) => x.setAttribute("aria-selected", String(x === b))); return; }
   document.querySelectorAll('[role="tab"]').forEach((x) => x.setAttribute("aria-selected", String(x === b)));
   render();
 }));
