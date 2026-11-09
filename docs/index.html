@@ -97,6 +97,31 @@
     display: flex; align-items: center; gap: 12px; transition: transform .2s ease-out; z-index: 40; max-width: calc(100% - 32px);
   }
   #toast.show { transform: translate(-50%, 0); }
+  .toolbar { display: flex; justify-content: flex-end; padding-top: 16px; }
+  .toolbar button { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .extra { margin-top: 12px; font-size: 14px; }
+  .extra a { color: var(--accent); display: inline-block; padding: 6px 0; }
+  .notes { margin: 6px 0 0; padding: 10px 12px; background: var(--surface-2); border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 240px; overflow: auto; }
+  details summary { cursor: pointer; color: var(--muted); padding: 6px 0; }
+  dialog {
+    width: min(560px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 0;
+    background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius);
+  }
+  dialog::backdrop { background: rgb(0 0 0 / .55); }
+  dialog form { padding: 20px; display: grid; gap: 12px; }
+  dialog h2 { margin: 0; font-size: 18px; }
+  dialog input, dialog textarea { width: 100%; }
+  dialog textarea {
+    font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 8px 12px; min-height: 160px; resize: vertical;
+  }
+  dialog input { background: var(--bg); }
+  .two { display: grid; gap: 12px; }
+  @media (min-width: 520px) { .two { grid-template-columns: 1fr 1fr; } }
+  .form-actions { display: flex; flex-wrap: wrap; gap: var(--gap); justify-content: flex-end; }
+  .form-actions .submit { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+  .form-actions .delete { color: var(--danger); margin-right: auto; }
+  .hint { font-size: 13px; color: var(--muted); margin: 0; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -123,6 +148,7 @@
 </header>
 
 <main class="wrap">
+  <div class="toolbar"><button id="addBtn" type="button">+ Ajouter une candidature</button></div>
   <div class="filters">
     <div><label for="q">Rechercher un titre ou une entreprise</label><input id="q" type="search" autocomplete="off"></div>
     <div><label for="source">Site</label><select id="source"><option value="">Tous les sites</option></select></div>
@@ -130,6 +156,27 @@
   <div class="chips" id="profiles" role="group" aria-label="Profil"></div>
   <ul id="list" aria-live="polite"></ul>
 </main>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <form id="form" method="dialog">
+    <h2 id="dlgTitle">Ajouter une candidature</h2>
+    <div class="manual-only"><label for="f-title">Intitulé du poste</label><input id="f-title" name="title" required></div>
+    <div class="two manual-only">
+      <div><label for="f-company">Entreprise</label><input id="f-company" name="company"></div>
+      <div><label for="f-location">Lieu</label><input id="f-location" name="location"></div>
+    </div>
+    <div class="manual-only"><label for="f-url">Lien de l'offre</label><input id="f-url" name="url" type="url" inputmode="url" placeholder="https://"></div>
+    <div><label for="f-recruiter">LinkedIn du recruteur</label><input id="f-recruiter" name="recruiter" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/…"></div>
+    <div class="manual-only"><label for="f-date">Date de candidature</label><input id="f-date" name="date" type="date" required></div>
+    <div><label for="f-notes">Notes, messages envoyés</label><textarea id="f-notes" name="notes"></textarea></div>
+    <p class="hint">Enregistré dans ce navigateur uniquement.</p>
+    <div class="form-actions">
+      <button type="button" class="delete" id="f-delete">Supprimer</button>
+      <button type="button" id="f-cancel">Annuler</button>
+      <button type="submit" class="submit">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
 
 <div id="toast" role="status" aria-live="polite"><span id="toastText"></span><button id="undo" type="button">Annuler</button></div>
 
@@ -140,8 +187,12 @@ const store = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
-let offers = [];
+let offers = [];      // offres de la veille + candidatures ajoutées à la main
+let feed = [];        // offres de la veille seules
 let profileNames = [];
+let manual = store.get("manual", []);    // candidatures ajoutées à la main (même forme qu'une offre)
+let details = store.get("details", {});  // clé d'offre -> {recruiter, notes}
+const MANUAL_SOURCE = "Ajoutée à la main";
 let marks = store.get("marks", {});      // clé d'offre -> {status, at}
 let goal = store.get("goal", 10);
 const view = { status: "todo", profile: "", source: "", q: "" };
@@ -162,7 +213,9 @@ const dueRelance = (o) => {
 };
 const inView = (o) => (view.status === "relance" ? dueRelance(o) : view.status === "todo" ? isTodo(o) : statusOf(o) === view.status);
 const dayOf = (iso) => new Date(iso).toDateString();
-const safeUrl = (u) => (/^https:\/\//.test(u) ? u : "#");
+const safeUrl = (u) => (/^https?:\/\//i.test(u || "") ? u : "#");
+const isManual = (o) => o.key.startsWith("manual:");
+const mergeOffers = () => { offers = feed.concat(manual); };
 
 function el(tag, props = {}, ...children) {
   const n = Object.assign(document.createElement(tag), props);
@@ -180,6 +233,7 @@ function ago(iso) {
 
 function showToast(text) {
   $("toastText").textContent = text;
+  $("undo").hidden = !lastAction;
   $("toast").classList.add("show");
   clearTimeout(showToast.t);
   showToast.t = setTimeout(() => $("toast").classList.remove("show"), 4500);
@@ -215,31 +269,49 @@ function card(o) {
   if (isClosed(o)) meta.append(el("span", { className: "badge closed", textContent: `Clôturée ${ago(o.closed_at)}` }));
   else if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
   else if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
-  meta.append(
-    el("span", { className: "badge", textContent: o.profile }),
-    el("span", { textContent: `CV : ${o.cv}` }),
-    el("span", { textContent: republished ? `Remise en ligne ${ago(o.reopened_at)}` : `Repérée ${ago(o.first_seen)}` }),
-  );
+  if (isManual(o)) {
+    meta.append(el("span", { className: "badge", textContent: "Ajoutée à la main" }));
+    if (m) meta.append(el("span", { textContent: `Postulée le ${new Date(m.at).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
+  } else {
+    meta.append(
+      el("span", { className: "badge", textContent: o.profile }),
+      el("span", { textContent: `CV : ${o.cv}` }),
+      el("span", { textContent: republished ? `Remise en ligne ${ago(o.reopened_at)}` : `Repérée ${ago(o.first_seen)}` }),
+    );
+  }
   if (view.status === "relance" && m) {
     meta.append(el("span", { textContent: `Dernier contact ${ago(m.last || m.at)} · relance n°${(m.relances || 0) + 1}` }));
   }
   if (o.published) meta.append(el("span", { textContent: `Publiée le ${new Date(o.published).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
 
-  const first = o.links.find((l) => !l.closed) || o.links[0];  // un lien encore en ligne en priorité
-  const apply = el("a", { className: "primary", href: safeUrl(first.url), target: "_blank", rel: "noopener noreferrer" });
-  apply.innerHTML = ICON_OUT;
-  apply.append(`Postuler sur ${first.source}`);
-
-  const actions = el("div", { className: "actions" }, apply);
+  // Un lien encore en ligne en priorité ; une candidature ajoutée sans lien n'en a aucun.
+  const first = o.links.find((l) => !l.closed) || o.links[0];
+  const actions = el("div", { className: "actions" });
+  if (first) {
+    const apply = el("a", { className: "primary", href: safeUrl(first.url), target: "_blank", rel: "noopener noreferrer" });
+    apply.innerHTML = ICON_OUT;
+    apply.append(isManual(o) ? "Voir l'offre" : st === "todo" ? `Postuler sur ${first.source}` : `Voir sur ${first.source}`);
+    actions.append(apply);
+  }
   if (view.status === "relance") actions.append(el("button", { type: "button", textContent: "Relancée", onclick: () => markRelance(o) }));
-  if (st !== "applied") actions.append(el("button", { type: "button", textContent: "Postulée", onclick: () => mark(o, "applied") }));
-  if (st === "todo") actions.append(el("button", { type: "button", textContent: "Ignorer", onclick: () => mark(o, "ignored") }));
-  if (st !== "todo") actions.append(el("button", { type: "button", textContent: "Remettre à postuler", onclick: () => mark(o, "todo") }));
+  if (st === "applied") actions.append(el("button", { type: "button", textContent: isManual(o) ? "Modifier" : "Notes et recruteur", onclick: () => openForm(o) }));
+  if (!isManual(o)) {
+    if (st !== "applied") actions.append(el("button", { type: "button", textContent: "Postulée", onclick: () => mark(o, "applied") }));
+    if (st === "todo") actions.append(el("button", { type: "button", textContent: "Ignorer", onclick: () => mark(o, "ignored") }));
+    if (st !== "todo") actions.append(el("button", { type: "button", textContent: "Remettre à postuler", onclick: () => mark(o, "todo") }));
+  }
 
   const li = el("li", { className: "card" },
     el("h2", { textContent: o.title }),
     el("p", { className: "where", textContent: [o.company, o.location].filter(Boolean).join(" · ") || "Entreprise non précisée" }),
     meta, actions);
+  const d = details[o.key];
+  if (d && (d.recruiter || d.notes)) {
+    const extra = el("div", { className: "extra" });
+    if (d.recruiter) extra.append(el("a", { href: safeUrl(d.recruiter), target: "_blank", rel: "noopener noreferrer", textContent: "Profil LinkedIn du recruteur" }));
+    if (d.notes) extra.append(el("details", {}, el("summary", { textContent: "Notes et messages" }), el("p", { className: "notes", textContent: d.notes })));
+    li.append(extra);
+  }
   if (o.links.length > 1) {
     const more = el("div", { className: "more" }, "Aussi sur : ");
     for (const l of o.links.filter((l) => l !== first)) more.append(el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer", textContent: l.source }));
@@ -270,7 +342,7 @@ function render() {
     inView(o) &&
     (!view.profile || o.profile === view.profile) &&
     (!view.source || o.links.some((l) => l.source === view.source)) &&
-    (!q || (o.title + " " + o.company).toLowerCase().includes(q)));
+    (!q || [o.title, o.company, (details[o.key] || {}).notes].join(" ").toLowerCase().includes(q)));
 
   // Plus récentes en tête : date de publication, puis heure de repérage pour départager.
   shown.sort((a, b) => (b.published || b.first_seen.slice(0, 10)).localeCompare(a.published || a.first_seen.slice(0, 10))
@@ -305,7 +377,8 @@ async function load() {
     const r = await fetch("data/offers.json", { cache: "no-store" });
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
-    offers = data.offers || [];
+    feed = data.offers || [];
+    mergeOffers();
     profileNames = data.profiles || [];
     const up = $("updated");
     const stale = Date.now() - new Date(data.updated) > 45 * 60000;
@@ -314,7 +387,7 @@ async function load() {
     buildFilters();
     render();
   } catch (e) {
-    if (!offers.length) $("list").replaceChildren(el("li", { className: "error", textContent: "Impossible de lire data/offers.json. Lance un premier passage de la veille, puis recharge la page." }));
+    if (!feed.length) $("list").replaceChildren(el("li", { className: "error", textContent: "Impossible de lire data/offers.json. Lance un premier passage de la veille, puis recharge la page." }));
     $("updated").textContent = "Lecture impossible";
   }
 }
@@ -335,6 +408,76 @@ $("undo").addEventListener("click", () => {
   buildFilters();
   render();
 });
+// Formulaire : ajout d'une candidature, ou notes et recruteur d'une offre déjà postulée.
+let editing = null;
+const localDate = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+function openForm(o) {
+  editing = o || null;
+  const f = $("form");
+  f.reset();
+  const manualForm = !o || isManual(o);
+  document.querySelectorAll(".manual-only").forEach((n) => { n.hidden = !manualForm; });
+  for (const n of f.querySelectorAll(".manual-only input")) n.disabled = !manualForm;
+  $("dlgTitle").textContent = !o ? "Ajouter une candidature" : isManual(o) ? "Modifier la candidature" : o.title;
+  $("f-delete").hidden = !o || !isManual(o);
+  const d = (o && details[o.key]) || {};
+  f.recruiter.value = d.recruiter || "";
+  f.notes.value = d.notes || "";
+  f.date.value = localDate(o && marks[o.key] ? new Date(marks[o.key].at) : new Date());
+  if (o && isManual(o)) {
+    f.title.value = o.title;
+    f.company.value = o.company;
+    f.location.value = o.location;
+    f.url.value = o.links[0] ? o.links[0].url : "";
+  }
+  $("dlg").showModal();
+  (manualForm ? f.title : f.recruiter).focus();
+}
+$("addBtn").addEventListener("click", () => openForm());
+$("f-cancel").addEventListener("click", () => $("dlg").close());
+$("f-delete").addEventListener("click", () => {
+  if (!editing || !confirm("Supprimer cette candidature ?")) return;
+  manual = manual.filter((o) => o.key !== editing.key);
+  delete marks[editing.key];
+  delete details[editing.key];
+  store.set("manual", manual); store.set("marks", marks); store.set("details", details);
+  $("dlg").close();
+  mergeOffers(); buildFilters(); render();
+  showToast("Candidature supprimée");
+  lastAction = null;
+});
+$("form").addEventListener("submit", (e) => {
+  const f = e.target;
+  let o = editing;
+  if (!o || isManual(o)) {
+    const url = f.url.value.trim();
+    const fields = {
+      title: f.title.value.trim(), company: f.company.value.trim(), location: f.location.value.trim(),
+      links: url ? [{ id: "manual", source: MANUAL_SOURCE, url }] : [],
+    };
+    if (o) Object.assign(o, fields);
+    else {
+      o = { key: "manual:" + Date.now().toString(36), profile: "", cv: "", published: "", first_seen: new Date().toISOString(), ...fields };
+      manual.push(o);
+    }
+    // Date choisie : aujourd'hui garde l'heure réelle (objectif du jour), sinon midi ce jour-là.
+    const day = f.date.value;
+    const prev = marks[o.key] || {};
+    const at = day === localDate(new Date()) && prev.at && localDate(new Date(prev.at)) === day ? prev.at
+      : day === localDate(new Date()) ? new Date().toISOString() : new Date(day + "T12:00").toISOString();
+    marks[o.key] = { ...prev, status: "applied", at };
+    store.set("manual", manual);
+    store.set("marks", marks);
+  }
+  const recruiter = f.recruiter.value.trim(), notes = f.notes.value.trim();
+  if (recruiter || notes) details[o.key] = { recruiter, notes };
+  else delete details[o.key];
+  store.set("details", details);
+  mergeOffers(); buildFilters(); render();
+  lastAction = null;
+  showToast(editing ? "Modifications enregistrées" : "Candidature ajoutée aux postulées");
+});
+
 $("setGoal").addEventListener("click", () => {
   const n = parseInt(prompt("Nombre de candidatures visé par jour :", goal), 10);
   if (n > 0) { goal = n; store.set("goal", n); render(); }

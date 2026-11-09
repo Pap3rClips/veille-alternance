@@ -45,6 +45,10 @@ Quand une entreprise remet en ligne, sur le même site, une offre déjà vue (m�
 
 L'onglet « À relancer » liste les candidatures marquées « Postulée » sans suite depuis 7 jours. « Relancée » repousse la suivante de 7 jours, deux relances au maximum. Une relance ne compte pas dans l'objectif du jour.
 
+## Candidatures ajoutées à la main
+
+Le bouton « + Ajouter une candidature » enregistre une candidature trouvée hors de la veille : intitulé, entreprise, lieu, lien de l'offre, profil LinkedIn du recruteur, date et un bloc de notes (messages envoyés, échanges). Elle rejoint l'onglet « Postulées », compte dans l'objectif du jour si elle date d'aujourd'hui et passe dans « À relancer » au bout de 7 jours. Sur une offre de la veille marquée « Postulée », le bouton « Notes et recruteur » ajoute les mêmes informations. La recherche porte aussi sur les notes.
+
 ## Tests
 
 ```bash
@@ -55,5 +59,5 @@ python -m unittest discover -s tests
 
 - Les offres republiées ne couvrent qu'une partie des postes qui se libèrent : beaucoup d'entreprises redemandent un profil à leur école ou à leur réseau sans republier d'annonce.
 - GitHub retarde souvent les tâches planifiées de 5 à 15 minutes.
-- Le tableau de bord enregistre les statuts (postulée, ignorée) dans le navigateur : le téléphone et le PC tiennent chacun leur liste.
+- Le tableau de bord enregistre les statuts (postulée, ignorée), les candidatures ajoutées à la main et les notes dans le navigateur : le téléphone et le PC tiennent chacun leur liste, et vider les données du site les efface.
 - Un site qui change sa page casse sa source. Le tableau de bord affiche alors « 1 site en erreur ».
