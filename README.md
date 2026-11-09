@@ -41,13 +41,17 @@ Quand une entreprise remet en ligne, sur le même site, une offre déjà vue (m�
 
 À chaque passage, la veille vérifie sur leur site quelques offres déjà connues (25 au plus, chacune au plus deux fois par jour) : page en 404 ou 410 sur France Travail et HelloWork, page HelloWork marquée « expirée », offre retirée de l'index de Welcome to the Jungle. Une offre dont tous les liens sont retirés sort de l'onglet « À postuler » ; dans les autres onglets, elle porte un badge « Clôturée ». Une offre encore présente dans les résultats de recherche, ou republiée, redevient ouverte. Les offres La Bonne Alternance ne sont pas vérifiées.
 
+## Objectifs du jour
+
+Deux barres suivent les candidatures du jour : 5 classiques (offres de la veille marquées « Postulée » et candidatures classiques ajoutées à la main) et 5 spontanées. Le bouton « Objectifs » change les deux nombres.
+
 ## Relances
 
 L'onglet « À relancer » liste les candidatures marquées « Postulée » sans suite depuis 7 jours. « Relancée » repousse la suivante de 7 jours, deux relances au maximum. Une relance ne compte pas dans l'objectif du jour.
 
 ## Candidatures ajoutées à la main
 
-Le bouton « + Ajouter une candidature » enregistre une candidature trouvée hors de la veille, classique (réponse à une offre) ou spontanée (sans offre : seul le nom de l'entreprise est demandé) : intitulé, entreprise, lieu, lien de l'offre, profil LinkedIn du recruteur, date et un bloc de notes (messages envoyés, échanges). Elle rejoint l'onglet « Postulées », compte dans l'objectif du jour si elle date d'aujourd'hui et passe dans « À relancer » au bout de 7 jours. Sur une offre de la veille marquée « Postulée », le bouton « Notes et recruteur » ajoute les mêmes informations. La recherche porte aussi sur les notes, et le menu « Type de candidature » isole les spontanées ou les classiques (les offres de la veille sont classiques).
+Le bouton « + Ajouter une candidature » enregistre une candidature trouvée hors de la veille, classique (réponse à une offre) ou spontanée (sans offre : seul le nom de l'entreprise est demandé) : intitulé, entreprise, lieu, lien de l'offre, profil LinkedIn du recruteur, date et un bloc de notes (messages envoyés, échanges). Elle rejoint l'onglet « Postulées », compte dans l'objectif du jour de son type si elle date d'aujourd'hui et passe dans « À relancer » au bout de 7 jours. Sur une offre de la veille marquée « Postulée », le bouton « Notes et recruteur » ajoute les mêmes informations. La recherche porte aussi sur les notes, et le menu « Type de candidature » isole les spontanées ou les classiques (les offres de la veille sont classiques).
 
 ## Notes
 
