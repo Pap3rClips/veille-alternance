@@ -1,0 +1,15 @@
+name: Sonde offres closes (temporaire)
+on:
+  push:
+    branches: [probe/offres-closes]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python probe/probe.py
