@@ -6,6 +6,7 @@
 import json
 import os
 import sys
+import time
 import tomllib
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -21,6 +22,49 @@ HEARTBEAT_HOUR = 8  # heure de Paris du résumé quotidien
 ERROR_ALERT_AFTER = 3  # passages en échec d'affilée avant alerte
 ALTERNANCE_TERMS = ["alternance", "alternant", "alternante", "apprenti", "apprentie", "apprentissage", "contrat pro"]
 REPUBLISH_MIN_GAP_DAYS = 7  # écart minimal entre deux publications pour parler de republication
+CLOSED_RECHECK_HOURS = 12  # une offre encore ouverte est revérifiée au plus deux fois par jour
+CLOSED_CHECKS_PER_RUN = 25  # vérifications de clôture par passage (≈ 1 s chacune)
+CLOSED_CHECK_SECONDS = 90  # et jamais plus longtemps que ça
+
+
+def check_closed(known, seen_ids, now):
+    """Repère les offres retirées par leur site. Renvoie celles qui viennent de passer « clôturée ».
+
+    Une offre encore présente dans les résultats du passage est ouverte. Les autres sont vérifiées
+    une à une sur leur site, quelques-unes par passage, les jamais vérifiées d'abord. Une offre est
+    clôturée quand tous ses liens le sont ; une réponse douteuse du site ne conclut rien.
+    """
+    stamp = now.isoformat(timespec="seconds")
+    recheck = (now - timedelta(hours=CLOSED_RECHECK_HOURS)).isoformat()
+    for o in known:
+        for link in o["links"]:
+            if link["id"] in seen_ids:
+                link.pop("closed", None)
+                link["checked_at"] = stamp
+    queue = sorted(
+        (l for o in known if not o.get("closed_at") for l in o["links"]
+         if not l.get("closed") and l.get("checked_at", "") < recheck and l["source"] in sources.CLOSED_CHECKS),
+        key=lambda l: l.get("checked_at", ""),
+    )
+    start = time.monotonic()
+    for link in queue[:CLOSED_CHECKS_PER_RUN]:
+        if time.monotonic() - start > CLOSED_CHECK_SECONDS:
+            break
+        closed = sources.is_closed(link)
+        if closed is None:
+            continue
+        link["checked_at"] = stamp
+        if closed:
+            link["closed"] = True
+    newly = []
+    for o in known:
+        if all(l.get("closed") for l in o["links"]):
+            if not o.get("closed_at"):
+                o["closed_at"] = stamp
+                newly.append(o)
+        else:
+            o.pop("closed_at", None)  # republiée ou de nouveau en ligne
+    return newly
 
 
 def is_republication(entry, offer):
@@ -145,13 +189,17 @@ def main():
         by_key[key] = by_id[o.id] = entry
         fresh.append(entry)
 
-    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(republished)} republiées, {len(errors)} erreurs")
+    closed = check_closed(known, {o.id for o in raw}, datetime.now(timezone.utc))
+
+    print(f"{len(raw)} offres lues, {len(fresh)} nouvelles, {len(republished)} republiées, {len(closed)} clôturées, {len(errors)} erreurs")
     for e in errors:
         print("  ERREUR", e)
     for e in fresh:
         print(f"  [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
     for e in republished:
         print(f"  REPUBLIÉE [{e['profile']}] {e['title']} | {e['company']} | {e['location']} | {e['links'][0]['source']}")
+    for e in closed:
+        print(f"  CLÔTURÉE [{e['profile']}] {e['title']} | {e['company']}")
     if dry:
         return
 

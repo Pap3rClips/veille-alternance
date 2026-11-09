@@ -25,9 +25,12 @@ def offer(source_id, published, source="Welcome to the Jungle", title="Alternanc
                  location="Paris", url=f"https://exemple.fr/{source_id}", published=published)
 
 
-class Republication(unittest.TestCase):
-    def run_passes(self, *passes):
-        """Joue plusieurs passages successifs de la veille ; renvoie l'état final et les notifications."""
+class Passes(unittest.TestCase):
+    def run_passes(self, *passes, closed=lambda link: None):
+        """Joue plusieurs passages successifs de la veille ; renvoie l'état final et les notifications.
+
+        `closed(link)` simule la vérification de clôture sur le site (par défaut : sans réponse).
+        """
         pushed = []
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp) / "offers.json"
@@ -36,12 +39,16 @@ class Republication(unittest.TestCase):
                  mock.patch.object(veille_main, "today", lambda: date(2026, 11, 4)), \
                  mock.patch.object(veille_main, "collect", lambda cfg: (next(batches), [])), \
                  mock.patch.object(veille_main, "push", lambda topic, title, message, **kw: pushed.append(title)), \
+                 mock.patch.object(veille_main.sources, "is_closed", closed), \
+                 mock.patch.object(veille_main, "CLOSED_RECHECK_HOURS", -1), \
                  mock.patch.object(sys, "argv", ["veille"]):
                 for _ in passes:
                     veille_main.main()
                 state = json.loads(data.read_text(encoding="utf-8"))
         return state, pushed
 
+
+class Republication(Passes):
     def test_meme_site_nouvel_identifiant_dix_jours_apres(self):
         state, pushed = self.run_passes(
             [offer("a1", "2026-10-22")],
@@ -95,6 +102,47 @@ class Republication(unittest.TestCase):
         )
         self.assertEqual(len(state["offers"]), 2)
         self.assertTrue(any("Administrateur" in t for t in pushed))
+
+
+class Cloture(Passes):
+    def test_offre_retiree_marquee_cloturee(self):
+        state, _ = self.run_passes([offer("a1", "2026-11-03")], [], closed=lambda link: True)
+        self.assertIn("closed_at", state["offers"][0])
+
+    def test_offre_toujours_en_ligne(self):
+        state, _ = self.run_passes([offer("a1", "2026-11-03")], [], closed=lambda link: False)
+        self.assertNotIn("closed_at", state["offers"][0])
+        self.assertIn("checked_at", state["offers"][0]["links"][0])
+
+    def test_reponse_douteuse_ne_conclut_pas(self):
+        state, _ = self.run_passes([offer("a1", "2026-11-03")], [], closed=lambda link: None)
+        self.assertNotIn("closed_at", state["offers"][0])
+        self.assertNotIn("closed", state["offers"][0]["links"][0])
+
+    def test_un_lien_ouvert_suffit(self):
+        closed = lambda link: link["source"] == "HelloWork"
+        state, _ = self.run_passes(
+            [offer("a1", "2026-11-03"), offer("h1", "2026-11-03", source="HelloWork")],
+            [],
+            closed=closed,
+        )
+        e = state["offers"][0]
+        self.assertNotIn("closed_at", e)
+        self.assertTrue(next(l for l in e["links"] if l["source"] == "HelloWork")["closed"])
+
+    def test_offre_vue_dans_les_resultats_reste_ouverte(self):
+        state, _ = self.run_passes([offer("a1", "2026-11-03")], [offer("a1", "2026-11-03")], closed=lambda link: True)
+        self.assertNotIn("closed_at", state["offers"][0])
+
+    def test_republication_rouvre_une_offre_cloturee(self):
+        calls = iter([True, False])
+        state, _ = self.run_passes(
+            [offer("a1", "2026-10-22")],
+            [],
+            [offer("a2", "2026-11-03")],
+            closed=lambda link: next(calls, False),
+        )
+        self.assertNotIn("closed_at", state["offers"][0])
 
 
 class Filtre(unittest.TestCase):
