@@ -71,6 +71,7 @@
   .meta { display: flex; flex-wrap: wrap; gap: 6px 8px; font-size: 14px; color: var(--muted); margin-bottom: 14px; align-items: center; }
   .badge { border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; color: var(--text); background: var(--surface-2); }
   .badge.new { border-color: var(--ok); color: var(--ok); font-weight: 600; }
+  .badge.closed { border-color: var(--danger); color: var(--danger); font-weight: 600; }
   .actions { display: flex; flex-wrap: wrap; gap: var(--gap); }
   .primary {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 18px;
@@ -151,12 +152,15 @@ const MAX_RELANCES = 2;        // au-delà, on laisse tomber
 const REPUBLISHED_DAYS = 14;   // durée d'affichage du badge « Republiée »
 
 const statusOf = (o) => (marks[o.key] || {}).status || "todo";
+// Offre retirée par son site : elle sort de « À postuler » mais reste visible dans les autres onglets.
+const isClosed = (o) => !!o.closed_at;
+const isTodo = (o) => statusOf(o) === "todo" && !isClosed(o);
 const dueRelance = (o) => {
   const m = marks[o.key];
   return !!m && m.status === "applied" && (m.relances || 0) < MAX_RELANCES
     && Date.now() - new Date(m.last || m.at) >= RELANCE_AFTER_DAYS * 864e5;
 };
-const inView = (o) => (view.status === "relance" ? dueRelance(o) : statusOf(o) === view.status);
+const inView = (o) => (view.status === "relance" ? dueRelance(o) : view.status === "todo" ? isTodo(o) : statusOf(o) === view.status);
 const dayOf = (iso) => new Date(iso).toDateString();
 const safeUrl = (u) => (/^https:\/\//.test(u) ? u : "#");
 
@@ -208,7 +212,8 @@ function card(o) {
   const meta = el("div", { className: "meta" });
   const republished = o.reopened_at && Date.now() - new Date(o.reopened_at) < REPUBLISHED_DAYS * 864e5;
   const m = marks[o.key];
-  if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
+  if (isClosed(o)) meta.append(el("span", { className: "badge closed", textContent: `Clôturée ${ago(o.closed_at)}` }));
+  else if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
   else if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
   meta.append(
     el("span", { className: "badge", textContent: o.profile }),
@@ -220,7 +225,7 @@ function card(o) {
   }
   if (o.published) meta.append(el("span", { textContent: `Publiée le ${new Date(o.published).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
 
-  const first = o.links[0];
+  const first = o.links.find((l) => !l.closed) || o.links[0];  // un lien encore en ligne en priorité
   const apply = el("a", { className: "primary", href: safeUrl(first.url), target: "_blank", rel: "noopener noreferrer" });
   apply.innerHTML = ICON_OUT;
   apply.append(`Postuler sur ${first.source}`);
@@ -237,7 +242,7 @@ function card(o) {
     meta, actions);
   if (o.links.length > 1) {
     const more = el("div", { className: "more" }, "Aussi sur : ");
-    for (const l of o.links.slice(1)) more.append(el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer", textContent: l.source }));
+    for (const l of o.links.filter((l) => l !== first)) more.append(el("a", { href: safeUrl(l.url), target: "_blank", rel: "noopener noreferrer", textContent: l.source }));
     li.append(more);
   }
   return li;
@@ -246,7 +251,7 @@ function card(o) {
 function render() {
   const counts = { todo: 0, applied: 0, ignored: 0, relance: 0 };
   for (const o of offers) {
-    counts[statusOf(o)]++;
+    if (statusOf(o) !== "todo" || isTodo(o)) counts[statusOf(o)]++;
     if (dueRelance(o)) counts.relance++;
   }
   for (const k in counts) $("c-" + k).textContent = counts[k];
@@ -281,7 +286,7 @@ function render() {
 
 function buildFilters() {
   const profiles = profileNames.length ? profileNames : [...new Set(offers.map((o) => o.profile))].sort();
-  const todo = offers.filter((o) => statusOf(o) === "todo");
+  const todo = offers.filter(isTodo);
   const n = (p) => todo.filter((o) => !p || o.profile === p).length;
   const box = $("profiles");
   box.replaceChildren(...["", ...profiles].map((p) =>

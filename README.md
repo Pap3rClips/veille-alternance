@@ -37,6 +37,10 @@ Tout se passe dans `config.toml` : recherches, mots exclus, écoles à écarter,
 
 Quand une entreprise remet en ligne, sur le même site, une offre déjà vue (même titre, même entreprise, publiée au moins 7 jours après la précédente), la veille envoie une notification « Republiée » et la carte porte un badge pendant 14 jours. Le besoin est redevenu actif : poste resté vacant ou embauche tombée à l'eau, la veille ne peut pas savoir lequel. Une copie qui apparaît sur un autre site n'est pas comptée, et un site qui rafraîchit la date sans changer l'identifiant de l'offre n'est pas détecté.
 
+## Offres clôturées
+
+À chaque passage, la veille vérifie sur leur site quelques offres déjà connues (25 au plus, chacune au plus deux fois par jour) : page en 404 ou 410 sur France Travail et HelloWork, page HelloWork marquée « expirée », offre retirée de l'index de Welcome to the Jungle. Une offre dont tous les liens sont retirés sort de l'onglet « À postuler » ; dans les autres onglets, elle porte un badge « Clôturée ». Une offre encore présente dans les résultats de recherche, ou republiée, redevient ouverte. Les offres La Bonne Alternance ne sont pas vérifiées.
+
 ## Relances
 
 L'onglet « À relancer » liste les candidatures marquées « Postulée » sans suite depuis 7 jours. « Relancée » repousse la suivante de 7 jours, deux relances au maximum. Une relance ne compte pas dans l'objectif du jour.

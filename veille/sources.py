@@ -1,11 +1,12 @@
 """Une fonction par site. Chacune prend (query, cfg) et renvoie une liste d'Offer."""
 import os
 import re
+import time
 from urllib.parse import quote
 
 from bs4 import BeautifulSoup
 
-from .common import Offer, fetch, relative_date
+from .common import Offer, fetch, relative_date, session
 
 # Clé publique de recherche, lue dans le site welcometothejungle.com.
 WTTJ_APP = os.environ.get("WTTJ_ALGOLIA_APP", "CSEKHVMS53")
@@ -207,3 +208,62 @@ ALL = {
     "linkedin": linkedin,
     "labonnealternance": labonnealternance,
 }
+
+
+# ---- Offres clôturées -------------------------------------------------------------------
+# Chaque fonction reçoit un lien déjà connu et renvoie True (offre retirée), False (toujours
+# en ligne) ou None (impossible de conclure : site en panne, réponse inattendue).
+# Comportements relevés le 09/11/2026 sur les offres de docs/data/offers.json.
+
+def _get(url, **kwargs):
+    time.sleep(0.4)  # délai de politesse
+    return session.get(url, timeout=20, **kwargs)
+
+
+def _hellowork_closed(link):
+    # Offre retirée : 410, ou 200 avec une page marquée « DO-Expiree ».
+    r = _get(link["url"])
+    if r.status_code in (404, 410):
+        return True
+    if r.status_code == 200:
+        return '"typePage":"DO-Expiree' in r.text
+    return None
+
+
+def _francetravail_closed(link):
+    # Offre retirée : 404 « n'est plus en ligne (offre clôturée) ».
+    r = _get(link["url"])
+    return {404: True, 410: True, 200: False}.get(r.status_code)
+
+
+def _wttj_closed(link):
+    # La page de l'offre renvoie un défi anti-robot (202 vide) : on interroge l'index de recherche,
+    # d'où l'offre disparaît quand elle est dépubliée.
+    oid = link["id"].split(":", 1)[1]
+    r = _get(
+        f"https://{WTTJ_APP.lower()}-dsn.algolia.net/1/indexes/wttj_jobs_production_fr_published_at_desc/{quote(oid, safe='')}",
+        headers={
+            "X-Algolia-Application-Id": WTTJ_APP,
+            "X-Algolia-API-Key": WTTJ_KEY,
+            "Referer": "https://www.welcometothejungle.com/",
+            "Origin": "https://www.welcometothejungle.com",
+        },
+    )
+    return {404: True, 200: False}.get(r.status_code)
+
+
+CLOSED_CHECKS = {
+    "HelloWork": _hellowork_closed,
+    "France Travail": _francetravail_closed,
+    "Welcome to the Jungle": _wttj_closed,
+}
+
+
+def is_closed(link):
+    check = CLOSED_CHECKS.get(link["source"])
+    if not check:
+        return None
+    try:
+        return check(link)
+    except Exception:  # réseau, timeout : on retentera plus tard
+        return None
