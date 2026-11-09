@@ -47,7 +47,7 @@ L'onglet « À relancer » liste les candidatures marquées « Postulée » sans
 
 ## Candidatures ajoutées à la main
 
-Le bouton « + Ajouter une candidature » enregistre une candidature trouvée hors de la veille : intitulé, entreprise, lieu, lien de l'offre, profil LinkedIn du recruteur, date et un bloc de notes (messages envoyés, échanges). Elle rejoint l'onglet « Postulées », compte dans l'objectif du jour si elle date d'aujourd'hui et passe dans « À relancer » au bout de 7 jours. Sur une offre de la veille marquée « Postulée », le bouton « Notes et recruteur » ajoute les mêmes informations. La recherche porte aussi sur les notes.
+Le bouton « + Ajouter une candidature » enregistre une candidature trouvée hors de la veille, classique (réponse à une offre) ou spontanée (sans offre : seul le nom de l'entreprise est demandé) : intitulé, entreprise, lieu, lien de l'offre, profil LinkedIn du recruteur, date et un bloc de notes (messages envoyés, échanges). Elle rejoint l'onglet « Postulées », compte dans l'objectif du jour si elle date d'aujourd'hui et passe dans « À relancer » au bout de 7 jours. Sur une offre de la veille marquée « Postulée », le bouton « Notes et recruteur » ajoute les mêmes informations. La recherche porte aussi sur les notes, et le menu « Type de candidature » isole les spontanées ou les classiques (les offres de la veille sont classiques).
 
 ## Notes
 
