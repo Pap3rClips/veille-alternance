@@ -59,8 +59,10 @@
   button[aria-pressed="true"], button[aria-selected="true"] { border-color: var(--accent); background: var(--surface-2); font-weight: 600; }
   .count { color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
 
-  .filters { display: grid; grid-template-columns: 1fr; gap: var(--gap); padding: 16px 0 8px; }
-  @media (min-width: 640px) { .filters { grid-template-columns: 2fr 1fr; } }
+  .filters { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); padding: 16px 0 8px; }
+  .filters > :first-child { grid-column: 1 / -1; }
+  @media (min-width: 640px) { .filters > :first-child { grid-column: auto; } }
+  @media (min-width: 640px) { .filters { grid-template-columns: 2fr 1fr 1fr; } }
   label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; }
   .filters input, .filters select { width: 100%; }
   .chips { display: flex; flex-wrap: wrap; gap: var(--gap); padding-bottom: 12px; }
@@ -123,6 +125,16 @@
   .form-actions { display: flex; flex-wrap: wrap; gap: var(--gap); justify-content: flex-end; }
   .form-actions .submit { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
   .form-actions .delete { color: var(--danger); margin-right: auto; }
+  fieldset { border: 0; margin: 0; padding: 0; }
+  legend { font-size: 14px; color: var(--muted); margin-bottom: 4px; padding: 0; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+  .seg label {
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; min-height: 44px; cursor: pointer;
+    border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); background: var(--bg);
+  }
+  .seg input { min-height: 0; width: auto; accent-color: var(--accent); }
+  .seg label:has(input:checked) { border-color: var(--accent); font-weight: 600; background: var(--surface-2); }
+  .badge.spont { border-color: var(--accent); color: var(--accent); }
   .hint { font-size: 13px; color: var(--muted); margin: 0; }
   #notesView { padding: 16px 0 96px; }
   #memo {
@@ -166,6 +178,7 @@
   <div class="filters">
     <div><label for="q">Rechercher un titre ou une entreprise</label><input id="q" type="search" autocomplete="off"></div>
     <div><label for="source">Site</label><select id="source"><option value="">Tous les sites</option></select></div>
+    <div><label for="kind">Type de candidature</label><select id="kind"><option value="">Tous les types</option><option value="classique">Classiques</option><option value="spontanee">Spontanées</option></select></div>
   </div>
   <div class="chips" id="profiles" role="group" aria-label="Profil"></div>
   <ul id="list" aria-live="polite"></ul>
@@ -174,12 +187,19 @@
 <dialog id="dlg" aria-labelledby="dlgTitle">
   <form id="form" method="dialog">
     <h2 id="dlgTitle">Ajouter une candidature</h2>
-    <div class="manual-only"><label for="f-title">Intitulé du poste</label><input id="f-title" name="title" required></div>
+    <fieldset class="manual-only">
+      <legend>Type de candidature</legend>
+      <div class="seg">
+        <label><input type="radio" name="kind" value="classique" checked> Classique</label>
+        <label><input type="radio" name="kind" value="spontanee"> Spontanée</label>
+      </div>
+    </fieldset>
+    <div class="manual-only"><label for="f-title" id="l-title">Intitulé du poste</label><input id="f-title" name="title" required></div>
     <div class="two manual-only">
       <div><label for="f-company">Entreprise</label><input id="f-company" name="company"></div>
       <div><label for="f-location">Lieu</label><input id="f-location" name="location"></div>
     </div>
-    <div class="manual-only"><label for="f-url">Lien de l'offre</label><input id="f-url" name="url" type="url" inputmode="url" placeholder="https://"></div>
+    <div class="manual-only"><label for="f-url" id="l-url">Lien de l'offre</label><input id="f-url" name="url" type="url" inputmode="url" placeholder="https://"></div>
     <div><label for="f-recruiter">LinkedIn du recruteur</label><input id="f-recruiter" name="recruiter" type="url" inputmode="url" placeholder="https://www.linkedin.com/in/…"></div>
     <div class="manual-only"><label for="f-date">Date de candidature</label><input id="f-date" name="date" type="date" required></div>
     <div><label for="f-notes">Notes, messages envoyés</label><textarea id="f-notes" name="notes"></textarea></div>
@@ -209,7 +229,7 @@ let details = store.get("details", {});  // clé d'offre -> {recruiter, notes}
 const MANUAL_SOURCE = "Ajoutée à la main";
 let marks = store.get("marks", {});      // clé d'offre -> {status, at}
 let goal = store.get("goal", 10);
-const view = { status: "todo", profile: "", source: "", q: "" };
+const view = { status: "todo", profile: "", source: "", kind: "", q: "" };
 let lastAction = null;
 
 const RELANCE_AFTER_DAYS = 7;  // délai sans nouvelle avant de relancer
@@ -229,6 +249,9 @@ const inView = (o) => (view.status === "relance" ? dueRelance(o) : view.status =
 const dayOf = (iso) => new Date(iso).toDateString();
 const safeUrl = (u) => (/^https?:\/\//i.test(u || "") ? u : "#");
 const isManual = (o) => o.key.startsWith("manual:");
+// Candidature spontanée : ajoutée à la main sans offre publiée. Tout le reste est « classique ».
+const kindOf = (o) => (o.kind === "spontanee" ? "spontanee" : "classique");
+const titleOf = (o) => o.title || "Candidature spontanée";
 const mergeOffers = () => { offers = feed.concat(manual); };
 
 function el(tag, props = {}, ...children) {
@@ -284,7 +307,9 @@ function card(o) {
   else if (republished) meta.append(el("span", { className: "badge new", textContent: "Republiée" }));
   else if (isNew && st === "todo") meta.append(el("span", { className: "badge new", textContent: "Nouvelle" }));
   if (isManual(o)) {
-    meta.append(el("span", { className: "badge", textContent: "Ajoutée à la main" }));
+    meta.append(kindOf(o) === "spontanee"
+      ? el("span", { className: "badge spont", textContent: "Spontanée" })
+      : el("span", { className: "badge", textContent: "Classique" }));
     if (m) meta.append(el("span", { textContent: `Postulée le ${new Date(m.at).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}` }));
   } else {
     meta.append(
@@ -304,7 +329,7 @@ function card(o) {
   if (first) {
     const apply = el("a", { className: "primary", href: safeUrl(first.url), target: "_blank", rel: "noopener noreferrer" });
     apply.innerHTML = ICON_OUT;
-    apply.append(isManual(o) ? "Voir l'offre" : st === "todo" ? `Postuler sur ${first.source}` : `Voir sur ${first.source}`);
+    apply.append(isManual(o) ? (kindOf(o) === "spontanee" ? "Ouvrir le lien" : "Voir l'offre") : st === "todo" ? `Postuler sur ${first.source}` : `Voir sur ${first.source}`);
     actions.append(apply);
   }
   if (view.status === "relance") actions.append(el("button", { type: "button", textContent: "Relancée", onclick: () => markRelance(o) }));
@@ -316,7 +341,7 @@ function card(o) {
   }
 
   const li = el("li", { className: "card" },
-    el("h2", { textContent: o.title }),
+    el("h2", { textContent: titleOf(o) }),
     el("p", { className: "where", textContent: [o.company, o.location].filter(Boolean).join(" · ") || "Entreprise non précisée" }),
     meta, actions);
   const d = details[o.key];
@@ -357,7 +382,8 @@ function render() {
     inView(o) &&
     (!view.profile || o.profile === view.profile) &&
     (!view.source || o.links.some((l) => l.source === view.source)) &&
-    (!q || [o.title, o.company, (details[o.key] || {}).notes].join(" ").toLowerCase().includes(q)));
+    (!view.kind || kindOf(o) === view.kind) &&
+    (!q || [titleOf(o), o.company, (details[o.key] || {}).notes].join(" ").toLowerCase().includes(q)));
 
   // Plus récentes en tête : date de publication, puis heure de repérage pour départager.
   shown.sort((a, b) => (b.published || b.first_seen.slice(0, 10)).localeCompare(a.published || a.first_seen.slice(0, 10))
@@ -436,6 +462,7 @@ document.querySelectorAll('[role="tab"]').forEach((b) => b.addEventListener("cli
 }));
 $("q").addEventListener("input", (e) => { view.q = e.target.value; render(); });
 $("source").addEventListener("change", (e) => { view.source = e.target.value; render(); });
+$("kind").addEventListener("change", (e) => { view.kind = e.target.value; render(); });
 $("undo").addEventListener("click", () => {
   if (!lastAction) return;
   if (lastAction.prev) marks[lastAction.key] = lastAction.prev; else delete marks[lastAction.key];
@@ -448,6 +475,16 @@ $("undo").addEventListener("click", () => {
 // Formulaire : ajout d'une candidature, ou notes et recruteur d'une offre déjà postulée.
 let editing = null;
 const localDate = (d) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+// Spontanée : pas d'offre, donc l'intitulé devient facultatif et l'entreprise obligatoire.
+function syncKind() {
+  const f = $("form");
+  const spont = f.kind.value === "spontanee";
+  $("l-title").textContent = spont ? "Poste visé (facultatif)" : "Intitulé du poste";
+  $("l-url").textContent = spont ? "Lien (site carrière, page entreprise…)" : "Lien de l'offre";
+  f.title.required = !spont;
+  f.company.required = spont;
+}
+for (const r of document.querySelectorAll('#form input[name="kind"]')) r.addEventListener("change", syncKind);
 function openForm(o) {
   editing = o || null;
   const f = $("form");
@@ -466,7 +503,9 @@ function openForm(o) {
     f.company.value = o.company;
     f.location.value = o.location;
     f.url.value = o.links[0] ? o.links[0].url : "";
+    f.kind.value = kindOf(o);
   }
+  syncKind();
   $("dlg").showModal();
   (manualForm ? f.title : f.recruiter).focus();
 }
@@ -489,7 +528,7 @@ $("form").addEventListener("submit", (e) => {
   if (!o || isManual(o)) {
     const url = f.url.value.trim();
     const fields = {
-      title: f.title.value.trim(), company: f.company.value.trim(), location: f.location.value.trim(),
+      kind: f.kind.value, title: f.title.value.trim(), company: f.company.value.trim(), location: f.location.value.trim(),
       links: url ? [{ id: "manual", source: MANUAL_SOURCE, url }] : [],
     };
     if (o) Object.assign(o, fields);
